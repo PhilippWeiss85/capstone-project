@@ -11,7 +11,7 @@ assignees: ''
 As a < type of user >, I want < some goal > so that < some reason >.
 ## Description
 // Insert Wire Frame
-## Acception Criteria
+## Acceptance Criteria
 - [ ] Actual functionality of feature
 - [ ] listed here
 - [ ] and another one
