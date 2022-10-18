@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import AddButton from "../Button/Button";
 
-export default function AddGameCardForm() {
+export default function AddGameCardForm({ appendNewGameCard }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formdata = new FormData(event.target);
     const data = Object.fromEntries(formdata);
     console.log(data);
+    appendNewGameCard(
+      data.matchtype,
+      data.opponent,
+      data.date,
+      data.time,
+      data.place,
+      data.court
+    );
   }
 
   return (
@@ -16,13 +24,13 @@ export default function AddGameCardForm() {
         <StyledList>
           <StyledListItem>
             <label forhtml="match">Match</label>
-            <StyledRadioInput type="radio" name="radio-button" id="match" value="match" />
+            <StyledRadioInput type="radio" name="matchtype" id="match" value="match" />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="training">Training</label>
             <StyledRadioInput
               type="radio"
-              name="radio-button"
+              name="matchtype"
               id="training"
               value="training"
             />
