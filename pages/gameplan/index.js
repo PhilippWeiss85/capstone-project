@@ -1,4 +1,5 @@
 import GameCard from "../../components/GameCard/GameCard";
+import styled from "styled-components";
 
 const games = [
   {
@@ -33,7 +34,7 @@ const games = [
 export default function Gameplan() {
   return (
     <main>
-      <h2>Your Gameplan</h2>
+      <StyledHeadline>Your Gameplan</StyledHeadline>
       {games.map((game) => {
         return (
           <GameCard
@@ -51,3 +52,7 @@ export default function Gameplan() {
     </main>
   );
 }
+
+const StyledHeadline = styled.h3`
+  text-align: center;
+`;
