@@ -34,7 +34,20 @@ export default function Gameplan() {
   return (
     <main>
       <h2>Your Gameplan</h2>
-      <GameCard />
+      {games.map((game) => {
+        return (
+          <GameCard
+            key={game.id}
+            id={game.id}
+            type={game.type}
+            name={game.name}
+            date={game.date}
+            time={game.time}
+            place={game.place}
+            court={game.court}
+          />
+        );
+      })}
     </main>
   );
 }

@@ -1,31 +1,31 @@
 import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 
-export default function GameCard() {
+export default function GameCard({ type, name, date, time, place, court }) {
   return (
     <StyledCardContainer>
-      <h3>type</h3>
+      <h3>{type}</h3>
       <StyledCardHeader>
         <p>
-          <BsPersonCircle /> name
+          <BsPersonCircle /> {name}
         </p>
       </StyledCardHeader>
       <StyledCardContent>
         <article>
-          <h5>date:</h5>
-          <p>date</p>
+          <h5>Date:</h5>
+          <p>{date}</p>
         </article>
         <article>
-          <h5>time:</h5>
-          <p>time</p>
+          <h5>Time:</h5>
+          <p>{time}</p>
         </article>
         <article>
           <h5>Place:</h5>
-          <p>place</p>
+          <p>{place}</p>
         </article>
         <article>
           <h5>Court:</h5>
-          <p>court</p>
+          <p>{court}</p>
         </article>
       </StyledCardContent>
     </StyledCardContainer>
