@@ -42,7 +42,7 @@ const StyledGameHeadline = styled.h3`
 const StyledCardContainer = styled.section`
   background-color: lightgrey;
   padding: 1rem;
-  margin: 0 10px 1rem;
+  margin: 0 10px 1em;
   box-shadow: 3px 5px black;
 `;
 
