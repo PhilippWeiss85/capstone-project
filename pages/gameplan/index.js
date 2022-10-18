@@ -33,26 +33,29 @@ const games = [
 
 export default function Gameplan() {
   return (
-    <main>
-      <StyledHeadline>Your Gameplan</StyledHeadline>
-      {games.map((game) => {
-        return (
-          <GameCard
-            key={game.id}
-            id={game.id}
-            type={game.type}
-            name={game.name}
-            date={game.date}
-            time={game.time}
-            place={game.place}
-            court={game.court}
-          />
-        );
-      })}
-    </main>
+    <>
+      <header>
+        <StyledHeadline>Your Gameplan</StyledHeadline>
+      </header>
+      <main>
+        {games.map((game) => {
+          return (
+            <GameCard
+              key={game.id}
+              type={game.type}
+              name={game.name}
+              date={game.date}
+              time={game.time}
+              place={game.place}
+              court={game.court}
+            />
+          );
+        })}
+      </main>
+    </>
   );
 }
 
-const StyledHeadline = styled.h3`
+const StyledHeadline = styled.h1`
   text-align: center;
 `;

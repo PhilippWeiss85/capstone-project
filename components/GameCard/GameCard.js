@@ -13,19 +13,19 @@ export default function GameCard({ type, name, date, time, place, court }) {
         </StyledCardPlayer>
         <StyledCardContent>
           <article>
-            <h5>Date:</h5>
+            <StyledContentHeadlines>Date:</StyledContentHeadlines>
             <p>{date}</p>
           </article>
           <article>
-            <h5>Time:</h5>
+            <StyledContentHeadlines>Time:</StyledContentHeadlines>
             <p>{time}</p>
           </article>
           <article>
-            <h5>Place:</h5>
+            <StyledContentHeadlines>Place:</StyledContentHeadlines>
             <p>{place}</p>
           </article>
           <article>
-            <h5>Court:</h5>
+            <StyledContentHeadlines>Court:</StyledContentHeadlines>
             <p>{court}</p>
           </article>
         </StyledCardContent>
@@ -34,7 +34,7 @@ export default function GameCard({ type, name, date, time, place, court }) {
   );
 }
 
-const StyledGameHeadline = styled.h3`
+const StyledGameHeadline = styled.h1`
   position: relative;
   margin: 0 0 0 0.5em;
 `;
@@ -57,4 +57,8 @@ const StyledCardContent = styled.article`
   justify-content: space-between;
   border: 1px solid black;
   padding: 0.5em;
+`;
+
+const StyledContentHeadlines = styled.p`
+  font-weight: bold;
 `;
