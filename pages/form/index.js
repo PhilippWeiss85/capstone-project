@@ -1,10 +1,15 @@
-import AddGameCardForm from "../../components/Forms/AddGameCardForm";
+import GameCardForm from "../../components/Form/GameCardForm";
+import styled from "styled-components";
 
 export default function Form() {
   return (
     <>
-      <h1>hello world</h1>
-      <AddGameCardForm />
+      <StyledHeadline>hello world</StyledHeadline>
+      <GameCardForm />
     </>
   );
 }
+
+const StyledHeadline = styled.h1`
+  text-align: center;
+`;
