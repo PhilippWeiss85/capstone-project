@@ -8,7 +8,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
     const data = Object.fromEntries(formdata);
     console.log(data);
     appendNewGameCard(
-      data.matchtype,
+      data.gametype,
       data.opponent,
       data.date,
       data.time,
@@ -18,21 +18,28 @@ export default function AddGameCardForm({ appendNewGameCard }) {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit} aria-label="Create new card">
       <StyledFieldSetRadioButtons>
-        <StyledLegend>Match Type</StyledLegend>
+        <StyledLegend aria-label="Select your game type">Match Type</StyledLegend>
         <StyledList>
           <StyledListItem>
             <label forhtml="match">Match</label>
-            <StyledRadioInput type="radio" name="matchtype" id="match" value="Match" />
+            <StyledRadioInput
+              type="radio"
+              name="gametype"
+              id="match"
+              value="Match"
+              aria-labelledby="Game type: match"
+            />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="training">Training</label>
             <StyledRadioInput
               type="radio"
-              name="matchtype"
+              name="gametype"
               id="training"
               value="Training"
+              aria-labelledby="Game type: training"
             />
           </StyledListItem>
         </StyledList>
@@ -40,31 +47,49 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent" placeholder="Please insert your opponents name">
         Opponent`s Name
       </label>
-      <input type="text" name="opponent" id="opponent" />
+      <input type="text" name="opponent" id="opponent" aria-labelledby="Add a name" />
       <label forhtml="opponent">Date</label>
-      <input type="date" name="date" id="date" />
+      <input type="date" name="date" id="date" aria-labelledby="Add a date" />
       <label forhtml="opponent">Time</label>
-      <input type="time" name="time" id="time" />
+      <input type="time" name="time" id="time" aria-labelledby="Add a time" />
       <label forhtml="place">Place</label>
-      <select name="place" id="place">
+      <select name="place" id="place" aria-labelledby="Add a location">
         <option value="Rothof">Rothof</option>
         <option value="Sportscheck">Sportscheck</option>
         <option value="Fidelopark">Fidelopark</option>
       </select>
       <StyledFieldSetRadioButtons>
-        <StyledLegend>Choose your court</StyledLegend>
+        <StyledLegend aria-label="Choose your court">Choose your court</StyledLegend>
         <StyledList>
           <StyledListItem>
             <label forhtml="sand">Sand</label>
-            <StyledRadioInput type="radio" name="court" id="sand" value="Sand" />
+            <StyledRadioInput
+              type="radio"
+              name="court"
+              id="sand"
+              value="Sand"
+              aria-labelledby="Court type: sand"
+            />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="carpet">Carpet</label>
-            <StyledRadioInput type="radio" name="court" id="carpet" value="Carpet" />
+            <StyledRadioInput
+              type="radio"
+              name="court"
+              id="carpet"
+              value="Carpet"
+              aria-labelledby="Court type: carpet"
+            />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="concrete">Concrete</label>
-            <StyledRadioInput type="radio" name="court" id="concrete" value="Concrete" />
+            <StyledRadioInput
+              type="radio"
+              name="court"
+              id="concrete"
+              value="Concrete"
+              aria-labelledby="Court type: concrete"
+            />
           </StyledListItem>
         </StyledList>
       </StyledFieldSetRadioButtons>
