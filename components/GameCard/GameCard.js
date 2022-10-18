@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function GameCard() {
   return (
     <StyledCardContainer>
       <h3>type</h3>
       <StyledCardHeader>
-        <p>name:</p>
-        <p>name</p>
+        <p>
+          <BsPersonCircle /> name
+        </p>
       </StyledCardHeader>
       <StyledCardContent>
         <article>
@@ -38,10 +40,10 @@ const StyledCardContainer = styled.section`
 `;
 
 const StyledCardHeader = styled.article`
-  display: flex;
-  justify-content: left;
   border: 1px solid black;
-  padding: 0.5rem;
+  padding-left: 0.5rem;
+  width: 30%;
+  max-width: 90%;
 `;
 
 const StyledCardContent = styled.article`
