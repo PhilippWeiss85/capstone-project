@@ -20,7 +20,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledFieldSetRadioButtons>
-        <StyledLegend>Match Type:</StyledLegend>
+        <StyledLegend>Match Type</StyledLegend>
         <StyledList>
           <StyledListItem>
             <label forhtml="match">Match</label>
@@ -46,26 +46,35 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent">Time</label>
       <input type="time" name="time" id="time" />
       <label forhtml="place">Place</label>
-      <select>
-        <option name="place" id="place">
-          Rothof
-        </option>
-        <option name="place" id="place">
-          Sportscheck
-        </option>
-        <option name="place" id="place">
-          Fidelopark
-        </option>
+      <select name="place" id="place">
+        <option value="Rothof">Rothof</option>
+        <option value="Sportscheck">Sportscheck</option>
+        <option value="Fidelopark">Fidelopark</option>
       </select>
-
+      <StyledFieldSetRadioButtons>
+        <StyledLegend>Choose your court</StyledLegend>
+        <StyledList>
+          <StyledListItem>
+            <label forhtml="sand">Sand</label>
+            <StyledRadioInput type="radio" name="court" id="sand" value="sand" />
+          </StyledListItem>
+          <StyledListItem>
+            <label forhtml="carpet">Carpet</label>
+            <StyledRadioInput type="radio" name="court" id="carpet" value="carpet" />
+          </StyledListItem>
+          <StyledListItem>
+            <label forhtml="concrete">Concrete</label>
+            <StyledRadioInput type="radio" name="court" id="concrete" value="concrete" />
+          </StyledListItem>
+        </StyledList>
+      </StyledFieldSetRadioButtons>
       <AddButton type="submit">Add GameCard</AddButton>
     </StyledForm>
   );
 }
 
 const StyledForm = styled.form`
-  width: 80%;
-  margin: 0 auto;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
@@ -76,7 +85,9 @@ const StyledFieldSetRadioButtons = styled.fieldset`
   border: none;
 `;
 
-const StyledLegend = styled.legend``;
+const StyledLegend = styled.legend`
+  padding-top: 1em;
+`;
 
 const StyledList = styled.ul`
   list-style: none;

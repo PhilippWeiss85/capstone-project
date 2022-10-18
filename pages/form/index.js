@@ -56,11 +56,22 @@ export default function Form() {
   return (
     <>
       <StyledHeadline>hello world</StyledHeadline>
-      <GameCardForm
-        appendNewGameCard={appendNewGameCard}
-        setGameList={setGameList}
-        gameList={gameList}
-      />
+      <main>
+        <GameCardForm appendNewGameCard={appendNewGameCard} />
+        {gameList.map((game) => {
+          return (
+            <GameCard
+              key={game.id}
+              type={game.type}
+              name={game.name}
+              date={game.date}
+              time={game.time}
+              place={game.place}
+              court={game.court}
+            />
+          );
+        })}
+      </main>
     </>
   );
 }
