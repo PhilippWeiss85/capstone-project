@@ -18,7 +18,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit} aria-label="Create new card">
+    <StyledForm onSubmit={handleSubmit} aria-label="Create a new card">
       <StyledFieldSetRadioButtons>
         <StyledLegend aria-label="Select your game type">Match Type</StyledLegend>
         <StyledList>

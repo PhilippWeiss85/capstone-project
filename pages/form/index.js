@@ -54,7 +54,7 @@ export default function Form() {
 
   return (
     <>
-      <StyledHeadline>hello world</StyledHeadline>
+      <StyledHeadline>Create a new card</StyledHeadline>
       <main>
         <GameCardForm appendNewGameCard={appendNewGameCard} />
         {gameList.map((game) => {
