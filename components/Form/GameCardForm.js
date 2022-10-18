@@ -25,7 +25,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           <StyledListItem>
             <label forhtml="match">Match</label>
             <StyledRadioInput
-              required="required"
+              required
               type="radio"
               name="gametype"
               id="match"
@@ -36,7 +36,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           <StyledListItem>
             <label forhtml="training">Training</label>
             <StyledRadioInput
-              required="required"
+              required
               type="radio"
               name="gametype"
               id="training"
@@ -49,34 +49,17 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent">Opponent`s Name</label>
       <input
         type="text"
-        required="required"
+        required
         name="opponent"
         id="opponent"
         aria-labelledby="Add a name"
       />
       <label forhtml="opponent">Date</label>
-      <input
-        type="date"
-        required="required"
-        name="date"
-        id="date"
-        aria-labelledby="Add a date"
-      />
+      <input type="date" required name="date" id="date" aria-labelledby="Add a date" />
       <label forhtml="opponent">Time</label>
-      <input
-        type="time"
-        required="required"
-        name="time"
-        id="time"
-        aria-labelledby="Add a time"
-      />
+      <input type="time" required name="time" id="time" aria-labelledby="Add a time" />
       <label forhtml="place">Place</label>
-      <select
-        name="place"
-        required="required"
-        id="place"
-        aria-labelledby="Add a location"
-      >
+      <select name="place" required id="place" aria-labelledby="Add a location">
         <option value="">... please select a location</option>
         <option value="Rothof">Rothof</option>
         <option value="Sportscheck">Sportscheck</option>
@@ -98,7 +81,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           <StyledListItem>
             <label forhtml="carpet">Carpet</label>
             <StyledRadioInput
-              required="required"
+              required
               type="radio"
               name="court"
               id="carpet"
@@ -109,7 +92,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           <StyledListItem>
             <label forhtml="concrete">Concrete</label>
             <StyledRadioInput
-              required="required"
+              required
               type="radio"
               name="court"
               id="concrete"
@@ -125,12 +108,12 @@ export default function AddGameCardForm({ appendNewGameCard }) {
 }
 
 const StyledForm = styled.form`
-  margin: 1rem;
+  margin: 1em;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
-  padding: 2rem 2rem;
+  padding: 2em 2em;
 `;
 
 const StyledFieldSetRadioButtons = styled.fieldset`
