@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 
 export default function Home() {
@@ -12,6 +13,12 @@ export default function Home() {
 
       <StyledMain>
         <h1>My App</h1>
+        <Link href="/gameplan" passHref>
+          <Anchor>gameplan</Anchor>
+        </Link>
+        <Link href="/form" passHref>
+          <Anchor>form</Anchor>
+        </Link>
       </StyledMain>
     </div>
   );
@@ -19,4 +26,8 @@ export default function Home() {
 
 const StyledMain = styled.main`
   text-align: center;
+`;
+
+const Anchor = styled.a`
+  margin: 2em;
 `;
