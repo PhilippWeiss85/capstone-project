@@ -52,7 +52,6 @@ export default function Form() {
     setGameList(newGameList);
   }
 
-  console.log("mainform", gameList);
   return (
     <>
       <StyledHeadline>hello world</StyledHeadline>

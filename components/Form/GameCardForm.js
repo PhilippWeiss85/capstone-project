@@ -24,7 +24,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <StyledList>
           <StyledListItem>
             <label forhtml="match">Match</label>
-            <StyledRadioInput type="radio" name="matchtype" id="match" value="match" />
+            <StyledRadioInput type="radio" name="matchtype" id="match" value="Match" />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="training">Training</label>
@@ -32,7 +32,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
               type="radio"
               name="matchtype"
               id="training"
-              value="training"
+              value="Training"
             />
           </StyledListItem>
         </StyledList>
@@ -56,15 +56,15 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <StyledList>
           <StyledListItem>
             <label forhtml="sand">Sand</label>
-            <StyledRadioInput type="radio" name="court" id="sand" value="sand" />
+            <StyledRadioInput type="radio" name="court" id="sand" value="Sand" />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="carpet">Carpet</label>
-            <StyledRadioInput type="radio" name="court" id="carpet" value="carpet" />
+            <StyledRadioInput type="radio" name="court" id="carpet" value="Carpet" />
           </StyledListItem>
           <StyledListItem>
             <label forhtml="concrete">Concrete</label>
-            <StyledRadioInput type="radio" name="court" id="concrete" value="concrete" />
+            <StyledRadioInput type="radio" name="court" id="concrete" value="Concrete" />
           </StyledListItem>
         </StyledList>
       </StyledFieldSetRadioButtons>
@@ -79,6 +79,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   border: 1px solid black;
   border-radius: 5px;
+  padding: 2rem 2rem;
 `;
 
 const StyledFieldSetRadioButtons = styled.fieldset`

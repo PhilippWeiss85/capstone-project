@@ -1,6 +1,5 @@
 import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
-import { useState } from "react";
 
 const games = [
   {
