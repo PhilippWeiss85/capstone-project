@@ -34,7 +34,7 @@ export default function GameCard({ type, name, date, time, place, court }) {
   );
 }
 
-const StyledGameHeadline = styled.h1`
+const StyledGameHeadline = styled.h2`
   position: relative;
   margin: 0 0 0 0.5em;
 `;
