@@ -11,24 +11,24 @@ export default function GameCard({ type, name, date, time, place, court }) {
             <BsPersonCircle /> {name}
           </p>
         </StyledCardPlayer>
-        <StyledCardContent>
-          <article>
-            <StyledContentHeadlines>Date:</StyledContentHeadlines>
+        <StyledCardList>
+          <li>
+            <p>Date:</p>
             <p>{date}</p>
-          </article>
-          <article>
-            <StyledContentHeadlines>Time:</StyledContentHeadlines>
+          </li>
+          <li>
+            <p>Time:</p>
             <p>{time}</p>
-          </article>
-          <article>
-            <StyledContentHeadlines>Place:</StyledContentHeadlines>
+          </li>
+          <li>
+            <p>Place:</p>
             <p>{place}</p>
-          </article>
-          <article>
-            <StyledContentHeadlines>Court:</StyledContentHeadlines>
+          </li>
+          <li>
+            <p>Court:</p>
             <p>{court}</p>
-          </article>
-        </StyledCardContent>
+          </li>
+        </StyledCardList>
       </StyledCardContainer>
     </section>
   );
@@ -41,8 +41,8 @@ const StyledGameHeadline = styled.h2`
 
 const StyledCardContainer = styled.section`
   background-color: lightgrey;
-  padding: 1rem;
-  margin: 0 10px 1em;
+  padding: 1em;
+  margin: 0 1em 1em;
   box-shadow: 3px 5px black;
 `;
 
@@ -51,14 +51,11 @@ const StyledCardPlayer = styled.article`
   padding: 0.5em;
 `;
 
-const StyledCardContent = styled.article`
+const StyledCardList = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid black;
   padding: 0.5em;
-`;
-
-const StyledContentHeadlines = styled.p`
-  font-weight: bold;
+  list-style: none;
 `;
