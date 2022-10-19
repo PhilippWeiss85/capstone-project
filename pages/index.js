@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <StyledMain>
+      <MainWrapper>
         <h1>My App</h1>
         <Link href="/gameplan" passHref>
           <AnchorLink>gameplan</AnchorLink>
@@ -20,11 +20,11 @@ export default function Home() {
         <Link href="/form" passHref>
           <AnchorLink>form</AnchorLink>
         </Link>
-      </StyledMain>
+      </MainWrapper>
     </div>
   );
 }
 
-const StyledMain = styled.main`
+const MainWrapper = styled.main`
   text-align: center;
 `;
