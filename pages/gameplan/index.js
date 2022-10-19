@@ -1,5 +1,7 @@
 import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
+import Link from "next/link";
+import AnchorLink from "../../components/StyledLink";
 
 const games = [
   {
@@ -51,6 +53,9 @@ export default function Gameplan() {
             />
           );
         })}
+        <Link href="/form" passHref>
+          <AnchorLink>Add New Match</AnchorLink>
+        </Link>
       </main>
     </>
   );

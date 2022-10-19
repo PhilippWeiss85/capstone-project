@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import AddButton from "../Button/Button";
+import Button from "../Button";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
+
     const formdata = new FormData(event.target);
     const data = Object.fromEntries(formdata);
-    console.log(data);
     appendNewGameCard(
       data.gametype,
       data.opponent,
@@ -15,6 +19,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       data.place,
       data.court
     );
+    event.target.reset();
   }
 
   return (
@@ -49,7 +54,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent">Opponent`s Name</label>
       <input
         type="text"
-        maxlength="30"
+        maxLength="30"
         required
         name="opponent"
         id="opponent"
@@ -114,7 +119,14 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           </StyledListItem>
         </StyledList>
       </StyledFieldSetRadioButtons>
-      <AddButton type="submit">Add GameCard</AddButton>
+      <StyledFieldSetButtons>
+        <Link href="/gameplan" passHref>
+          <a>
+            <Button type="cancel">Cancel</Button>
+          </a>
+        </Link>
+        <Button type="submit">Add GameCard</Button>
+      </StyledFieldSetButtons>
     </StyledForm>
   );
 }
@@ -130,6 +142,11 @@ const StyledForm = styled.form`
 
 const StyledFieldSetRadioButtons = styled.fieldset`
   border: none;
+`;
+
+const StyledFieldSetButtons = styled.fieldset`
+  border: none;
+  margin: 0 auto;
 `;
 
 const StyledLegend = styled.legend`
