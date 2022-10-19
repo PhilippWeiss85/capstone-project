@@ -63,4 +63,5 @@ export default function Gameplan() {
 
 const StyledHeadline = styled.h1`
   text-align: center;
+  position: relative;
 `;

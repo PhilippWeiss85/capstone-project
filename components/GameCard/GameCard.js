@@ -3,15 +3,15 @@ import { BsPersonCircle } from "react-icons/bs";
 
 export default function GameCard({ type, name, date, time, place, court }) {
   return (
-    <section>
-      <StyledGameHeadline>{type}</StyledGameHeadline>
-      <StyledCardContainer>
-        <StyledCardPlayer>
+    <Card>
+      <CardType>{type}</CardType>
+      <CardContainer>
+        <PlayerDiv>
           <p>
             <BsPersonCircle /> {name}
           </p>
-        </StyledCardPlayer>
-        <StyledCardList>
+        </PlayerDiv>
+        <CardList>
           <li>
             <p>Date:</p>
             <p>{date}</p>
@@ -28,34 +28,50 @@ export default function GameCard({ type, name, date, time, place, court }) {
             <p>Court:</p>
             <p>{court}</p>
           </li>
-        </StyledCardList>
-      </StyledCardContainer>
-    </section>
+        </CardList>
+      </CardContainer>
+    </Card>
   );
 }
 
-const StyledGameHeadline = styled.h2`
+const Card = styled.section`
   position: relative;
-  margin: 0 0 0 0.5em;
+  margin: 3em 0;
 `;
 
-const StyledCardContainer = styled.section`
-  background-color: lightgrey;
+const CardType = styled.h2`
+  position: absolute;
+  top: -1.2em;
+  left: 0.3em;
+  padding: 0.2em;
+  font-size: 20px;
+  background: var(--background-true);
+`;
+
+const CardContainer = styled.section`
   padding: 1em;
   margin: 0 1em 1em;
-  box-shadow: 3px 5px black;
+  mix-blend-mode: normal;
+  box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
 
-const StyledCardPlayer = styled.article`
-  border: 1px solid black;
-  padding: 0.5em;
+const PlayerDiv = styled.article`
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 2px 2px 2px 2px var(--box-shadow);
+  mix-blend-mode: normal;
+  max-width: 30%;
+  padding: 0.2em 0.5em;
+  margin-bottom: 1em;
 `;
 
-const StyledCardList = styled.ul`
+const CardList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
-  padding: 0.5em;
   list-style: none;
+  mix-blend-mode: normal;
+  padding: 1em 1em;
+  box-shadow: 2px 1px 2px 1px hsla(241, 91%, 13%, 0.2);
+  border-radius: 10px;
 `;
