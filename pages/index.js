@@ -1,9 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import AddGameCardForm from "../components/Form/GameCardForm";
-import GameCard from "../components/GameCard/GameCard";
-import Form from "./form";
 
 export default function Home() {
   return (
