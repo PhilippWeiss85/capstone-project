@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
   function handleSubmit(event) {
@@ -114,7 +115,14 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           </StyledListItem>
         </StyledList>
       </StyledFieldSetRadioButtons>
-      <Button type="submit">Add GameCard</Button>
+      <StyledFieldSetButtons>
+        <Link href="/gameplan" passHref>
+          <a>
+            <Button type="cancel">Cancel</Button>
+          </a>
+        </Link>
+        <Button type="submit">Add GameCard</Button>
+      </StyledFieldSetButtons>
     </StyledForm>
   );
 }
@@ -130,6 +138,11 @@ const StyledForm = styled.form`
 
 const StyledFieldSetRadioButtons = styled.fieldset`
   border: none;
+`;
+
+const StyledFieldSetButtons = styled.fieldset`
+  border: none;
+  margin: 0 auto;
 `;
 
 const StyledLegend = styled.legend`
