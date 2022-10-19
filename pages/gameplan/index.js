@@ -1,5 +1,7 @@
 import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
+import Button from "../../components/Button/Button";
+import Link from "next/link";
 
 const games = [
   {
@@ -51,6 +53,11 @@ export default function Gameplan() {
             />
           );
         })}
+        <Link href="/form" passHref>
+          <Anchor>
+            <Button>Add New Match</Button>
+          </Anchor>
+        </Link>
       </main>
     </>
   );
@@ -59,3 +66,5 @@ export default function Gameplan() {
 const StyledHeadline = styled.h1`
   text-align: center;
 `;
+
+const Anchor = styled.a``;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import AddButton from "../Button/Button";
+import Button from "../Button/Button";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
   function handleSubmit(event) {
@@ -49,7 +49,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent">Opponent`s Name</label>
       <input
         type="text"
-        maxlength="30"
+        maxLength="30"
         required
         name="opponent"
         id="opponent"
@@ -114,7 +114,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           </StyledListItem>
         </StyledList>
       </StyledFieldSetRadioButtons>
-      <AddButton type="submit">Add GameCard</AddButton>
+      <Button type="submit">Add GameCard</Button>
     </StyledForm>
   );
 }

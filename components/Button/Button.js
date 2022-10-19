@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function AddButton() {
+export default function Button() {
   return <StyledButton>Add a new card</StyledButton>;
 }
 
