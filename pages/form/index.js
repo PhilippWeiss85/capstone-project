@@ -38,7 +38,6 @@ export default function Form() {
 
   function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [
-      ...gameList,
       {
         id: Math.random().toString(20).substring(3),
         type: type,
@@ -48,6 +47,7 @@ export default function Form() {
         place: place,
         court: court,
       },
+      ...gameList,
     ];
     setGameList(newGameList);
   }

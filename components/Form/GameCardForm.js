@@ -49,6 +49,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       <label forhtml="opponent">Opponent`s Name</label>
       <input
         type="text"
+        maxlength="30"
         required
         name="opponent"
         id="opponent"
@@ -69,13 +70,13 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <StyledLegend aria-label="Choose your court">Choose your court</StyledLegend>
         <StyledList>
           <StyledListItem>
-            <label forhtml="sand">Sand</label>
+            <label forhtml="clay">Clay</label>
             <StyledRadioInput
               type="radio"
               name="court"
-              id="sand"
-              value="Sand"
-              aria-labelledby="Court type: sand"
+              id="clay"
+              value="Clay"
+              aria-labelledby="Court type: clay"
             />
           </StyledListItem>
           <StyledListItem>
@@ -90,14 +91,25 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </StyledListItem>
           <StyledListItem>
-            <label forhtml="concrete">Concrete</label>
+            <label forhtml="hardcourt">Hardcourt</label>
             <StyledRadioInput
               required
               type="radio"
               name="court"
-              id="concrete"
-              value="Concrete"
-              aria-labelledby="Court type: concrete"
+              id="hardcourt"
+              value="Hardcourt"
+              aria-labelledby="Court type: hardcourt"
+            />
+          </StyledListItem>
+          <StyledListItem>
+            <label forhtml="gras">Gras</label>
+            <StyledRadioInput
+              required
+              type="radio"
+              name="court"
+              id="gras"
+              value="Gras"
+              aria-labelledby="Court type: gras"
             />
           </StyledListItem>
         </StyledList>
