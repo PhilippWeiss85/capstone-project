@@ -54,9 +54,9 @@ export default function Gameplan() {
           );
         })}
         <Link href="/form" passHref>
-          <Anchor>
+          <a>
             <Button>Add New Match</Button>
-          </Anchor>
+          </a>
         </Link>
       </main>
     </>
@@ -66,5 +66,3 @@ export default function Gameplan() {
 const StyledHeadline = styled.h1`
   text-align: center;
 `;
-
-const Anchor = styled.a``;

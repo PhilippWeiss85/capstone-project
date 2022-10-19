@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import Button from "../Button/Button";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
+
     const formdata = new FormData(event.target);
     const data = Object.fromEntries(formdata);
-    console.log(data);
     appendNewGameCard(
       data.gametype,
       data.opponent,
@@ -16,6 +19,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
       data.place,
       data.court
     );
+    event.target.reset();
   }
 
   return (
