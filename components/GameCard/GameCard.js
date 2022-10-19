@@ -51,7 +51,7 @@ const StyledCardPlayer = styled.article`
   padding: 0.5em;
 `;
 
-const StyledCardList = styled.li`
+const StyledCardList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
