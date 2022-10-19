@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "../Button/Button";
+import Button from "../Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
