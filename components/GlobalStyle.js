@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
           --box-shadow: hsla(241, 91%, 13%, 0.5);
           --background-true: hsla(141, 56%, 41%, 0.5);
           --background-false: hsla(10, 72%, 49%, 0.5);
+          --background-formlabel: hsla(241, 91%, 13%, 0.2)
       }
 
       /* noto-sans-regular - latin */

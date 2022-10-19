@@ -9,6 +9,7 @@ const AnchorLink = styled.a`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
+  font-size: 1.2em;
 
   &:hover {
     background-color: var(--background-secondary);
