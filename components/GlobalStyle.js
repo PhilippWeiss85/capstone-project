@@ -35,6 +35,18 @@ const GlobalStyle = createGlobalStyle`
           
 
       }
+
+      h1 {
+        position: relative;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 1.5em;
+        text-align: center;
+      }
   `;
 
 export default GlobalStyle;

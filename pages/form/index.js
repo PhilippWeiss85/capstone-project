@@ -24,7 +24,7 @@ export default function Form({ appendNewGameCard }) {
 
   return (
     <>
-      <StyledHeadline>Create a new card</StyledHeadline>
+      <h1>Create a new card</h1>
       <main>
         {gameList.map((game) => {
           return (
@@ -44,8 +44,3 @@ export default function Form({ appendNewGameCard }) {
     </>
   );
 }
-
-const StyledHeadline = styled.h1`
-  text-align: center;
-  margin-bottom: 1em;
-`;

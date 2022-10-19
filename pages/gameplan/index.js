@@ -37,7 +37,7 @@ export default function Gameplan() {
   return (
     <>
       <header>
-        <PageHeadline>Your Gameplan</PageHeadline>
+        <h1>Your Gameplan</h1>
       </header>
       <main>
         {games.map((game) => {
@@ -60,8 +60,3 @@ export default function Gameplan() {
     </>
   );
 }
-
-const PageHeadline = styled.h1`
-  text-align: center;
-  position: relative;
-`;
