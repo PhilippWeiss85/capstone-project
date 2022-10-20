@@ -111,7 +111,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="hard">Hardcourt</FormLabelRadio>
+            <FormLabelRadio forHtml="hard">Hard</FormLabelRadio>
             <RadioInput
               required
               type="radio"
