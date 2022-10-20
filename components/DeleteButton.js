@@ -6,17 +6,20 @@ export default function DeleteButton({ children }) {
 
 const StyledButton = styled.button`
   padding: 0.2em 0.5em;
-
   margin: 0 1em;
   background-color: transparent;
   color: var(--text-primary);
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.5em;
   border: none;
 
   &:hover {
-    filter: drop-shadow(2px 2px 2px red);
+    transition: 0.2s ease;
+    filter: drop-shadow(5px 4px 4px red);
+    padding: 0.1em 0.5em;
+    margin: 0 1em;
+    font-size: 1.7em;
   }
 
   &:active {
