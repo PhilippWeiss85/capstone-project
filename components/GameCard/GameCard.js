@@ -45,9 +45,11 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
-        <EditButton>
-          <BsThreeDots />
-        </EditButton>
+        <EditButtonContainer>
+          <EditButton>
+            <BsThreeDots />
+          </EditButton>
+        </EditButtonContainer>
       </CardContainer>
     </Card>
   );
@@ -69,8 +71,8 @@ const CardType = styled.h2`
 `;
 
 const CardContainer = styled.section`
-  padding: 1em;
-  margin: 0 1em 1em;
+  padding: 1em 1em 0 1em;
+  margin: 1em 1em;
   mix-blend-mode: normal;
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
@@ -90,6 +92,12 @@ const DeleteButtonContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+`;
+
+const EditButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
 `;
 
 const CardList = styled.ul`

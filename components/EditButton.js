@@ -5,24 +5,16 @@ export default function EditButton({ children }) {
 }
 
 const StyledButton = styled.button`
-  padding: 0.2em 0.5em;
-  margin: 0 1em;
   background-color: transparent;
   color: var(--text-primary);
-  font-size: 1.5em;
+  font-size: 1.9em;
   border: none;
 
   &:hover {
     transition: 0.2s ease-in-out;
-    box-shadow: 1px 1px #d74123;
-    filter: drop-shadow(2px 2px 2px #d74123);
-    padding: 0.1em 0.5em;
-    margin: 0 1em;
-    font-size: 1.7em;
   }
 
   &:active {
-    transition: 0.2s ease;
     color: #d74123;
   }
 `;
