@@ -2,7 +2,16 @@ import styled from "styled-components";
 import { BsPersonCircle, BsX } from "react-icons/bs";
 import DeleteButton from "../DeleteButton";
 
-export default function GameCard({ type, name, date, time, place, court }) {
+export default function GameCard({
+  type,
+  name,
+  date,
+  time,
+  place,
+  court,
+  deleteCard,
+  id,
+}) {
   return (
     <Card>
       <CardType>{type}</CardType>
@@ -14,7 +23,7 @@ export default function GameCard({ type, name, date, time, place, court }) {
         </PlayerDiv>
         <DeleteButtonContainer>
           <DeleteButton>
-            <BsX />
+            <BsX onClick={() => deleteCard(id)} />
           </DeleteButton>
         </DeleteButtonContainer>
         <CardList>

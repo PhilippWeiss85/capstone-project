@@ -14,9 +14,6 @@ export default function Home() {
 
       <MainWrapper>
         <h1>My App</h1>
-        <Link href="/gameplan" passHref>
-          <AnchorLink>gameplan</AnchorLink>
-        </Link>
         <Link href="/form" passHref>
           <AnchorLink>form</AnchorLink>
         </Link>
