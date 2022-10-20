@@ -14,7 +14,7 @@ export default function GameCard({
 }) {
   return (
     <Card>
-      <CardType>{type}</CardType>
+      <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayerDiv>
           <p>
@@ -60,7 +60,8 @@ const CardType = styled.h2`
   left: 0.3em;
   padding: 0.2em;
   font-size: 20px;
-  background: var(--background-true);
+  color: white;
+  background: ${({ type }) => (type === "Match" ? "#2ea357" : "#d74123")};
 `;
 
 const CardContainer = styled.section`
