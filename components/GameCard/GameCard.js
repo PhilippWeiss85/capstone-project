@@ -14,14 +14,12 @@ export default function GameCard({
   court,
   deleteCard,
   id,
-  toggleDetails,
 }) {
   const [showMore, setShowMore] = useState(false);
 
   function showMoreDetails() {
     setShowMore((previousDetails) => !previousDetails);
   }
-
   return (
     <Card>
       <CardType type={type}>{type}</CardType>

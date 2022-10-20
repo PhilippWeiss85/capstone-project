@@ -36,7 +36,6 @@ const games = [
 
 export default function Form({ appendNewGameCard }) {
   const [gameList, setGameList] = useState(games);
-  const [cardDetails, setCardDetails] = useState();
 
   function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [
@@ -61,11 +60,6 @@ export default function Form({ appendNewGameCard }) {
     setGameList(cardListAfterDeletion);
   }
 
-  function toggleDetails(id) {
-    const cardDetailList = gameList.filter((game) => game.id === id);
-    setCardDetails(cardDetailList);
-  }
-
   return (
     <>
       <h1>Create a new card</h1>
@@ -82,7 +76,6 @@ export default function Form({ appendNewGameCard }) {
               place={game.place}
               court={game.court}
               deleteCard={deleteCard}
-              toggleDetails={toggleDetails}
             />
           );
         })}
