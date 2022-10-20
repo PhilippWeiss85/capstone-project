@@ -139,16 +139,18 @@ export default function AddGameCardForm({ appendNewGameCard }) {
 }
 
 const FormContainer = styled.form`
-  margin: 2em;
+  margin: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 4px solid var(--box-shadow);
-  padding: 1em 2em 1em 2em;
+  padding: 1em 1em 1em 1em;
 `;
 
 const FormFieldSetRadio = styled.fieldset`
   border: none;
+  display: flex;
+  justify-content: center;
   width: 80%;
   margin: 0 auto;
 `;
@@ -208,6 +210,7 @@ const FormList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   background: white;
+  width: 100%;
   padding: 0.3em 0;
   margin: 1em 0;
 `;
