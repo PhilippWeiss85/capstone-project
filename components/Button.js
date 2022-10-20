@@ -9,10 +9,17 @@ const StyledButton = styled.button`
   filter: drop-shadow(5px 4px 4px #000000);
   margin: 0 1em;
   background-color: var(--background-primary);
-  border-radius: 5px;
+  color: var(--text-primary);
   cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2em;
+  border: none;
 
   &:hover {
-    background-color: white;
+    background-color: var(--background-secondary);
+  }
+
+  &:active {
+    box-shadow: 3px 3px black;
   }
 `;

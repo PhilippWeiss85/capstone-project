@@ -1,5 +1,4 @@
 import GameCard from "../../components/GameCard/GameCard";
-import styled from "styled-components";
 import Link from "next/link";
 import AnchorLink from "../../components/StyledLink";
 
@@ -37,7 +36,7 @@ export default function Gameplan() {
   return (
     <>
       <header>
-        <StyledHeadline>Your Gameplan</StyledHeadline>
+        <h1>Your Gameplan</h1>
       </header>
       <main>
         {games.map((game) => {
@@ -60,7 +59,3 @@ export default function Gameplan() {
     </>
   );
 }
-
-const StyledHeadline = styled.h1`
-  text-align: center;
-`;

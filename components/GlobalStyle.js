@@ -4,6 +4,11 @@ const GlobalStyle = createGlobalStyle`
       :root {
           --text-primary: #0c2c4d;
           --background-primary: #edf0f5;
+          --background-secondary: #ADE856;
+          --box-shadow: hsla(241, 91%, 13%, 0.5);
+          --background-true: hsla(141, 56%, 41%, 0.5);
+          --background-false: hsla(10, 72%, 49%, 0.5);
+          --background-formlabel: hsla(241, 91%, 13%, 0.2)
       }
 
       /* noto-sans-regular - latin */
@@ -21,13 +26,27 @@ const GlobalStyle = createGlobalStyle`
           box-sizing: border-box;
           padding: 0;
           margin: 0;
+          border-radius: 5px;
       }
   
       body {
           font-family: 'Noto Sans', sans-serif;
           background-color: var(--background-primary);
           color: var(--text-primary);
+          
 
+      }
+
+      h1 {
+        position: relative;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 1.5em;
+        text-align: center;
       }
   `;
 
