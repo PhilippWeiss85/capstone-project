@@ -10,8 +10,6 @@ const StyledButton = styled.button`
   margin: 0 1em;
   background-color: var(--background-primary);
   color: var(--text-primary);
-  cursor: pointer;
-  text-decoration: none;
   font-size: 1.2em;
   border: none;
 
@@ -20,6 +18,6 @@ const StyledButton = styled.button`
   }
 
   &:active {
-    box-shadow: 3px 3px black;
+    box-shadow: 3px 3px #000000;
   }
 `;

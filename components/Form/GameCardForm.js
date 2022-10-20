@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import Button from "../Button";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
-  const router = useRouter();
-
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -112,14 +108,14 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="hardcourt">Hardcourt</FormLabelRadio>
+            <FormLabelRadio forHtml="hard">Hard</FormLabelRadio>
             <RadioInput
               required
               type="radio"
               name="court"
-              id="hardcourt"
-              value="Hardcourt"
-              aria-labelledby="Court type: hardcourt"
+              id="hard"
+              value="Hard"
+              aria-labelledby="Court type: hard"
             />
           </FormRadioItem>
           <FormRadioItem>
@@ -136,11 +132,6 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <Link href="/gameplan" passHref>
-          <a>
-            <Button type="cancel">Cancel</Button>
-          </a>
-        </Link>
         <Button type="submit">Add GameCard</Button>
       </ButtonFieldSet>
     </FormContainer>
@@ -148,16 +139,18 @@ export default function AddGameCardForm({ appendNewGameCard }) {
 }
 
 const FormContainer = styled.form`
-  margin: 2em;
+  margin: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 4px solid var(--box-shadow);
-  padding: 1em 2em 1em 2em;
+  padding: 1em 1em 1em 1em;
 `;
 
 const FormFieldSetRadio = styled.fieldset`
   border: none;
+  display: flex;
+  justify-content: center;
   width: 80%;
   margin: 0 auto;
 `;
@@ -189,7 +182,7 @@ const InputContainer = styled.input`
   color: var(--box-shadow);
 
   &::-webkit-datetime-edit-text {
-    color: black;
+    color: #000000;
     padding: 0 0.3em;
   }
 
@@ -216,7 +209,8 @@ const FormList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  background: white;
+  background: #ffffff;
+  width: 100%;
   padding: 0.3em 0;
   margin: 1em 0;
 `;
