@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import Button from "../Button";
-import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
-  const router = useRouter();
-
   function handleSubmit(event) {
     event.preventDefault();
 
