@@ -33,7 +33,7 @@ const games = [
 ];
 
 export default function Form({ appendNewGameCard }) {
-  const [gameList, setGameList] = useState([games]);
+  const [gameList, setGameList] = useState(games);
 
   function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [

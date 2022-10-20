@@ -112,14 +112,14 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="hardcourt">Hardcourt</FormLabelRadio>
+            <FormLabelRadio forHtml="hard">Hardcourt</FormLabelRadio>
             <RadioInput
               required
               type="radio"
               name="court"
-              id="hardcourt"
-              value="Hardcourt"
-              aria-labelledby="Court type: hardcourt"
+              id="hard"
+              value="Hard"
+              aria-labelledby="Court type: hard"
             />
           </FormRadioItem>
           <FormRadioItem>
@@ -136,11 +136,6 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <Link href="/gameplan" passHref>
-          <a>
-            <Button type="cancel">Cancel</Button>
-          </a>
-        </Link>
         <Button type="submit">Add GameCard</Button>
       </ButtonFieldSet>
     </FormContainer>
