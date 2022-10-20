@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { BsPersonCircle, BsX } from "react-icons/bs";
+import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
 
 export default function GameCard({
   type,
@@ -44,6 +45,9 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
+        <EditButton>
+          <BsThreeDots />
+        </EditButton>
       </CardContainer>
     </Card>
   );
