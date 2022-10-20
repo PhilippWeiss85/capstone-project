@@ -21,9 +21,9 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </p>
         </PlayerDiv>
-        <DeleteButtonContainer>
+        <DeleteButtonContainer onClick={() => deleteCard(id)}>
           <DeleteButton>
-            <BsX onClick={() => deleteCard(id)} />
+            <BsX />
           </DeleteButton>
         </DeleteButtonContainer>
         <CardList>
@@ -60,7 +60,7 @@ const CardType = styled.h2`
   left: 0.3em;
   padding: 0.2em;
   font-size: 20px;
-  color: white;
+  color: #ffffff;
   background: ${({ type }) => (type === "Match" ? "#2ea357" : "#d74123")};
 `;
 

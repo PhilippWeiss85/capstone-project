@@ -1,10 +1,11 @@
 import GameCardForm from "../../components/Form/GameCardForm";
 import { useState } from "react";
 import GameCard from "../../components/GameCard/GameCard";
+import { nanoid } from "nanoid";
 
 const games = [
   {
-    id: Math.random().toString(20).substring(3),
+    id: nanoid(),
     type: "Match",
     name: "Max",
     date: "22.01.10",
@@ -13,7 +14,7 @@ const games = [
     court: "Carpet",
   },
   {
-    id: Math.random().toString(20).substring(3),
+    id: nanoid(),
     type: "Training",
     name: "Sonja",
     date: "22.01.15",
@@ -22,7 +23,7 @@ const games = [
     court: "Sand",
   },
   {
-    id: Math.random().toString(20).substring(3),
+    id: nanoid(),
     type: "Match",
     name: "Steffi",
     date: "22.01.20",
@@ -38,7 +39,7 @@ export default function Form({ appendNewGameCard }) {
   function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [
       {
-        id: Math.random().toString(20).substring(3),
+        id: nanoid(),
         type: type,
         name: name,
         date: date,
@@ -65,8 +66,8 @@ export default function Form({ appendNewGameCard }) {
         {gameList.map((game) => {
           return (
             <GameCard
-              id={game.id}
               key={game.id}
+              id={game.id}
               type={game.type}
               name={game.name}
               date={game.date}
