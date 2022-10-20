@@ -28,7 +28,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
         <FormList>
           <FormRadioItem>
-            <FormLabelRadio forhtml="match">Match</FormLabelRadio>
+            <FormLabelRadio forHtml="match">Match</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -39,7 +39,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forhtml="training">Training</FormLabelRadio>
+            <FormLabelRadio forHtml="training">Training</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -52,7 +52,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <FormFieldSetInput>
-        <FormLabel forhtml="opponent">Opponent`s Name</FormLabel>
+        <FormLabel forHtml="opponent">Opponent`s Name</FormLabel>
         <InputContainer
           type="text"
           maxLength="30"
@@ -61,15 +61,17 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           id="opponent"
           aria-labelledby="Add a name"
         />
-        <FormLabel forhtml="opponent">Date</FormLabel>
+        <FormLabel forHtml="opponent">Date</FormLabel>
         <InputContainer
           type="date"
           required
           name="date"
           id="date"
+          min="2022-10-20"
+          max="2099-12-31"
           aria-labelledby="Add a date"
         />
-        <FormLabel forhtml="opponent">Time</FormLabel>
+        <FormLabel forHtml="opponent">Time</FormLabel>
         <InputContainer
           type="time"
           required
@@ -77,7 +79,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           id="time"
           aria-labelledby="Add a time"
         />
-        <FormLabel forhtml="place">Place</FormLabel>
+        <FormLabel forHtml="place">Place</FormLabel>
         <InputDropdown name="place" required id="place" aria-labelledby="Add a location">
           <option value="">... please select a location</option>
           <option value="Rothof">Rothof</option>
@@ -89,7 +91,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLegend aria-label="Choose your court">Choose your court</FormLegend>
         <FormList>
           <FormRadioItem>
-            <FormLabelRadio forhtml="clay">Clay</FormLabelRadio>
+            <FormLabelRadio forHtml="clay">Clay</FormLabelRadio>
             <RadioInput
               type="radio"
               name="court"
@@ -99,7 +101,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forhtml="carpet">Carpet</FormLabelRadio>
+            <FormLabelRadio forHtml="carpet">Carpet</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -110,7 +112,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forhtml="hardcourt">Hardcourt</FormLabelRadio>
+            <FormLabelRadio forHtml="hardcourt">Hardcourt</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -121,7 +123,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forhtml="gras">Gras</FormLabelRadio>
+            <FormLabelRadio forHtml="gras">Gras</FormLabelRadio>
             <RadioInput
               required
               type="radio"
