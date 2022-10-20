@@ -9,14 +9,13 @@ const StyledButton = styled.button`
   margin: 0 1em;
   background-color: transparent;
   color: var(--text-primary);
-  cursor: pointer;
-  text-decoration: none;
   font-size: 1.5em;
   border: none;
 
   &:hover {
-    transition: 0.2s ease;
-    filter: drop-shadow(5px 4px 4px red);
+    transition: 0.2s ease-in-out;
+    box-shadow: 1px 1px #d74123;
+    filter: drop-shadow(2px 2px 2px #d74123);
     padding: 0.1em 0.5em;
     margin: 0 1em;
     font-size: 1.7em;
@@ -24,6 +23,6 @@ const StyledButton = styled.button`
 
   &:active {
     transition: 0.2s ease;
-    color: red;
+    color: #d74123;
   }
 `;

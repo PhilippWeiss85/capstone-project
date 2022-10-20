@@ -182,7 +182,7 @@ const InputContainer = styled.input`
   color: var(--box-shadow);
 
   &::-webkit-datetime-edit-text {
-    color: black;
+    color: #000000;
     padding: 0 0.3em;
   }
 
@@ -209,7 +209,7 @@ const FormList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  background: white;
+  background: #ffffff;
   width: 100%;
   padding: 0.3em 0;
   margin: 1em 0;
