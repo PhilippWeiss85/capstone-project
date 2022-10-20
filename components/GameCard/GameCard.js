@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
+import CardDetails from "../CardDetail/CardDetail";
+import { useState } from "react";
 
 export default function GameCard({
   type,
@@ -12,7 +14,14 @@ export default function GameCard({
   court,
   deleteCard,
   id,
+  toggleDetails,
 }) {
+  const [showMore, setShowMore] = useState(false);
+
+  function showMoreDetails() {
+    setShowMore((previousDetails) => !previousDetails);
+  }
+
   return (
     <Card>
       <CardType type={type}>{type}</CardType>
@@ -45,7 +54,8 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
-        <EditButtonContainer>
+        {showMore === true ? <CardDetails /> : ""}
+        <EditButtonContainer onClick={() => showMoreDetails()}>
           <EditButton>
             <BsThreeDots />
           </EditButton>
@@ -97,7 +107,6 @@ const DeleteButtonContainer = styled.div`
 const EditButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 1em;
 `;
 
 const CardList = styled.ul`

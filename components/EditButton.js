@@ -12,9 +12,10 @@ const StyledButton = styled.button`
 
   &:hover {
     transition: 0.2s ease-in-out;
+    font-size: 2.3em;
   }
 
   &:active {
-    color: #d74123;
+    color: var(--background-secondary);
   }
 `;
