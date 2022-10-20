@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
+import { BsPersonCircle, BsX } from "react-icons/bs";
+import DeleteButton from "../DeleteButton";
 
 export default function GameCard({ type, name, date, time, place, court }) {
   return (
@@ -11,6 +12,11 @@ export default function GameCard({ type, name, date, time, place, court }) {
             <BsPersonCircle /> {name}
           </p>
         </PlayerDiv>
+        <DeleteButtonContainer>
+          <DeleteButton>
+            <BsX />
+          </DeleteButton>
+        </DeleteButtonContainer>
         <CardList>
           <li>
             <p>Date:</p>
@@ -56,6 +62,7 @@ const CardContainer = styled.section`
 `;
 
 const PlayerDiv = styled.article`
+  position: relative;
   display: flex;
   justify-content: flex-start;
   box-shadow: 2px 2px 2px 2px var(--box-shadow);
@@ -63,6 +70,12 @@ const PlayerDiv = styled.article`
   max-width: 30%;
   padding: 0.2em 0.5em;
   margin-bottom: 1em;
+`;
+
+const DeleteButtonContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 const CardList = styled.ul`
