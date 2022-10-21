@@ -19,6 +19,7 @@ export default function CardDetails() {
         <FirstSetLabel forHtml="firstset">Set 1</FirstSetLabel>
 
         <SetInput type="number" name="firstsetplayerone" id="firstset" />
+        <p>:</p>
         <SetInput type="number" name="firstsetplayertwo" id="firstset" />
       </Fieldsets>
       <Fieldsets>

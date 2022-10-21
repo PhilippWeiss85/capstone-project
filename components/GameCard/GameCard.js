@@ -20,6 +20,7 @@ export default function GameCard({
   function showMoreDetails() {
     setShowMore((previousDetails) => !previousDetails);
   }
+
   return (
     <Card>
       <CardType type={type}>{type}</CardType>
@@ -29,8 +30,8 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </p>
         </PlayerDiv>
-        <DeleteButtonContainer onClick={() => deleteCard(id)}>
-          <DeleteButton>
+        <DeleteButtonContainer>
+          <DeleteButton handleClick={deleteCard} id={id}>
             <BsX />
           </DeleteButton>
         </DeleteButtonContainer>
