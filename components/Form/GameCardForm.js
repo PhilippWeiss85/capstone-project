@@ -65,7 +65,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           id="date"
           min="2022-10-20"
           max="2099-12-31"
-          aria-labelledby="Add a date"
+          aria-label="Add a date"
         />
         <FormLabel htmlFor="opponent">Time</FormLabel>
         <InputContainer
@@ -73,7 +73,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           required
           name="time"
           id="time"
-          aria-labelledby="Add a time"
+          aria-label="Add a time"
         />
         <FormLabel htmlFor="place">Place</FormLabel>
         <InputDropdown name="place" required id="place" aria-labelledby="Add a location">
@@ -132,7 +132,9 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <Button type="submit">Add GameCard</Button>
+        <Button aria-label="create new card" type="submit">
+          Add GameCard
+        </Button>
       </ButtonFieldSet>
     </FormContainer>
   );

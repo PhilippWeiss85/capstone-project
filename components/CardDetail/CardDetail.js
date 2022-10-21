@@ -10,18 +10,32 @@ export default function CardDetails() {
   }
 
   return (
-    <DetailsForm onSubmit={handleDetailSubmit}>
+    <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
       <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
-        <ResultLegend>Result</ResultLegend>
+        <ResultLegend aria-label="Add your result">Result</ResultLegend>
         <ResultLabelLeft htmlFor="result">won</ResultLabelLeft>
-        <ResultsInput type="radio" name="result" value="won" id="resultwon" />
-        <ResultsInput type="radio" name="result" value="lost" id="resultlost" />
+        <ResultsInput
+          aria-labelledby="I won"
+          type="radio"
+          name="result"
+          value="won"
+          id="resultwon"
+        />
+        <ResultsInput
+          aria-labelledby="I lost"
+          type="radio"
+          name="result"
+          value="lost"
+          id="resultlost"
+        />
         <ResultLabelRight htmlFor="result">lost</ResultLabelRight>
       </FieldsetsGame>
 
       <Fieldsets>
-        <SetLabel htmlFor="firstset">Set 1</SetLabel>
+        <SetLabel aria-label="Score of first set" htmlFor="firstset">
+          Set 1
+        </SetLabel>
         <SetInput
           type="number"
           min="0"
@@ -29,6 +43,7 @@ export default function CardDetails() {
           placeholder="0"
           name="firstsetplayerone"
           id="firstsetplayerone"
+          aria-label="Score player one"
           // preventing direct input in formfield solution form https://stackoverflow.com/questions/29715655/html-5-input-type-date-disable-keyboard-input
           onKeyDown={(e) => e.preventDefault()}
         />
@@ -39,12 +54,15 @@ export default function CardDetails() {
           placeholder="0"
           name="firstsetplayertwo"
           id="firstsetplayertwo"
+          aria-label="Score player two"
           onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
       <Fieldsets>
-        <SetLabel htmlFor="secondset">Set 2</SetLabel>
+        <SetLabel aria-label="Score of second set" htmlFor="secondset">
+          Set 2
+        </SetLabel>
         <SetInput
           type="number"
           min="0"
@@ -52,6 +70,7 @@ export default function CardDetails() {
           placeholder="0"
           name="secondsetplayerone"
           id="secondsetplayerone"
+          aria-label="Score player one"
           onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
@@ -61,12 +80,15 @@ export default function CardDetails() {
           placeholder="0"
           name="secondsetplayertwo"
           id="secondsetplayertwo"
+          aria-label="Score player two"
           onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
       <Fieldsets>
-        <SetLabel htmlFor="thirdset">Set 3</SetLabel>
+        <SetLabel aria-label="Score of third set" htmlFor="thirdset">
+          Set 3
+        </SetLabel>
         <SetInput
           type="number"
           min="0"
@@ -74,6 +96,7 @@ export default function CardDetails() {
           placeholder="0"
           name="thirdsetplayerone"
           id="thirdsetplayerone"
+          aria-label="Score player one"
           onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
@@ -83,12 +106,15 @@ export default function CardDetails() {
           placeholder="0"
           name="thirdsetplayertwo"
           id="thirdsetplayertwo"
+          aria-label="Score player two"
           onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
       <SaveButtonDiv>
-        <Button type="submit">Save Results</Button>
+        <Button aria-label="save details" type="submit">
+          Save Results
+        </Button>
       </SaveButtonDiv>
     </DetailsForm>
   );
