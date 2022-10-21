@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export default function EditButton({ children }) {
-  return <StyledButton>{children}</StyledButton>;
+export default function EditButton({ children, handleClick }) {
+  return <StyledButton onClick={() => handleClick()}>{children}</StyledButton>;
 }
 
 const StyledButton = styled.button`

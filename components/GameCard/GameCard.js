@@ -54,8 +54,8 @@ export default function GameCard({
           </li>
         </CardList>
         {showMore === true ? <CardDetails /> : ""}
-        <EditButtonContainer onClick={() => showMoreDetails()}>
-          <EditButton>
+        <EditButtonContainer>
+          <EditButton handleClick={showMoreDetails}>
             <BsThreeDots />
           </EditButton>
         </EditButtonContainer>
