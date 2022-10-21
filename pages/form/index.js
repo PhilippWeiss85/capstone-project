@@ -2,7 +2,6 @@ import GameCardForm from "../../components/Form/GameCardForm";
 import { useState } from "react";
 import GameCard from "../../components/GameCard/GameCard";
 import { nanoid } from "nanoid";
-import CardDetails from "../../components/CardDetail/CardDetail";
 
 const games = [
   {
