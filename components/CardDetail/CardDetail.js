@@ -12,71 +12,78 @@ export default function CardDetails() {
   return (
     <DetailsForm onSubmit={handleDetailSubmit}>
       <Headline>Add your GameResults</Headline>
-      <Fieldsets>
+      <FieldsetsGame>
         <ResultLegend>Result</ResultLegend>
-        <ResultLabel forHtml="result">won</ResultLabel>
-        <ResultsInput type="radio" name="result" value="won" id="result" />
-        <ResultLabel forHtml="result">lost</ResultLabel>
-        <ResultsInput type="radio" name="result" value="lost" id="result" />
-      </Fieldsets>
+        <ResultLabelLeft htmlFor="result">won</ResultLabelLeft>
+        <ResultsInput type="radio" name="result" value="won" id="resultwon" />
+        <ResultsInput type="radio" name="result" value="lost" id="resultlost" />
+        <ResultLabelRight htmlFor="result">lost</ResultLabelRight>
+      </FieldsetsGame>
 
       <Fieldsets>
-        <FirstSetLabel forHtml="firstset">Set 1</FirstSetLabel>
+        <SetLabel htmlFor="firstset">Set 1</SetLabel>
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="firstsetplayerone"
-          id="firstset"
+          id="firstsetplayerone"
+          // preventing direct input in formfield solution form https://stackoverflow.com/questions/29715655/html-5-input-type-date-disable-keyboard-input
+          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="firstsetplayertwo"
-          id="firstset"
+          id="firstsetplayertwo"
+          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
       <Fieldsets>
-        <SecondSetLabel forHtml="secondset">Set 2</SecondSetLabel>
+        <SetLabel htmlFor="secondset">Set 2</SetLabel>
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="secondsetplayerone"
-          id="secondset"
+          id="secondsetplayerone"
+          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="secondsetplayertwo"
-          id="secondset"
+          id="secondsetplayertwo"
+          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
       <Fieldsets>
-        <ThirdSetLabel forHtml="thirdset">Set 3</ThirdSetLabel>
+        <SetLabel htmlFor="thirdset">Set 3</SetLabel>
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="thirdsetplayerone"
-          id="thirdset"
+          id="thirdsetplayerone"
+          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
           min="0"
-          max="10"
+          max="20"
           placeholder="0"
           name="thirdsetplayertwo"
-          id="thirdset"
+          id="thirdsetplayertwo"
+          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
@@ -91,18 +98,29 @@ const DetailsForm = styled.form`
   position: relative;
   display: grid;
   grid-template-areas:
-    "headline headline headline headline"
-    "results setone settwo setthree"
-    "save save save save";
-  grid-template-rows: 1fr 1fr 1fr;
+    "headline headline headline"
+    "results results results"
+    "setone settwo setthree"
+    "button button button";
+  grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5em;
   padding: 1em 1em 0 1em;
 `;
 
+const FieldsetsGame = styled.fieldset`
+  border: 2px solid black;
+  grid-area: results;
+  display: flex;
+  align-items: center;
+  padding: 0 30%;
+`;
+
 const Fieldsets = styled.fieldset`
+  border: 2px solid black;
+  grid-area: setone settwo setthree;
   display: flex;
   flex-direction: column;
-  border: none;
 `;
 
 const ResultLegend = styled.legend`
@@ -110,7 +128,7 @@ const ResultLegend = styled.legend`
 `;
 
 const SaveButtonDiv = styled.div`
-  grid-area: save;
+  grid-area: button;
   margin: 1em auto;
 `;
 
@@ -121,29 +139,20 @@ const Headline = styled.h3`
   font-size: 1.2em;
 `;
 
-const ResultLabel = styled.label`
-  grid-area: results;
-  margin: 0 auto;
+const ResultLabelLeft = styled.label`
+  margin: 0 0 0 auto;
 `;
 
-const FirstSetLabel = styled.label`
-  grid-area: setone;
-  margin: 0 auto;
+const ResultLabelRight = styled.label`
+  margin: 0 auto 0 0;
 `;
 
-const SecondSetLabel = styled.p`
-  grid-area: settwo;
-  margin: 0 auto;
-`;
-
-const ThirdSetLabel = styled.p`
-  grid-area: setthree;
+const SetLabel = styled.label`
   margin: 0 auto;
 `;
 
 const ResultsInput = styled.input`
-  width: 5em;
-  margin: 0 auto;
+  margin: 0 1.5em;
 `;
 
 const SetInput = styled.input`
