@@ -14,11 +14,9 @@ const StyledButton = styled.button`
 
   &:hover {
     transition: 0.2s ease-in-out;
-    box-shadow: 1px 1px #d74123;
-    filter: drop-shadow(2px 2px 2px #d74123);
-    padding: 0.1em 0.5em;
+    padding: 0.1em 0em;
     margin: 0 1em;
-    font-size: 1.7em;
+    font-size: 2em;
   }
 
   &:active {
