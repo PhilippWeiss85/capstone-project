@@ -17,6 +17,9 @@ export default function Home() {
         <Link href="/form" passHref>
           <AnchorLink>form</AnchorLink>
         </Link>
+        <Link href="/gamelist" passHref>
+          <AnchorLink>gamelist</AnchorLink>
+        </Link>
       </MainWrapper>
     </div>
   );
