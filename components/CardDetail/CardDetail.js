@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "../Button";
 
 export default function CardDetails() {
   function handleDetailSubmit(event) {
@@ -105,13 +104,31 @@ export default function CardDetails() {
       </Fieldsets>
 
       <SaveButtonDiv>
-        <Button aria-label="save details" type="submit">
+        <SubmitButton aria-label="save details" type="submit">
           Save Results
-        </Button>
+        </SubmitButton>
       </SaveButtonDiv>
     </DetailsForm>
   );
 }
+
+const SubmitButton = styled.button`
+  padding: 0.2em 0.5em;
+  filter: drop-shadow(5px 4px 4px #000000);
+  margin: 0 1em;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 1.2em;
+  border: none;
+
+  &:hover {
+    background-color: var(--background-secondary);
+  }
+
+  &:active {
+    box-shadow: 3px 3px #000000;
+  }
+`;
 
 const DetailsForm = styled.form`
   position: relative;

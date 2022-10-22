@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import Button from "../Button";
+import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -20,6 +22,8 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         data.place,
         data.court
       );
+
+      router.push("/gamelist");
 
       event.target.reset();
     }
@@ -140,13 +144,31 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <Button aria-label="create new card" type="submit">
+        <SubmitButton aria-label="create new card" type="submit">
           Add GameCard
-        </Button>
+        </SubmitButton>
       </ButtonFieldSet>
     </FormContainer>
   );
 }
+
+const SubmitButton = styled.button`
+  padding: 0.2em 0.5em;
+  filter: drop-shadow(5px 4px 4px #000000);
+  margin: 0 1em;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 1.2em;
+  border: none;
+
+  &:hover {
+    background-color: var(--background-secondary);
+  }
+
+  &:active {
+    box-shadow: 3px 3px #000000;
+  }
+`;
 
 const FormContainer = styled.form`
   margin: 1em;
