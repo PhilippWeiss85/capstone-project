@@ -7,15 +7,22 @@ export default function AddGameCardForm({ appendNewGameCard }) {
 
     const formdata = new FormData(event.target);
     const data = Object.fromEntries(formdata);
-    appendNewGameCard(
-      data.gametype,
-      data.opponent,
-      data.date,
-      data.time,
-      data.place,
-      data.court
-    );
-    event.target.reset();
+
+    // to prevent name emty name inputs
+    if (data.opponent.trim() === "") {
+      window.alert("Please enter a valid name");
+    } else {
+      appendNewGameCard(
+        data.gametype,
+        data.opponent,
+        data.date,
+        data.time,
+        data.place,
+        data.court
+      );
+
+      event.target.reset();
+    }
   }
 
   return (
@@ -52,6 +59,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <InputContainer
           type="text"
           maxLength="30"
+          minLength="3"
           required
           name="opponent"
           id="opponent"
