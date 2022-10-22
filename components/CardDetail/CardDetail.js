@@ -44,8 +44,6 @@ export default function CardDetails() {
           name="firstsetplayerone"
           id="firstsetplayerone"
           aria-label="Score player one"
-          // preventing direct input in formfield solution form https://stackoverflow.com/questions/29715655/html-5-input-type-date-disable-keyboard-input
-          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
@@ -55,7 +53,6 @@ export default function CardDetails() {
           name="firstsetplayertwo"
           id="firstsetplayertwo"
           aria-label="Score player two"
-          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
@@ -71,7 +68,6 @@ export default function CardDetails() {
           name="secondsetplayerone"
           id="secondsetplayerone"
           aria-label="Score player one"
-          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
@@ -81,7 +77,6 @@ export default function CardDetails() {
           name="secondsetplayertwo"
           id="secondsetplayertwo"
           aria-label="Score player two"
-          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
@@ -97,7 +92,6 @@ export default function CardDetails() {
           name="thirdsetplayerone"
           id="thirdsetplayerone"
           aria-label="Score player one"
-          onKeyDown={(e) => e.preventDefault()}
         />
         <SetInput
           type="number"
@@ -107,7 +101,6 @@ export default function CardDetails() {
           name="thirdsetplayertwo"
           id="thirdsetplayertwo"
           aria-label="Score player two"
-          onKeyDown={(e) => e.preventDefault()}
         />
       </Fieldsets>
 
