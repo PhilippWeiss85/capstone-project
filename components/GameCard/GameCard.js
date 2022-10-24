@@ -14,6 +14,8 @@ export default function GameCard({
   court,
   deleteCard,
   id,
+  updateCardDetail,
+  gameList,
 }) {
   const [showMore, setShowMore] = useState(false);
 
@@ -53,7 +55,11 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
-        {showMore === true ? <CardDetails /> : ""}
+        {showMore === true ? (
+          <CardDetails updateCardDetail={updateCardDetail} id={id} gameList={gameList} />
+        ) : (
+          ""
+        )}
         <EditButtonContainer>
           <EditButton handleClick={showMoreDetails}>
             <BsThreeDots />

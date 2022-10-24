@@ -3,7 +3,7 @@ import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-export default function GameList({ gameList, deleteCard }) {
+export default function GameList({ gameList, deleteCard, updateCardDetail }) {
   const router = useRouter();
 
   function switchToForm() {
@@ -25,6 +25,8 @@ export default function GameList({ gameList, deleteCard }) {
               place={game.place}
               court={game.court}
               deleteCard={deleteCard}
+              updateCardDetail={updateCardDetail}
+              gameList={gameList}
             />
           );
         })}

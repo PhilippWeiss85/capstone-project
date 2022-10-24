@@ -11,6 +11,23 @@ const games = [
     time: "19:00",
     place: "Rothof",
     court: "Carpet",
+    results: {
+      gameresult: "",
+      set: [
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+      ],
+    },
   },
   {
     id: nanoid(),
@@ -20,6 +37,23 @@ const games = [
     time: "20:00",
     place: "Fidelopark",
     court: "Sand",
+    results: {
+      gameresult: "",
+      set: [
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+      ],
+    },
   },
   {
     id: nanoid(),
@@ -29,6 +63,23 @@ const games = [
     time: "10:00",
     place: "Sportscheck",
     court: "Gras",
+    results: {
+      gameresult: "",
+      set: [
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+        {
+          Player1: "",
+          Player2: "",
+        },
+      ],
+    },
   },
 ];
 
@@ -57,6 +108,25 @@ function MyApp({ Component, pageProps }) {
     });
     setGameList(cardListAfterDeletion);
   }
+
+  // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
+  function updateCardDetail(id, gameresult, set1, set2, set3) {
+    const updatedCardList = gameList.map((game) => {
+      if (game.id === id) {
+        const cardToUpdate = {
+          ...game,
+          results: {
+            gameresult: gameresult,
+            set: [set1, set2, set3],
+          },
+        };
+        return cardToUpdate;
+      }
+      return game;
+    });
+    setGameList(updatedCardList);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -66,6 +136,7 @@ function MyApp({ Component, pageProps }) {
         deleteCard={deleteCard}
         gameList={gameList}
         setGameList={setGameList}
+        updateCardDetail={updateCardDetail}
       />
     </>
   );

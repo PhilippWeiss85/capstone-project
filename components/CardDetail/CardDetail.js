@@ -1,10 +1,25 @@
 import styled from "styled-components";
 
-export default function CardDetails() {
+export default function CardDetails({ updateCardDetail, id, gameList }) {
+  console.log(gameList);
   function handleDetailSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    console.log(gameList);
+    updateCardDetail(
+      id,
+      data.result,
+      { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },
+      {
+        Player1: data.secondsetplayerone,
+        Player2: data.secondsetplayertwo,
+      },
+      {
+        Player1: data.thirdsetplayerone,
+        Player2: data.thirdsetplayertwo,
+      }
+    );
   }
 
   return (
