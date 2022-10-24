@@ -14,11 +14,11 @@ export default function Home() {
 
       <MainWrapper>
         <h1>My App</h1>
-        <Link href="/form" passHref>
-          <AnchorLink>form</AnchorLink>
-        </Link>
+
         <Link href="/gamelist" passHref>
-          <AnchorLink>gamelist</AnchorLink>
+          <CategoryContainer>
+            <AnchorLink>gamelist</AnchorLink>
+          </CategoryContainer>
         </Link>
       </MainWrapper>
     </div>
@@ -27,4 +27,18 @@ export default function Home() {
 
 const MainWrapper = styled.main`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+`;
+
+const CategoryContainer = styled.div`
+  width: 60%;
+  height: 200px;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
