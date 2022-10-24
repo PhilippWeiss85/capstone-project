@@ -5,7 +5,6 @@ export default function CardDetails() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
   }
 
   return (
@@ -188,7 +187,7 @@ const SetLabel = styled.label`
 `;
 
 const ResultsInput = styled.input`
-  margin: 0 1.5em;
+  margin: 0 5%;
 `;
 
 const SetInput = styled.input`

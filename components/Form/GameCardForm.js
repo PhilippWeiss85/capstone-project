@@ -75,7 +75,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
           required
           name="date"
           id="date"
-          min="2022-10-20"
+          min="2022-10-01"
           max="2099-12-31"
           aria-label="Add a date"
         />
