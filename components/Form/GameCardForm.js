@@ -1,21 +1,32 @@
 import styled from "styled-components";
-import Button from "../Button";
+import { useRouter } from "next/router";
 
 export default function AddGameCardForm({ appendNewGameCard }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
     const formdata = new FormData(event.target);
     const data = Object.fromEntries(formdata);
-    appendNewGameCard(
-      data.gametype,
-      data.opponent,
-      data.date,
-      data.time,
-      data.place,
-      data.court
-    );
-    event.target.reset();
+
+    // to prevent name emty name inputs
+    if (data.opponent.trim() === "") {
+      window.alert("Please enter a valid name");
+    } else {
+      appendNewGameCard(
+        data.gametype,
+        data.opponent,
+        data.date,
+        data.time,
+        data.place,
+        data.court
+      );
+
+      router.push("/gamelist");
+
+      event.target.reset();
+    }
   }
 
   return (
@@ -24,7 +35,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
         <FormList>
           <FormRadioItem>
-            <FormLabelRadio forHtml="match">Match</FormLabelRadio>
+            <FormLabelRadio htmlFor="match">Match</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -35,7 +46,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="training">Training</FormLabelRadio>
+            <FormLabelRadio htmlFor="training">Training</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -48,34 +59,35 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <FormFieldSetInput>
-        <FormLabel forHtml="opponent">Opponent`s Name</FormLabel>
+        <FormLabel htmlFor="opponent">Opponent`s Name</FormLabel>
         <InputContainer
           type="text"
           maxLength="30"
+          minLength="3"
           required
           name="opponent"
           id="opponent"
           aria-labelledby="Add a name"
         />
-        <FormLabel forHtml="opponent">Date</FormLabel>
+        <FormLabel htmlFor="opponent">Date</FormLabel>
         <InputContainer
           type="date"
           required
           name="date"
           id="date"
-          min="2022-10-20"
+          min="2022-10-01"
           max="2099-12-31"
-          aria-labelledby="Add a date"
+          aria-label="Add a date"
         />
-        <FormLabel forHtml="opponent">Time</FormLabel>
+        <FormLabel htmlFor="opponent">Time</FormLabel>
         <InputContainer
           type="time"
           required
           name="time"
           id="time"
-          aria-labelledby="Add a time"
+          aria-label="Add a time"
         />
-        <FormLabel forHtml="place">Place</FormLabel>
+        <FormLabel htmlFor="place">Place</FormLabel>
         <InputDropdown name="place" required id="place" aria-labelledby="Add a location">
           <option value="">... please select a location</option>
           <option value="Rothof">Rothof</option>
@@ -87,7 +99,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLegend aria-label="Choose your court">Choose your court</FormLegend>
         <FormList>
           <FormRadioItem>
-            <FormLabelRadio forHtml="clay">Clay</FormLabelRadio>
+            <FormLabelRadio htmlFor="clay">Clay</FormLabelRadio>
             <RadioInput
               type="radio"
               name="court"
@@ -97,7 +109,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="carpet">Carpet</FormLabelRadio>
+            <FormLabelRadio htmlFor="carpet">Carpet</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -108,7 +120,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="hard">Hard</FormLabelRadio>
+            <FormLabelRadio htmlFor="hard">Hard</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -119,7 +131,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
             />
           </FormRadioItem>
           <FormRadioItem>
-            <FormLabelRadio forHtml="gras">Gras</FormLabelRadio>
+            <FormLabelRadio htmlFor="gras">Gras</FormLabelRadio>
             <RadioInput
               required
               type="radio"
@@ -132,11 +144,31 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <Button type="submit">Add GameCard</Button>
+        <SubmitButton aria-label="create new card" type="submit">
+          Add GameCard
+        </SubmitButton>
       </ButtonFieldSet>
     </FormContainer>
   );
 }
+
+const SubmitButton = styled.button`
+  padding: 0.2em 0.5em;
+  filter: drop-shadow(5px 4px 4px #000000);
+  margin: 0 1em;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 1.2em;
+  border: none;
+
+  &:hover {
+    background-color: var(--background-secondary);
+  }
+
+  &:active {
+    box-shadow: 3px 3px #000000;
+  }
+`;
 
 const FormContainer = styled.form`
   margin: 1em;

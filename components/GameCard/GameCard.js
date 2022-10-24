@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import { BsPersonCircle, BsX } from "react-icons/bs";
+import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
+import CardDetails from "../CardDetail/CardDetail";
+import { useState } from "react";
 
 export default function GameCard({
   type,
@@ -12,6 +15,12 @@ export default function GameCard({
   deleteCard,
   id,
 }) {
+  const [showMore, setShowMore] = useState(false);
+
+  function showMoreDetails() {
+    setShowMore((previousDetails) => !previousDetails);
+  }
+
   return (
     <Card>
       <CardType type={type}>{type}</CardType>
@@ -21,8 +30,8 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </p>
         </PlayerDiv>
-        <DeleteButtonContainer onClick={() => deleteCard(id)}>
-          <DeleteButton>
+        <DeleteButtonContainer>
+          <DeleteButton handleClick={deleteCard} id={id}>
             <BsX />
           </DeleteButton>
         </DeleteButtonContainer>
@@ -44,6 +53,12 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
+        {showMore === true ? <CardDetails /> : ""}
+        <EditButtonContainer>
+          <EditButton handleClick={showMoreDetails}>
+            <BsThreeDots />
+          </EditButton>
+        </EditButtonContainer>
       </CardContainer>
     </Card>
   );
@@ -65,8 +80,8 @@ const CardType = styled.h2`
 `;
 
 const CardContainer = styled.section`
-  padding: 1em;
-  margin: 0 1em 1em;
+  padding: 1em 1em 0 1em;
+  margin: 1em 1em;
   mix-blend-mode: normal;
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
@@ -86,6 +101,11 @@ const DeleteButtonContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+`;
+
+const EditButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const CardList = styled.ul`
