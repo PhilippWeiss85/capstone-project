@@ -63,8 +63,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLabel htmlFor="opponent">Opponent`s Name</FormLabel>
         <InputContainer
           type="text"
-          maxLength="30"
-          minLength="3"
+          minLength="2"
           required
           name="opponent"
           id="opponent"

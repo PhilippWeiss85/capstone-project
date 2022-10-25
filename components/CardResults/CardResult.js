@@ -1,15 +1,6 @@
 import styled from "styled-components";
 
 export default function CardResult({ results }) {
-  console.log(results);
-  console.log(results.gameresult);
-  console.log(results.set[0].Player1);
-  console.log(results.set[0].Player2);
-  console.log(results.set[1].Player1);
-  console.log(results.set[1].Player2);
-  console.log(results.set[2].Player1);
-  console.log(results.set[2].Player2);
-
   return (
     <ResultContainer>
       <Result gameresult={results.gameresult}>{results.gameresult}</Result>

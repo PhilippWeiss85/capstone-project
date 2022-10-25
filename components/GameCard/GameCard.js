@@ -36,11 +36,7 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </PlayerContainer>
 
-          {results.gameresult === undefined || results.set === undefined ? (
-            ""
-          ) : (
-            <CardResult results={results} />
-          )}
+          {results.gameresult === undefined ? "" : <CardResult results={results} />}
         </PlayersAndResults>
 
         <DeleteButtonContainer>

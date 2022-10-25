@@ -15,16 +15,16 @@ const games = [
       gameresult: undefined,
       set: [
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
       ],
     },
@@ -41,16 +41,16 @@ const games = [
       gameresult: undefined,
       set: [
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
       ],
     },
@@ -67,16 +67,16 @@ const games = [
       gameresult: undefined,
       set: [
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
         {
-          Player1: undefined,
-          Player2: undefined,
+          Player1: "",
+          Player2: "",
         },
       ],
     },

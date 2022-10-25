@@ -33,6 +33,7 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="result"
           value="won"
           id="resultwon"
+          required
         />
         <ResultsInput
           aria-labelledby="I lost"
@@ -40,6 +41,7 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="result"
           value="lost"
           id="resultlost"
+          required
         />
         <ResultLabelRight htmlFor="result">lost</ResultLabelRight>
       </FieldsetsGame>
