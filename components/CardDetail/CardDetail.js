@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
+  // validate that the user starts the input at set 1, no input in sets also allowed
   function setValidation(set1, set2, set3) {
     if (set1 !== "" && set2 === "" && set3 === "") {
       return true;
@@ -15,6 +16,7 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
     }
   }
 
+  // validate that the user type fill out both input fields in one set
   function scoreValidation(playerOne, playerTwo) {
     if (playerOne === "" && playerTwo !== "") {
       return false;
