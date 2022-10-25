@@ -8,6 +8,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
       return true;
     } else if (set1 !== "" && set2 !== "" && set3 !== "") {
       return true;
+    } else if (set1 === "" && set2 === "" && set3 === "") {
+      return true;
     } else {
       return false;
     }
