@@ -4,7 +4,7 @@ export default function CardResult({ results }) {
   const emptySets = results.set.filter((set) => {
     return set.Player1 === "" && set.Player2 === "";
   });
-  console.log(results.set[0]);
+
   return (
     <ResultContainer>
       <Result gameresult={results.gameresult}>{results.gameresult}</Result>
