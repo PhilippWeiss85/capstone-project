@@ -26,7 +26,7 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
       );
       showMoreDetails();
     } else {
-      alert("Please enter both score for each set");
+      alert("Please enter both set scores");
     }
   }
 
