@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export default function CardDetails({ updateCardDetail, id, gameList, showMoreDetails }) {
-  console.log(gameList);
+export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
   function handleDetailSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(gameList);
     updateCardDetail(
       id,
       data.result,
@@ -54,7 +52,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="firstsetplayerone"
           id="firstsetplayerone"
           aria-label="Score player one"
@@ -63,7 +60,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="firstsetplayertwo"
           id="firstsetplayertwo"
           aria-label="Score player two"
@@ -78,7 +74,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="secondsetplayerone"
           id="secondsetplayerone"
           aria-label="Score player one"
@@ -87,7 +82,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="secondsetplayertwo"
           id="secondsetplayertwo"
           aria-label="Score player two"
@@ -102,7 +96,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="thirdsetplayerone"
           id="thirdsetplayerone"
           aria-label="Score player one"
@@ -111,7 +104,6 @@ export default function CardDetails({ updateCardDetail, id, gameList, showMoreDe
           type="number"
           min="0"
           max="20"
-          placeholder="0"
           name="thirdsetplayertwo"
           id="thirdsetplayertwo"
           aria-label="Score player two"

@@ -25,6 +25,8 @@ export default function GameCard({
     setShowMore((previousDetails) => !previousDetails);
   }
 
+  console.log("test", results);
+
   return (
     <Card>
       <CardType type={type}>{type}</CardType>
@@ -34,12 +36,10 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </PlayerContainer>
 
-          {results.gameresult !== "" ? (
-            <GameResultContainer>
-              <CardResult results={results} />
-            </GameResultContainer>
-          ) : (
+          {results.gameresult === undefined || results.set === undefined ? (
             ""
+          ) : (
+            <CardResult results={results} />
           )}
         </PlayersAndResults>
 
@@ -124,11 +124,6 @@ const PlayerContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5em;
-`;
-
-const GameResultContainer = styled.div`
-  padding: 0.2em 0.5em;
-  height: 2.5em;
 `;
 
 const DeleteButtonContainer = styled.div`

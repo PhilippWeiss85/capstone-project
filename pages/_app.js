@@ -12,19 +12,19 @@ const games = [
     place: "Rothof",
     court: "Carpet",
     results: {
-      gameresult: "",
+      gameresult: undefined,
       set: [
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
       ],
     },
@@ -38,19 +38,19 @@ const games = [
     place: "Fidelopark",
     court: "Sand",
     results: {
-      gameresult: "",
+      gameresult: undefined,
       set: [
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
       ],
     },
@@ -64,19 +64,19 @@ const games = [
     place: "Sportscheck",
     court: "Gras",
     results: {
-      gameresult: "",
+      gameresult: undefined,
       set: [
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
         {
-          Player1: "",
-          Player2: "",
+          Player1: undefined,
+          Player2: undefined,
         },
       ],
     },

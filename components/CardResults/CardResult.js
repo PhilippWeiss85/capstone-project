@@ -38,7 +38,6 @@ const ResultContainer = styled.section`
   display: grid;
   grid-auto-flow: column;
   grid-template-areas: "result setone settwo setthree";
-  position: relative;
 `;
 
 const Result = styled.p`
