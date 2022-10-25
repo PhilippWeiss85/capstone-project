@@ -12,9 +12,7 @@ export default function CardResult({ results }) {
 
   return (
     <ResultContainer>
-      <Container>
-        <Result>{results.gameresult}</Result>
-      </Container>
+      <Result gameresult={results.gameresult}>{results.gameresult}</Result>
       <AllSets>
         <SetContainer>
           <SetOne>{results.set[0].Player1}</SetOne>
@@ -31,7 +29,6 @@ export default function CardResult({ results }) {
           <p>:</p>
           <SetThree>{results.set[2].Player2}</SetThree>
         </SetContainer>
-        <VictoryCircle gameresult={results.gameresult} />
       </AllSets>
     </ResultContainer>
   );
@@ -39,66 +36,59 @@ export default function CardResult({ results }) {
 
 const ResultContainer = styled.section`
   display: grid;
-  gap: 1.5em;
-  grid-template-areas: "result setone settwo setthree victorycircle";
-  padding-left: 2em;
+  grid-auto-flow: column;
+  grid-template-areas: "result setone settwo setthree";
+  position: relative;
 `;
 
 const Result = styled.p`
-  text-align: center;
   grid-area: result;
-  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  align-items: center;
+  background: ${({ gameresult }) =>
+    gameresult === "won" ? "#2ea357" : gameresult === "lost" ? "#d74123" : ""};
 `;
 
-const Container = styled.article`
-  width: 2.5em;
-`;
-
-const AllSets = styled.div`
+const AllSets = styled.article`
   background-color: var(--background-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3em;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  border: 3px solid black;
 `;
 
-const SetContainer = styled.div`
+const SetContainer = styled.aside`
   background-color: var(--background-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3em;
+  gap: 0.2em;
 `;
 
 const SetOne = styled.p`
   grid-area: setone;
   background-color: #ffffff;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   text-align: center;
 `;
 
 const SetTwo = styled.p`
   grid-area: settwo;
   background-color: #ffffff;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   text-align: center;
 `;
 
 const SetThree = styled.p`
   grid-area: setthree;
   background-color: #ffffff;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   text-align: center;
-`;
-
-const VictoryCircle = styled.div`
-  grid-area: victorycircle;
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  margin: auto 0;
-  background: ${({ gameresult }) => (gameresult === "won" ? "#2ea357" : "#d74123")};
 `;

@@ -112,7 +112,7 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 1.5em 0;
+  margin: 1.5em 0 3em 0;
   gap: 1.5em;
 `;
 
@@ -121,7 +121,6 @@ const PlayerContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
   height: 2.5em;
-  width: 30%;
   display: flex;
   align-items: center;
   gap: 1.5em;
