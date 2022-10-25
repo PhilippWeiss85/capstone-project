@@ -86,7 +86,7 @@ const games = [
 function MyApp({ Component, pageProps }) {
   const [gameList, setGameList] = useState(games);
 
-  function appendNewGameCard(type, name, date, time, place, court) {
+  function appendNewGameCard(type, name, date, time, place, court, results) {
     const newGameList = [
       {
         id: nanoid(),
@@ -96,6 +96,7 @@ function MyApp({ Component, pageProps }) {
         time: time,
         place: place,
         court: court,
+        results: results,
       },
       ...gameList,
     ];

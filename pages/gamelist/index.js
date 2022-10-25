@@ -27,6 +27,7 @@ export default function GameList({ gameList, deleteCard, updateCardDetail }) {
               deleteCard={deleteCard}
               updateCardDetail={updateCardDetail}
               gameList={gameList}
+              results={game.results}
             />
           );
         })}

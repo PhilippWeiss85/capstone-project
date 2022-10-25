@@ -4,6 +4,7 @@ import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../CardDetail/CardDetail";
 import { useState } from "react";
+import CardResult from "../CardResults/CardResult";
 
 export default function GameCard({
   type,
@@ -16,6 +17,7 @@ export default function GameCard({
   id,
   updateCardDetail,
   gameList,
+  results,
 }) {
   const [showMore, setShowMore] = useState(false);
 
@@ -27,11 +29,20 @@ export default function GameCard({
     <Card>
       <CardType type={type}>{type}</CardType>
       <CardContainer>
-        <PlayerDiv>
-          <p>
+        <PlayersAndResults>
+          <PlayerContainer>
             <BsPersonCircle /> {name}
-          </p>
-        </PlayerDiv>
+          </PlayerContainer>
+
+          {results.gameresult !== "" ? (
+            <GameResultContainer>
+              <CardResult results={results} />
+            </GameResultContainer>
+          ) : (
+            ""
+          )}
+        </PlayersAndResults>
+
         <DeleteButtonContainer>
           <DeleteButton handleClick={deleteCard} id={id}>
             <BsX />
@@ -92,15 +103,29 @@ const CardContainer = styled.section`
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
 
-const PlayerDiv = styled.article`
+const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: 1.5em;
+`;
+
+const PlayerContainer = styled.div`
   box-shadow: 2px 2px 2px 2px var(--box-shadow);
   mix-blend-mode: normal;
-  max-width: 30%;
   padding: 0.2em 0.5em;
-  margin-bottom: 1em;
+  height: 3em;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+`;
+
+const GameResultContainer = styled.div`
+  box-shadow: 2px 2px 2px 2px var(--box-shadow);
+  mix-blend-mode: normal;
+  padding: 0.2em 0.5em;
 `;
 
 const DeleteButtonContainer = styled.div`
