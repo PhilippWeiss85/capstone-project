@@ -1,26 +1,44 @@
 import styled from "styled-components";
 
 export default function CardResult({ results }) {
+  const emptySets = results.set.filter((set) => {
+    return set.Player1 === "" && set.Player2 === "";
+  });
+
   return (
     <ResultContainer>
       <Result gameresult={results.gameresult}>{results.gameresult}</Result>
-      <AllSets>
-        <SetContainer>
-          <SetOne>{results.set[0].Player1}</SetOne>
-          <p>:</p>
-          <SetOne>{results.set[0].Player2}</SetOne>
-        </SetContainer>
-        <SetContainer>
-          <SetTwo>{results.set[1].Player1}</SetTwo>
-          <p>:</p>
-          <SetTwo>{results.set[1].Player2}</SetTwo>
-        </SetContainer>
-        <SetContainer>
-          <SetThree>{results.set[2].Player1}</SetThree>
-          <p>:</p>
-          <SetThree>{results.set[2].Player2}</SetThree>
-        </SetContainer>
-      </AllSets>
+      {emptySets.length < 3 && (
+        <AllSets>
+          {results.set[0].Player1 === "" || results.set[0].Player2 === "" ? (
+            ""
+          ) : (
+            <SetContainer>
+              <SetOne>{results.set[0].Player1}</SetOne>
+              <p>:</p>
+              <SetOne>{results.set[0].Player2}</SetOne>
+            </SetContainer>
+          )}
+          {results.set[1].Player1 === "" || results.set[1].Player2 === "" ? (
+            ""
+          ) : (
+            <SetContainer>
+              <SetTwo>{results.set[1].Player1}</SetTwo>
+              <p>:</p>
+              <SetTwo>{results.set[1].Player2}</SetTwo>
+            </SetContainer>
+          )}
+          {results.set[2].Player1 === "" || results.set[2].Player2 === "" ? (
+            ""
+          ) : (
+            <SetContainer>
+              <SetThree>{results.set[2].Player1}</SetThree>
+              <p>:</p>
+              <SetThree>{results.set[2].Player2}</SetThree>
+            </SetContainer>
+          )}
+        </AllSets>
+      )}
     </ResultContainer>
   );
 }
