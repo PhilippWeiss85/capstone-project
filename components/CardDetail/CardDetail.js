@@ -1,32 +1,15 @@
 import styled from "styled-components";
 
 export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
-  function handleDetailSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    if (
-      scoreValidation(data.firstsetplayerone, data.firstsetplayertwo) &&
-      scoreValidation(data.secondsetplayerone, data.secondsetplayertwo) &&
-      scoreValidation(data.thirdsetplayerone, data.thirdsetplayertwo)
-    ) {
-      updateCardDetail(
-        id,
-        data.result,
-        { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },
-        {
-          Player1: data.secondsetplayerone,
-          Player2: data.secondsetplayertwo,
-        },
-        {
-          Player1: data.thirdsetplayerone,
-          Player2: data.thirdsetplayertwo,
-        }
-      );
-      showMoreDetails();
+  function setValidation(set1, set2, set3) {
+    if (set1 !== "" && set2 === "" && set3 === "") {
+      return true;
+    } else if (set1 !== "" && set2 !== "" && set3 === "") {
+      return true;
+    } else if (set1 !== "" && set2 !== "" && set3 !== "") {
+      return true;
     } else {
-      alert("Please enter both set scores");
+      return false;
     }
   }
 
@@ -35,8 +18,49 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
       return false;
     } else if (playerOne !== "" && playerTwo === "") {
       return false;
+    } else if (playerOne !== "" && playerTwo === "") {
+      return false;
     } else {
       return true;
+    }
+  }
+
+  function handleDetailSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    const firstSet = data.firstsetplayerone + data.firstsetplayertwo;
+    const secondSet = data.secondsetplayerone + data.secondsetplayertwo;
+    const thirdSet = data.thirdsetplayerone + data.thirdsetplayertwo;
+
+    console.log(firstSet);
+
+    if (setValidation(firstSet, secondSet, thirdSet)) {
+      if (
+        scoreValidation(data.firstsetplayerone, data.firstsetplayertwo) &&
+        scoreValidation(data.secondsetplayerone, data.secondsetplayertwo) &&
+        scoreValidation(data.thirdsetplayerone, data.thirdsetplayertwo)
+      ) {
+        updateCardDetail(
+          id,
+          data.result,
+          { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },
+          {
+            Player1: data.secondsetplayerone,
+            Player2: data.secondsetplayertwo,
+          },
+          {
+            Player1: data.thirdsetplayerone,
+            Player2: data.thirdsetplayertwo,
+          }
+        );
+        showMoreDetails();
+      } else {
+        alert("Please enter both set scores to continue");
+      }
+    } else {
+      alert("Please fill in the previous sets first");
     }
   }
 
