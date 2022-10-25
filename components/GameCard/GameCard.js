@@ -25,8 +25,6 @@ export default function GameCard({
     setShowMore((previousDetails) => !previousDetails);
   }
 
-  console.log("test", results);
-
   return (
     <Card>
       <CardType type={type}>{type}</CardType>
