@@ -63,6 +63,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         <FormLabel htmlFor="opponent">Opponent`s Name</FormLabel>
         <InputContainer
           type="text"
+          maxLength="30"
           minLength="2"
           required
           name="opponent"
@@ -171,19 +172,19 @@ const SubmitButton = styled.button`
 `;
 
 const FormContainer = styled.form`
-  margin: 1em;
+  margin: 0.2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 4px solid var(--box-shadow);
-  padding: 1em 1em 1em 1em;
+  padding: 1em 0.2em;
 `;
 
 const FormFieldSetRadio = styled.fieldset`
   border: none;
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 `;
 
@@ -191,7 +192,7 @@ const FormFieldSetInput = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 `;
 

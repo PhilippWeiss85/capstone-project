@@ -116,7 +116,6 @@ const PlayerContainer = styled.div`
   box-shadow: 2px 2px 2px 2px var(--box-shadow);
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
-  height: 2.5em;
   display: flex;
   align-items: center;
   gap: 1.5em;
