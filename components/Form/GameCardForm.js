@@ -20,8 +20,7 @@ export default function AddGameCardForm({ appendNewGameCard }) {
         data.date,
         data.time,
         data.place,
-        data.court,
-        ""
+        data.court
       );
 
       router.push("/gamelist");

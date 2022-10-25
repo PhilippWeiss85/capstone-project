@@ -86,7 +86,7 @@ const games = [
 function MyApp({ Component, pageProps }) {
   const [gameList, setGameList] = useState(games);
 
-  function appendNewGameCard(type, name, date, time, place, court, results) {
+  function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [
       {
         id: nanoid(),
@@ -96,12 +96,29 @@ function MyApp({ Component, pageProps }) {
         time: time,
         place: place,
         court: court,
-        results: results,
+        results: {
+          gameresult: undefined,
+          set: [
+            {
+              Player1: "",
+              Player2: "",
+            },
+            {
+              Player1: "",
+              Player2: "",
+            },
+            {
+              Player1: "",
+              Player2: "",
+            },
+          ],
+        },
       },
       ...gameList,
     ];
     setGameList(newGameList);
   }
+  console.log(gameList);
 
   function deleteCard(id) {
     const cardListAfterDeletion = gameList.filter((game) => {
