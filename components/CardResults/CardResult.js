@@ -12,28 +12,32 @@ export default function CardResult({ results }) {
 
   return (
     <ResultContainer>
-      <Result>{results.gameresult}</Result>
-      <SetContainer>
-        <SetOne>{results.set[0].Player1}</SetOne>
-        <p>:</p>
-        <SetOne>{results.set[0].Player2}</SetOne>
-      </SetContainer>
-      <SetContainer>
-        <SetTwo>{results.set[1].Player1}</SetTwo>
-        <p>:</p>
-        <SetTwo>{results.set[1].Player2}</SetTwo>
-      </SetContainer>
-      <SetContainer>
-        <SetThree>{results.set[2].Player1}</SetThree>
-        <p>:</p>
-        <SetThree>{results.set[2].Player2}</SetThree>
-      </SetContainer>
-      <VictoryCircle />
+      <Container>
+        <Result>{results.gameresult}</Result>
+      </Container>
+      <AllSets>
+        <SetContainer>
+          <SetOne>{results.set[0].Player1}</SetOne>
+          <p>:</p>
+          <SetOne>{results.set[0].Player2}</SetOne>
+        </SetContainer>
+        <SetContainer>
+          <SetTwo>{results.set[1].Player1}</SetTwo>
+          <p>:</p>
+          <SetTwo>{results.set[1].Player2}</SetTwo>
+        </SetContainer>
+        <SetContainer>
+          <SetThree>{results.set[2].Player1}</SetThree>
+          <p>:</p>
+          <SetThree>{results.set[2].Player2}</SetThree>
+        </SetContainer>
+        <VictoryCircle gameresult={results.gameresult} />
+      </AllSets>
     </ResultContainer>
   );
 }
 
-const ResultContainer = styled.article`
+const ResultContainer = styled.section`
   display: grid;
   gap: 1.5em;
   grid-template-areas: "result setone settwo setthree victorycircle";
@@ -44,6 +48,18 @@ const Result = styled.p`
   text-align: center;
   grid-area: result;
   margin: auto 0;
+`;
+
+const Container = styled.article`
+  width: 2.5em;
+`;
+
+const AllSets = styled.div`
+  background-color: var(--background-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
 `;
 
 const SetContainer = styled.div`
@@ -81,8 +97,8 @@ const SetThree = styled.p`
 const VictoryCircle = styled.div`
   grid-area: victorycircle;
   border-radius: 50%;
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
   margin: auto 0;
-  background-color: green;
+  background: ${({ gameresult }) => (gameresult === "won" ? "#2ea357" : "#d74123")};
 `;
