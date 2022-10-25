@@ -1,15 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function CardDetails({
-  updateCardDetail,
-  id,
-  showMoreDetails,
-  gameList,
-  setGameList,
-  results,
-}) {
+export default function CardDetails({ updateCardDetail, id, showMoreDetails, results }) {
+  // useStates or controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
+
   const [firstSetScorePlayerOne, setFirstSetScorePlayerOne] = useState(
     results.set[0].Player1
   );
@@ -28,8 +23,6 @@ export default function CardDetails({
   const [thirdSetScorePlayerTwo, setThirdSetScorePlayerTwo] = useState(
     results.set[2].Player2
   );
-
-  console.log(results);
 
   // validate that the user starts the input at set 1, no input in sets also allowed
   function setValidation(set1, set2, set3) {
@@ -92,7 +85,7 @@ export default function CardDetails({
         alert("Please enter both set scores to continue");
       }
     } else {
-      alert("Please fill in the previous sets first");
+      alert("Please add the previous sets first");
     }
   }
 
