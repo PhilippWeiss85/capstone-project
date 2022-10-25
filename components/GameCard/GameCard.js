@@ -16,8 +16,8 @@ export default function GameCard({
   deleteCard,
   id,
   updateCardDetail,
-  gameList,
   results,
+  gameList,
   setGameList,
 }) {
   const [showMore, setShowMore] = useState(false);
@@ -66,6 +66,7 @@ export default function GameCard({
             showMoreDetails={showMoreDetails}
             updateCardDetail={updateCardDetail}
             id={id}
+            results={results}
             gameList={gameList}
             setGameList={setGameList}
           />

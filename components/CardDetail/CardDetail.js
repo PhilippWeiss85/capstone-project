@@ -1,6 +1,36 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
+export default function CardDetails({
+  updateCardDetail,
+  id,
+  showMoreDetails,
+  gameList,
+  setGameList,
+  results,
+}) {
+  const [finalResult, setFinalResult] = useState(results.gameresult);
+  const [firstSetScorePlayerOne, setFirstSetScorePlayerOne] = useState(
+    results.set[0].Player1
+  );
+  const [firstSetScorePlayerTwo, setFirstSetScorePlayerTwo] = useState(
+    results.set[0].Player2
+  );
+  const [secondSetScorePlayerOne, setSecondSetScorePlayerOne] = useState(
+    results.set[1].Player1
+  );
+  const [secondSetScorePlayerTwo, setSecondSetScorePlayerTwo] = useState(
+    results.set[1].Player2
+  );
+  const [thirdSetScorePlayerOne, setThirdSetScorePlayerOne] = useState(
+    results.set[2].Player1
+  );
+  const [thirdSetScorePlayerTwo, setThirdSetScorePlayerTwo] = useState(
+    results.set[2].Player2
+  );
+
+  console.log(results);
+
   // validate that the user starts the input at set 1, no input in sets also allowed
   function setValidation(set1, set2, set3) {
     if (set1 !== "" && set2 === "" && set3 === "") {
@@ -37,8 +67,6 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
     const firstSet = data.firstsetplayerone + data.firstsetplayertwo;
     const secondSet = data.secondsetplayerone + data.secondsetplayertwo;
     const thirdSet = data.thirdsetplayerone + data.thirdsetplayertwo;
-
-    console.log(firstSet);
 
     if (setValidation(firstSet, secondSet, thirdSet)) {
       if (
@@ -79,6 +107,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           type="radio"
           name="result"
           value="won"
+          checked={finalResult === "won"}
+          onChange={(event) => setFinalResult(event.target.value)}
           id="resultwon"
           required
         />
@@ -87,6 +117,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           type="radio"
           name="result"
           value="lost"
+          checked={finalResult === "lost"}
+          onChange={(event) => setFinalResult(event.target.value)}
           id="resultlost"
           required
         />
@@ -104,6 +136,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="firstsetplayerone"
           id="firstsetplayerone"
           aria-label="Score player one"
+          value={firstSetScorePlayerOne}
+          onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
         />
         <SetInput
           type="number"
@@ -112,6 +146,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="firstsetplayertwo"
           id="firstsetplayertwo"
           aria-label="Score player two"
+          value={firstSetScorePlayerTwo}
+          onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
         />
       </Fieldsets>
 
@@ -126,6 +162,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="secondsetplayerone"
           id="secondsetplayerone"
           aria-label="Score player one"
+          value={secondSetScorePlayerOne}
+          onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
         />
         <SetInput
           type="number"
@@ -134,6 +172,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="secondsetplayertwo"
           id="secondsetplayertwo"
           aria-label="Score player two"
+          value={secondSetScorePlayerTwo}
+          onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
         />
       </Fieldsets>
 
@@ -148,6 +188,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="thirdsetplayerone"
           id="thirdsetplayerone"
           aria-label="Score player one"
+          value={thirdSetScorePlayerOne}
+          onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
         />
         <SetInput
           type="number"
@@ -156,6 +198,8 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
           name="thirdsetplayertwo"
           id="thirdsetplayertwo"
           aria-label="Score player two"
+          value={thirdSetScorePlayerTwo}
+          onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
         />
       </Fieldsets>
 
