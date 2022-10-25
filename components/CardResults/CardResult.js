@@ -4,21 +4,22 @@ export default function CardResult({ results }) {
   const emptySets = results.set.filter((set) => {
     return set.Player1 === "" && set.Player2 === "";
   });
-
+  console.log(results.set[0]);
   return (
     <ResultContainer>
       <Result gameresult={results.gameresult}>{results.gameresult}</Result>
       {emptySets.length < 3 && (
         <AllSets>
-          {results.set[0].Player1 === "" || results.set[0].Player2 === "" ? (
-            ""
-          ) : (
-            <SetContainer>
-              <SetOne>{results.set[0].Player1}</SetOne>
-              <p>:</p>
-              <SetOne>{results.set[0].Player2}</SetOne>
-            </SetContainer>
-          )}
+          {results.set[0].Player1 === "" ||
+            (results.set[0].Player2 === "" ? (
+              ""
+            ) : (
+              <SetContainer>
+                <SetOne>{results.set[0].Player1}</SetOne>
+                <p>:</p>
+                <SetOne>{results.set[0].Player2}</SetOne>
+              </SetContainer>
+            ))}
           {results.set[1].Player1 === "" || results.set[1].Player2 === "" ? (
             ""
           ) : (
@@ -61,10 +62,10 @@ const Result = styled.p`
 
 const AllSets = styled.article`
   background-color: var(--background-primary);
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   gap: 0.5em;
   border: 3px solid black;
 `;

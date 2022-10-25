@@ -5,20 +5,39 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    updateCardDetail(
-      id,
-      data.result,
-      { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },
-      {
-        Player1: data.secondsetplayerone,
-        Player2: data.secondsetplayertwo,
-      },
-      {
-        Player1: data.thirdsetplayerone,
-        Player2: data.thirdsetplayertwo,
-      }
-    );
-    showMoreDetails();
+
+    if (
+      scoreValidation(data.firstsetplayerone, data.firstsetplayertwo) &&
+      scoreValidation(data.secondsetplayerone, data.secondsetplayertwo) &&
+      scoreValidation(data.thirdsetplayerone, data.thirdsetplayertwo)
+    ) {
+      updateCardDetail(
+        id,
+        data.result,
+        { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },
+        {
+          Player1: data.secondsetplayerone,
+          Player2: data.secondsetplayertwo,
+        },
+        {
+          Player1: data.thirdsetplayerone,
+          Player2: data.thirdsetplayertwo,
+        }
+      );
+      showMoreDetails();
+    } else {
+      alert("stop");
+    }
+  }
+
+  function scoreValidation(playerOne, playerTwo) {
+    if (playerOne === "" && playerTwo !== "") {
+      return false;
+    } else if (playerOne !== "" && playerTwo === "") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   return (

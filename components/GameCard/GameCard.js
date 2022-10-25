@@ -99,6 +99,7 @@ const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
   margin: auto 1em;
   mix-blend-mode: normal;
+  position: relative;
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
 
@@ -108,6 +109,7 @@ const PlayersAndResults = styled.article`
   align-items: center;
   margin: 1.5em 0 3em 0;
   gap: 1.5em;
+  word-break: break-all;
 `;
 
 const PlayerContainer = styled.div`
