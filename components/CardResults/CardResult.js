@@ -18,7 +18,6 @@ export default function CardResult({ results }) {
         <p>:</p>
         <SetOne>{results.set[0].Player2}</SetOne>
       </SetContainer>
-
       <SetContainer>
         <SetTwo>{results.set[1].Player1}</SetTwo>
         <p>:</p>
@@ -38,7 +37,6 @@ const ResultContainer = styled.article`
   display: grid;
   gap: 1.5em;
   grid-template-areas: "result setone settwo setthree victorycircle";
-  height: 3em;
   padding-left: 2em;
 `;
 

@@ -96,14 +96,14 @@ const CardType = styled.h2`
   top: -1.2em;
   left: 0.3em;
   padding: 0.2em;
-  font-size: 20px;
+  font-size: 1.8em;
   color: #ffffff;
   background: ${({ type }) => (type === "Match" ? "#2ea357" : "#d74123")};
 `;
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: 1em 1em;
+  margin: auto 1em;
   mix-blend-mode: normal;
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
@@ -112,7 +112,7 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 1em;
+  margin: 1.5em 0;
   gap: 1.5em;
 `;
 
@@ -120,17 +120,16 @@ const PlayerContainer = styled.div`
   box-shadow: 2px 2px 2px 2px var(--box-shadow);
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
-  height: 3em;
+  height: 2.5em;
   width: 30%;
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1.5em;
 `;
 
 const GameResultContainer = styled.div`
-  box-shadow: 2px 2px 2px 2px var(--box-shadow);
-  mix-blend-mode: normal;
   padding: 0.2em 0.5em;
+  height: 2.5em;
 `;
 
 const DeleteButtonContainer = styled.div`
