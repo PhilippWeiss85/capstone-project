@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function CardDetails({ updateCardDetail, id, gameList }) {
+export default function CardDetails({ updateCardDetail, id, gameList, showMoreDetails }) {
   console.log(gameList);
   function handleDetailSubmit(event) {
     event.preventDefault();
@@ -20,6 +20,7 @@ export default function CardDetails({ updateCardDetail, id, gameList }) {
         Player2: data.thirdsetplayertwo,
       }
     );
+    showMoreDetails();
   }
 
   return (

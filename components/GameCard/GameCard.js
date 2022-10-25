@@ -67,7 +67,12 @@ export default function GameCard({
           </li>
         </CardList>
         {showMore === true ? (
-          <CardDetails updateCardDetail={updateCardDetail} id={id} gameList={gameList} />
+          <CardDetails
+            showMoreDetails={showMoreDetails}
+            updateCardDetail={updateCardDetail}
+            id={id}
+            gameList={gameList}
+          />
         ) : (
           ""
         )}
