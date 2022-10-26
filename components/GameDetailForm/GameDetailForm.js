@@ -1,7 +1,11 @@
 import { useState } from "react";
+import useStore from "../../store/useStore";
+
 import styled from "styled-components";
 
-export default function CardDetails({ updateCardDetail, id, showMoreDetails, results }) {
+export default function GameDetails({ id, showMoreDetails, results }) {
+  const updateGameDetail = useStore((state) => state.updateGameDetail);
+
   // useStates or controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
 
@@ -67,7 +71,7 @@ export default function CardDetails({ updateCardDetail, id, showMoreDetails, res
         scoreValidation(data.secondsetplayerone, data.secondsetplayertwo) &&
         scoreValidation(data.thirdsetplayerone, data.thirdsetplayertwo)
       ) {
-        updateCardDetail(
+        updateGameDetail(
           id,
           data.result,
           { Player1: data.firstsetplayerone, Player2: data.firstsetplayertwo },

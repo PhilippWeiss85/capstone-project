@@ -1,25 +1,16 @@
-import styled from "styled-components";
-import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
+import { useState } from "react";
+import useStore from "../../store/useStore";
+
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
-import CardDetails from "../CardDetail/CardDetail";
-import { useState } from "react";
-import CardResult from "../CardResults/CardResult";
+import CardDetails from "../GameDetailForm/GameDetailForm";
+import GameResult from "../GameResult/GameResult";
 
-export default function GameCard({
-  type,
-  name,
-  date,
-  time,
-  place,
-  court,
-  deleteCard,
-  id,
-  updateCardDetail,
-  results,
-  gameList,
-  setGameList,
-}) {
+import styled from "styled-components";
+import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
+
+export default function GameCard({ type, name, date, time, place, court, id, results }) {
+  const deleteGame = useStore((state) => state.deleteGame);
   const [showMore, setShowMore] = useState(false);
 
   // show detailed card information
@@ -36,11 +27,11 @@ export default function GameCard({
             <BsPersonCircle /> {name}
           </PlayerContainer>
 
-          {results.gameresult === undefined ? "" : <CardResult results={results} />}
+          {results.gameresult === undefined ? "" : <GameResult results={results} />}
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <DeleteButton handleClick={deleteCard} id={id}>
+          <DeleteButton handleClick={deleteGame} id={id}>
             <BsX />
           </DeleteButton>
         </DeleteButtonContainer>
@@ -63,14 +54,7 @@ export default function GameCard({
           </li>
         </CardList>
         {showMore === true ? (
-          <CardDetails
-            showMoreDetails={showMoreDetails}
-            updateCardDetail={updateCardDetail}
-            id={id}
-            results={results}
-            gameList={gameList}
-            setGameList={setGameList}
-          />
+          <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
         ) : (
           ""
         )}
