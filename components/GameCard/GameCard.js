@@ -4,6 +4,7 @@ import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../CardDetail/CardDetail";
 import { useState } from "react";
+import CardResult from "../CardResults/CardResult";
 
 export default function GameCard({
   type,
@@ -14,9 +15,14 @@ export default function GameCard({
   court,
   deleteCard,
   id,
+  updateCardDetail,
+  results,
+  gameList,
+  setGameList,
 }) {
   const [showMore, setShowMore] = useState(false);
 
+  // show detailed card information
   function showMoreDetails() {
     setShowMore((previousDetails) => !previousDetails);
   }
@@ -25,11 +31,14 @@ export default function GameCard({
     <Card>
       <CardType type={type}>{type}</CardType>
       <CardContainer>
-        <PlayerDiv>
-          <p>
+        <PlayersAndResults>
+          <PlayerContainer>
             <BsPersonCircle /> {name}
-          </p>
-        </PlayerDiv>
+          </PlayerContainer>
+
+          {results.gameresult === undefined ? "" : <CardResult results={results} />}
+        </PlayersAndResults>
+
         <DeleteButtonContainer>
           <DeleteButton handleClick={deleteCard} id={id}>
             <BsX />
@@ -53,7 +62,18 @@ export default function GameCard({
             <p>{court}</p>
           </li>
         </CardList>
-        {showMore === true ? <CardDetails /> : ""}
+        {showMore === true ? (
+          <CardDetails
+            showMoreDetails={showMoreDetails}
+            updateCardDetail={updateCardDetail}
+            id={id}
+            results={results}
+            gameList={gameList}
+            setGameList={setGameList}
+          />
+        ) : (
+          ""
+        )}
         <EditButtonContainer>
           <EditButton handleClick={showMoreDetails}>
             <BsThreeDots />
@@ -74,27 +94,35 @@ const CardType = styled.h2`
   top: -1.2em;
   left: 0.3em;
   padding: 0.2em;
-  font-size: 20px;
+  font-size: 1.8em;
   color: #ffffff;
   background: ${({ type }) => (type === "Match" ? "#2ea357" : "#d74123")};
 `;
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: 1em 1em;
+  margin: auto 1em;
   mix-blend-mode: normal;
+  position: relative;
   box-shadow: 4px 4px 4px 4px var(--box-shadow);
 `;
 
-const PlayerDiv = styled.article`
+const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  margin: 1.5em 0 3em 0;
+  gap: 1.5em;
+  word-break: break-all;
+`;
+
+const PlayerContainer = styled.div`
   box-shadow: 2px 2px 2px 2px var(--box-shadow);
   mix-blend-mode: normal;
-  max-width: 30%;
   padding: 0.2em 0.5em;
-  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
 `;
 
 const DeleteButtonContainer = styled.div`
