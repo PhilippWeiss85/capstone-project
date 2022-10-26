@@ -1,7 +1,11 @@
 import { useState } from "react";
+import useStore from "../../store/useStore";
+
 import styled from "styled-components";
 
-export default function CardDetails({ updateCardDetail, id, showMoreDetails, results }) {
+export default function CardDetails({ id, showMoreDetails, results }) {
+  const updateCardDetail = useStore((state) => state.updateCardDetail);
+
   // useStates or controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
 

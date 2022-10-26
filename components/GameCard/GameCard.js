@@ -1,25 +1,15 @@
-import styled from "styled-components";
-import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
+import { useState } from "react";
+import useStore from "../../store/useStore";
+
 import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../CardDetail/CardDetail";
-import { useState } from "react";
 import CardResult from "../CardResults/CardResult";
-import useStore from "../../store/useStore";
 
-export default function GameCard({
-  type,
-  name,
-  date,
-  time,
-  place,
-  court,
-  id,
-  updateCardDetail,
-  results,
-  setGameList,
-}) {
-  const gameList = useStore((state) => state.games);
+import styled from "styled-components";
+import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
+
+export default function GameCard({ type, name, date, time, place, court, id, results }) {
   const deleteCard = useStore((state) => state.deleteCard);
   const [showMore, setShowMore] = useState(false);
 
@@ -64,14 +54,7 @@ export default function GameCard({
           </li>
         </CardList>
         {showMore === true ? (
-          <CardDetails
-            showMoreDetails={showMoreDetails}
-            updateCardDetail={updateCardDetail}
-            id={id}
-            results={results}
-            gameList={gameList}
-            setGameList={setGameList}
-          />
+          <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
         ) : (
           ""
         )}

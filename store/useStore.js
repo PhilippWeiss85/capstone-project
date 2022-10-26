@@ -84,6 +84,7 @@ const useStore = create((set) => {
       },
     ],
 
+    // append new card via form
     appendNewGameCard: (type, name, date, time, place, court) => {
       set((state) => {
         const newGameList = [
@@ -133,6 +134,7 @@ const useStore = create((set) => {
       });
     },
 
+    // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
     updateCardDetail: (id, gameresult, set1, set2, set3) => {
       set((state) => {
         const updatedCardList = state.games.map((game) => {

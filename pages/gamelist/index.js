@@ -4,18 +4,9 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 
-export default function GameList({
-  // gameList,
-  deleteCard,
-  updateCardDetail,
-  setGameList,
-}) {
+export default function GameList() {
   const gameList = useStore((state) => state.games);
   const router = useRouter();
-
-  function switchToForm() {
-    router.push("/form");
-  }
 
   return (
     <>
@@ -31,16 +22,12 @@ export default function GameList({
               time={game.time}
               place={game.place}
               court={game.court}
-              deleteCard={deleteCard}
-              updateCardDetail={updateCardDetail}
-              gameList={gameList}
               results={game.results}
-              setGameList={setGameList}
             />
           );
         })}
         <ButtonContainer>
-          <Button handleClick={switchToForm}>Add new card</Button>
+          <Button handleClick={() => router.push("/form")}>Add new card</Button>
         </ButtonContainer>
       </main>
     </>
