@@ -132,6 +132,27 @@ const useStore = create((set) => {
         };
       });
     },
+
+    updateCardDetail: (id, gameresult, set1, set2, set3) => {
+      set((state) => {
+        const updatedCardList = games.map((game) => {
+          if (game.id === id) {
+            const cardToUpdate = {
+              ...game,
+              results: {
+                gameresult: gameresult,
+                set: [set1, set2, set3],
+              },
+            };
+            return cardToUpdate;
+          }
+          return game;
+        });
+        return {
+          games: updatedCardList,
+        };
+      });
+    },
   };
 });
 
