@@ -86,6 +86,7 @@ const games = [
 function MyApp({ Component, pageProps }) {
   const [gameList, setGameList] = useState(games);
 
+  // append new card via form
   function appendNewGameCard(type, name, date, time, place, court) {
     const newGameList = [
       {
@@ -119,6 +120,7 @@ function MyApp({ Component, pageProps }) {
     setGameList(newGameList);
   }
 
+  // delete card with "x"-icon in gamelist
   function deleteCard(id) {
     const cardListAfterDeletion = gameList.filter((game) => {
       return game.id !== id;

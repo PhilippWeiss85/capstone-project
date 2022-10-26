@@ -22,6 +22,7 @@ export default function GameCard({
 }) {
   const [showMore, setShowMore] = useState(false);
 
+  // show detailed card information
   function showMoreDetails() {
     setShowMore((previousDetails) => !previousDetails);
   }

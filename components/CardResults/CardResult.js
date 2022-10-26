@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function CardResult({ results }) {
+  // used for display logic of set containers
   const emptySets = results.set.filter((set) => {
     return set.Player1 === "" && set.Player2 === "";
   });
