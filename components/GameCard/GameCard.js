@@ -5,6 +5,7 @@ import EditButton from "../EditButton";
 import CardDetails from "../CardDetail/CardDetail";
 import { useState } from "react";
 import CardResult from "../CardResults/CardResult";
+import useStore from "../../store/useStore";
 
 export default function GameCard({
   type,
@@ -13,13 +14,13 @@ export default function GameCard({
   time,
   place,
   court,
-  deleteCard,
   id,
   updateCardDetail,
   results,
-  gameList,
   setGameList,
 }) {
+  const gameList = useStore((state) => state.games);
+  const deleteCard = useStore((state) => state.deleteCard);
   const [showMore, setShowMore] = useState(false);
 
   // show detailed card information

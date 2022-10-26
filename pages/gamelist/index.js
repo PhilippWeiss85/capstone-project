@@ -2,13 +2,15 @@ import Button from "../../components/Button";
 import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import useStore from "../../store/useStore";
 
 export default function GameList({
-  gameList,
+  // gameList,
   deleteCard,
   updateCardDetail,
   setGameList,
 }) {
+  const gameList = useStore((state) => state.games);
   const router = useRouter();
 
   function switchToForm() {

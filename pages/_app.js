@@ -120,14 +120,6 @@ function MyApp({ Component, pageProps }) {
     setGameList(newGameList);
   }
 
-  // delete card with "x"-icon in gamelist
-  function deleteCard(id) {
-    const cardListAfterDeletion = gameList.filter((game) => {
-      return game.id !== id;
-    });
-    setGameList(cardListAfterDeletion);
-  }
-
   // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
   function updateCardDetail(id, gameresult, set1, set2, set3) {
     const updatedCardList = gameList.map((game) => {
@@ -152,7 +144,6 @@ function MyApp({ Component, pageProps }) {
       <Component
         {...pageProps}
         appendNewGameCard={appendNewGameCard}
-        deleteCard={deleteCard}
         gameList={gameList}
         setGameList={setGameList}
         updateCardDetail={updateCardDetail}

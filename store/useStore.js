@@ -1,4 +1,5 @@
-import create from "zustand/react";
+import create from "zustand";
+import { nanoid } from "nanoid";
 
 const useStore = create((set) => {
   return {
@@ -85,46 +86,45 @@ const useStore = create((set) => {
 
     appendNewGameCard: (type, name, date, time, place, court) => {
       set((state) => {
-        const newGameList = state.games.map((game) => {
-          return [
-            {
-              id: nanoid(),
-              type: type,
-              name: name,
-              date: date,
-              time: time,
-              place: place,
-              court: court,
-              results: {
-                gameresult: undefined,
-                set: [
-                  {
-                    Player1: "",
-                    Player2: "",
-                  },
-                  {
-                    Player1: "",
-                    Player2: "",
-                  },
-                  {
-                    Player1: "",
-                    Player2: "",
-                  },
-                ],
-              },
+        const newGameList = [
+          {
+            id: nanoid(),
+            type: type,
+            name: name,
+            date: date,
+            time: time,
+            place: place,
+            court: court,
+            results: {
+              gameresult: undefined,
+              set: [
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+              ],
             },
-            ...game,
-          ];
-        });
+          },
+          ...games,
+        ];
         return {
           games: newGameList,
         };
       });
     },
 
+    // delete card with "x"-icon in gamelist
     deleteCard: (id) => {
       set((state) => {
-        const cardListAfterDeletion = games.filter((game) => {
+        const cardListAfterDeletion = state.games.filter((game) => {
           return game.id !== id;
         });
         return {
@@ -135,7 +135,7 @@ const useStore = create((set) => {
 
     updateCardDetail: (id, gameresult, set1, set2, set3) => {
       set((state) => {
-        const updatedCardList = games.map((game) => {
+        const updatedCardList = state.games.map((game) => {
           if (game.id === id) {
             const cardToUpdate = {
               ...game,
