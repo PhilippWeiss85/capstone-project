@@ -50,9 +50,7 @@ const useStore = create(
         // delete card with "x"-icon in gamelist
         deleteGame: (id) => {
           set((state) => {
-            const gameListAfterDeletion = state.games.filter((game) => {
-              return game.id !== id;
-            });
+            const gameListAfterDeletion = state.games.filter((game) => game.id !== id);
             return {
               games: gameListAfterDeletion,
             };
