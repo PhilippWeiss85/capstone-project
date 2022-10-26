@@ -118,7 +118,6 @@ function MyApp({ Component, pageProps }) {
     ];
     setGameList(newGameList);
   }
-  console.log(gameList);
 
   function deleteCard(id) {
     const cardListAfterDeletion = gameList.filter((game) => {
