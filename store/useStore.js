@@ -1,4 +1,5 @@
 import create from "zustand";
+import { persist } from "zustand/middleware";
 import { nanoid } from "nanoid";
 
 const useStore = create((set) => {
@@ -85,7 +86,7 @@ const useStore = create((set) => {
     ],
 
     // append new card via form
-    appendNewGameCard: (type, name, date, time, place, court) => {
+    appendNewGame: (type, name, date, time, place, court) => {
       set((state) => {
         const newGameList = [
           {
@@ -123,35 +124,35 @@ const useStore = create((set) => {
     },
 
     // delete card with "x"-icon in gamelist
-    deleteCard: (id) => {
+    deleteGame: (id) => {
       set((state) => {
-        const cardListAfterDeletion = state.games.filter((game) => {
+        const gameListAfterDeletion = state.games.filter((game) => {
           return game.id !== id;
         });
         return {
-          games: cardListAfterDeletion,
+          games: gameListAfterDeletion,
         };
       });
     },
 
     // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
-    updateCardDetail: (id, gameresult, set1, set2, set3) => {
+    updateGameDetail: (id, gameresult, set1, set2, set3) => {
       set((state) => {
-        const updatedCardList = state.games.map((game) => {
+        const updatedGameList = state.games.map((game) => {
           if (game.id === id) {
-            const cardToUpdate = {
+            const gameToUpdate = {
               ...game,
               results: {
                 gameresult: gameresult,
                 set: [set1, set2, set3],
               },
             };
-            return cardToUpdate;
+            return gameToUpdate;
           }
           return game;
         });
         return {
-          games: updatedCardList,
+          games: updatedGameList,
         };
       });
     },

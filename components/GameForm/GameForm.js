@@ -3,8 +3,8 @@ import useStore from "../../store/useStore";
 
 import styled from "styled-components";
 
-export default function AddGameCardForm() {
-  const appendNewGameCard = useStore((state) => state.appendNewGameCard);
+export default function AddGameForm() {
+  const appendNewGame = useStore((state) => state.appendNewGame);
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -17,7 +17,7 @@ export default function AddGameCardForm() {
     if (data.opponent.trim() === "") {
       window.alert("Please enter a valid name");
     } else {
-      appendNewGameCard(
+      appendNewGame(
         data.gametype,
         data.opponent,
         data.date,
@@ -147,7 +147,7 @@ export default function AddGameCardForm() {
       </FormFieldSetRadio>
       <ButtonFieldSet>
         <SubmitButton aria-label="create new card" type="submit">
-          Add GameCard
+          Add Game
         </SubmitButton>
       </ButtonFieldSet>
     </FormContainer>
