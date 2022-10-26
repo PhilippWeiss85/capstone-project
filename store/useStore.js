@@ -121,6 +121,17 @@ const useStore = create((set) => {
         };
       });
     },
+
+    deleteCard: (id) => {
+      set((state) => {
+        const cardListAfterDeletion = games.filter((game) => {
+          return game.id !== id;
+        });
+        return {
+          games: cardListAfterDeletion,
+        };
+      });
+    },
   };
 });
 
