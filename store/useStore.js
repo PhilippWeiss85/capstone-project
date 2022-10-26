@@ -113,7 +113,7 @@ const useStore = create((set) => {
               ],
             },
           },
-          ...games,
+          ...state.games,
         ];
         return {
           games: newGameList,

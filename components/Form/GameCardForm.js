@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import useStore from "../../store/useStore";
 
-export default function AddGameCardForm({ appendNewGameCard }) {
+export default function AddGameCardForm() {
+  const appendNewGameCard = useStore((state) => state.appendNewGameCard);
   const router = useRouter();
 
   function handleSubmit(event) {
