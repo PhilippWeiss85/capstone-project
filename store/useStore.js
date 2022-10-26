@@ -82,5 +82,46 @@ const useStore = create((set) => {
         },
       },
     ],
+
+    appendNewGameCard: (type, name, date, time, place, court) => {
+      set((state) => {
+        const newGameList = state.games.map((game) => {
+          return [
+            {
+              id: nanoid(),
+              type: type,
+              name: name,
+              date: date,
+              time: time,
+              place: place,
+              court: court,
+              results: {
+                gameresult: undefined,
+                set: [
+                  {
+                    Player1: "",
+                    Player2: "",
+                  },
+                  {
+                    Player1: "",
+                    Player2: "",
+                  },
+                  {
+                    Player1: "",
+                    Player2: "",
+                  },
+                ],
+              },
+            },
+            ...game,
+          ];
+        });
+        return {
+          games: newGameList,
+        };
+      });
+    },
   };
 });
+
+export default useStore;
