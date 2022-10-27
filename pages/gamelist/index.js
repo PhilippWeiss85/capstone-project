@@ -1,19 +1,20 @@
 import Button from "../../components/Button";
-import GameCard from "../../components/GameCard/GameCard";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
+import dynamic from "next/dynamic";
 
 export default function GameList() {
   const gameList = useStore((state) => state.games);
   const router = useRouter();
+  const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard")); // to prevent rendering hydration error: https://nextjs.org/docs/advanced-features/dynamic-import
 
   return (
     <>
       <main>
         {gameList.map((game) => {
           return (
-            <GameCard
+            <DynamicGameCard
               key={game.id}
               id={game.id}
               type={game.type}
