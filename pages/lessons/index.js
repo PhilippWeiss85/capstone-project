@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllLessons } from "../../lib/db";
 
-export function getStaticProps() {
-  const lessons = getAllLessons();
+export async function getStaticProps() {
+  const lessons = await getAllLessons();
 
   return {
     props: { lessons: lessons },

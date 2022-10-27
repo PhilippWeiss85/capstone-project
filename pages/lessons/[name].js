@@ -1,8 +1,8 @@
 import { getLessonByName, getAllLessons } from "../../lib/db";
 import Image from "next/image";
 
-export function getStaticPaths() {
-  const lessons = getAllLessons();
+export async function getStaticPaths() {
+  const lessons = await getAllLessons();
   const names = lessons.map((lesson) => lesson.name);
 
   return {
@@ -11,9 +11,9 @@ export function getStaticPaths() {
   };
 }
 
-export function getStaticProps(context) {
+export async function getStaticProps(context) {
   const { name } = context.params;
-  const lessons = getLessonByName(name);
+  const lessons = await getLessonByName(name);
 
   return {
     props: {
