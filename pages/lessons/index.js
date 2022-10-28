@@ -37,10 +37,9 @@ export default function LessonsList({ lessons }) {
 }
 
 const MainWrapper = styled.main`
-  text-align: center;
   margin: 10vw;
 `;
 
 const LessonContainer = styled.section`
-  margin: 2em 0;
+  margin: 2em auto;
 `;

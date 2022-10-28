@@ -48,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
         position: relative;
         font-size: 1.5em;
         text-align: center;
+        padding-bottom: 1em;
       }
   `;
 

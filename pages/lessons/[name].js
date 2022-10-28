@@ -81,10 +81,9 @@ const ContentWrapper = styled.section`
 `;
 
 const ArticleWrapper = styled.article`
-  display: flex;
-  flex-direction: column;
   gap: 1em;
   padding-top: 1em;
+  overflow-y: hidden;
 `;
 
 const ListWrapper = styled.ol`
