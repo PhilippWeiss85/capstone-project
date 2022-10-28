@@ -13,6 +13,6 @@ const gameCardSchema = new Schema({
   set: { type: Array, required: true },
 });
 
-const GameCard = mongoose.models.GameCard || mongoose.model("Question", questionSchema);
+const GameCard = mongoose.models.GameCard || mongoose.model("Question", gameCardSchema);
 
 export default GameCard;

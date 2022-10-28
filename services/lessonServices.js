@@ -18,3 +18,12 @@ export async function getAllLessons() {
   }));
   return sanitizedLessons;
 }
+
+export async function getLessonByName(name) {
+  await dbConnect();
+  const lessons = await Lesson.find();
+  const sanitizedLessons = lessons.find((lesson) => {
+    return lesson.name === name;
+  });
+  return sanitizedLessons;
+}

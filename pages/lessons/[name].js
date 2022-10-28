@@ -1,8 +1,11 @@
 import styled from "styled-components";
-import { getLessonByName, getAllLessons } from "../../lib/db";
 import Image from "next/image";
+import dbConnect from "../../lib/dbConnect";
+import { getAllLessons } from "../../services/lessonServices";
+import { getLessonByName } from "../../services/lessonServices";
 
 export async function getStaticPaths() {
+  await dbConnect();
   const lessons = await getAllLessons();
   const names = lessons.map((lesson) => lesson.name);
 
@@ -13,12 +16,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  dbConnect();
   const { name } = context.params;
   const lessons = await getLessonByName(name);
 
   return {
     props: {
-      id: lessons.id,
       name: lessons.name,
       description: lessons.description,
       image: lessons.image,
