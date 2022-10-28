@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { getAllLessons } from "../../lib/db";
+import dbConnect from "../../lib/dbConnect";
+import { getAllLessons } from "../../services/lessonServices";
+// import { getAllLessons } from "../../lib/db";
 
 export async function getStaticProps() {
+  await dbConnect();
+
   const lessons = await getAllLessons();
 
   return {
