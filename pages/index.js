@@ -20,6 +20,11 @@ export default function Home() {
             <AnchorLink>gamelist</AnchorLink>
           </CategoryContainer>
         </Link>
+        <Link href="/lessons" passHref>
+          <CategoryContainer>
+            <AnchorLink>lessons</AnchorLink>
+          </CategoryContainer>
+        </Link>
       </MainWrapper>
     </div>
   );
