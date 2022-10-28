@@ -53,8 +53,8 @@ export default function SingleLesson({
         alt={alt}
         layout="responsive"
         objectFit="cover"
-        width={1024}
-        height={512}
+        width={1710}
+        height={1198}
       />
       <ContentWrapper>
         <ArticleWrapper>

@@ -28,8 +28,8 @@ export default function LessonsList({ lessons }) {
                 alt={lesson.alt}
                 layout="responsive"
                 objectFit="contain"
-                width={1024}
-                height={512}
+                width={1710}
+                height={1198}
               />
             </a>
           </Link>
