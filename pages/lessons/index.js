@@ -6,7 +6,6 @@ import { getAllLessons } from "../../services/lessonServices";
 
 export async function getStaticProps() {
   await dbConnect();
-
   const lessons = await getAllLessons();
 
   return {
@@ -20,7 +19,9 @@ export default function LessonsList({ lessons }) {
       <h1>Your Training Progress</h1>
       {lessons.map((lesson) => (
         <LessonContainer key={lesson.id}>
-          <h2>{lesson.name.toUpperCase()}</h2>
+          <Link href={`/lessons/${lesson.name}`}>
+            <StyledH2>{lesson.name.toUpperCase()}</StyledH2>
+          </Link>
           <Link href={`/lessons/${lesson.name}`}>
             <a>
               <Image
@@ -43,6 +44,32 @@ const MainWrapper = styled.main`
   margin: 10vw;
 `;
 
+const StyledH2 = styled.h2`
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
+  color: #ffffff;
+  width: 100%;
+  padding: 0.4em;
+
+  &:hover {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: black;
+  }
+`;
+
 const LessonContainer = styled.section`
   margin: 2em auto;
+  position: relative;
+  &:hover {
+  }
+
+  &:active {
+    box-shadow: 2px 2px 2px red;
+  }
 `;

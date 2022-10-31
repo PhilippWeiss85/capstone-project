@@ -1,6 +1,6 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import { examplegames, games } from "../lib/db";
+import { examplegames } from "../lib/db";
 import { nanoid } from "nanoid";
 
 const useStore = create(

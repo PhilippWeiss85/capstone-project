@@ -6,6 +6,7 @@ const gameCardSchema = new Schema({
   type: { type: String, required: true },
   name: { type: String, required: true },
   date: { type: String, required: true },
+  time: { type: String, required: true },
   place: { type: String, required: true },
   court: { type: String, required: true },
   results: { type: Object, required: true },
@@ -13,6 +14,6 @@ const gameCardSchema = new Schema({
   set: { type: Array, required: true },
 });
 
-const GameCard = mongoose.models.GameCard || mongoose.model("Question", gameCardSchema);
+const GameCard = mongoose.models.GameCard || mongoose.model("GameCard", gameCardSchema);
 
 export default GameCard;

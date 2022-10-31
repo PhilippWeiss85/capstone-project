@@ -64,10 +64,12 @@ export default function SingleLesson({
         <ArticleWrapper>
           <h2>Steps</h2>
           <ListWrapper>
-            <ListItem>Grip: {step1}</ListItem>
-            <ListItem>{step2}</ListItem>
-            <ListItem>{step3}</ListItem>
-            <ListItem>{step4}</ListItem>
+            <ListItem>
+              <span>Grip:</span> {step1}
+            </ListItem>
+            <ListItem>Stance/Position: {step2}</ListItem>
+            <ListItem>Swing: {step3}</ListItem>
+            <ListItem>Follow Through: {step4}</ListItem>
           </ListWrapper>
         </ArticleWrapper>
       </ContentWrapper>
@@ -86,7 +88,7 @@ const ContentWrapper = styled.section`
 const ArticleWrapper = styled.article`
   gap: 1em;
   padding-top: 1em;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 const ListWrapper = styled.ol`
