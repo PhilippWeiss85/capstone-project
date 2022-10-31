@@ -15,12 +15,14 @@ export async function getServerSideProps() {
 
 export default function GameList({ gameCards }) {
   const gameList = useStore((state) => state.games);
+  console.log(gameList);
+
   const router = useRouter();
   const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard")); // to prevent rendering hydration error: https://nextjs.org/docs/advanced-features/dynamic-import
 
   return (
     <>
-      <main>
+      <MainWrapper>
         {gameCards.map((game) => {
           return (
             <DynamicGameCard
@@ -54,10 +56,15 @@ export default function GameList({ gameCards }) {
         <ButtonContainer>
           <Button handleClick={() => router.push("/form")}>Add new card</Button>
         </ButtonContainer>
-      </main>
+      </MainWrapper>
     </>
   );
 }
+
+const MainWrapper = styled.main`
+  max-width: 640px;
+  margin: 0 auto;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;

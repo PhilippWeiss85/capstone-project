@@ -7,38 +7,81 @@ const useStore = create(
   persist(
     (set) => {
       return {
-        games: examplegames,
-
+        // games: examplegames,
+        games: [],
+        fetchGame: async (url) => {
+          try {
+            const repsonse = await fetch(url);
+            console.log(repsonse);
+            const data = await repsonse.json();
+            set({ games: data.results });
+          } catch (error) {
+            console.log("this went wrong");
+          }
+        },
         // append new card via form
-        appendNewGame: (type, name, date, time, place, court) => {
+        appendNewGame: async (type, name, date, time, place, court) => {
+          const newGame = {
+            type: type,
+            name: name,
+            date: date,
+            time: time,
+            place: place,
+            court: court,
+            results: {
+              gameresult: "",
+              set: [
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+                {
+                  Player1: "",
+                  Player2: "",
+                },
+              ],
+            },
+          };
+
+          const res = await fetch("/api/gamelist", {
+            method: "POST",
+            body: JSON.stringify(newGame),
+          });
+
           set((state) => {
             const newGameList = [
-              {
-                id: nanoid(),
-                type: type,
-                name: name,
-                date: date,
-                time: time,
-                place: place,
-                court: court,
-                results: {
-                  gameresult: undefined,
-                  set: [
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                  ],
-                },
-              },
+              res.json().addGameCard,
+
+              // {
+              //   id: nanoid(),
+              //   type: type,
+              //   name: name,
+              //   date: date,
+              //   time: time,
+              //   place: place,
+              //   court: court,
+              //   results: {
+              //     gameresult: undefined,
+              //     set: [
+              //       {
+              //         Player1: "",
+              //         Player2: "",
+              //       },
+              //       {
+              //         Player1: "",
+              //         Player2: "",
+              //       },
+              //       {
+              //         Player1: "",
+              //         Player2: "",
+              //       },
+              //     ],
+              //   },
+              // },
               ...state.games,
             ];
             return {

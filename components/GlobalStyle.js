@@ -39,14 +39,14 @@ const GlobalStyle = createGlobalStyle`
 
       h1 {
         position: relative;
-        font-size: 2em;
+        font-size: 1.5em;
         text-align: center;
         padding-bottom: 1em;
       }
 
       h2 {
         position: relative;
-        font-size: 1.5em;
+        font-size: 1.2em;
         text-align: center;
         padding-bottom: 1em;
       }
