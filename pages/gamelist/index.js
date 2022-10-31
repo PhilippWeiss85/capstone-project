@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import dynamic from "next/dynamic";
 import { getAllGameCards } from "../../services/gameCardServices";
+import GameCard from "../../components/GameCard/GameCard";
+import { useEffect } from "react";
 
 export async function getServerSideProps() {
   const gameCards = await getAllGameCards();
@@ -15,17 +17,20 @@ export async function getServerSideProps() {
 
 export default function GameList({ gameCards }) {
   const gameList = useStore((state) => state.games);
-  console.log(gameList);
 
+  // console.log(gameCards);
   const router = useRouter();
-  const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard")); // to prevent rendering hydration error: https://nextjs.org/docs/advanced-features/dynamic-import
+  // const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
+  //   ssr: false,
+  // });
+  // to prevent rendering hydration error: https://nextjs.org/docs/advanced-features/dynamic-import
 
   return (
     <>
       <MainWrapper>
         {gameCards.map((game) => {
           return (
-            <DynamicGameCard
+            <GameCard
               key={game.id}
               id={game.id}
               type={game.type}

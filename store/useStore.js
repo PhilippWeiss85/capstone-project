@@ -9,16 +9,7 @@ const useStore = create(
       return {
         // games: examplegames,
         games: [],
-        fetchGame: async (url) => {
-          try {
-            const repsonse = await fetch(url);
-            console.log(repsonse);
-            const data = await repsonse.json();
-            set({ games: data.results });
-          } catch (error) {
-            console.log("this went wrong");
-          }
-        },
+
         // append new card via form
         appendNewGame: async (type, name, date, time, place, court) => {
           const newGame = {
@@ -53,37 +44,7 @@ const useStore = create(
           });
 
           set((state) => {
-            const newGameList = [
-              res.json().addGameCard,
-
-              // {
-              //   id: nanoid(),
-              //   type: type,
-              //   name: name,
-              //   date: date,
-              //   time: time,
-              //   place: place,
-              //   court: court,
-              //   results: {
-              //     gameresult: undefined,
-              //     set: [
-              //       {
-              //         Player1: "",
-              //         Player2: "",
-              //       },
-              //       {
-              //         Player1: "",
-              //         Player2: "",
-              //       },
-              //       {
-              //         Player1: "",
-              //         Player2: "",
-              //       },
-              //     ],
-              //   },
-              // },
-              ...state.games,
-            ];
+            const newGameList = [res.json().addGameCard, ...state.games];
             return {
               games: newGameList,
             };
