@@ -16,10 +16,11 @@ export async function getServerSideProps() {
 }
 
 export default function GameList({ gameCards }) {
-  const gameList = useStore((state) => state.games);
+  // const gameList = useStore((state) => state.games);
 
-  // console.log(gameCards);
+  console.log(gameCards);
   const router = useRouter();
+
   // const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
   //   ssr: false,
   // });
@@ -43,21 +44,6 @@ export default function GameList({ gameCards }) {
             />
           );
         })}
-        {/* {gameList.map((game) => {
-          return (
-            <DynamicGameCard
-              key={game.id}
-              id={game.id}
-              type={game.type}
-              name={game.name}
-              date={game.date}
-              time={game.time}
-              place={game.place}
-              court={game.court}
-              results={game.results}
-            />
-          );
-        })} */}
         <ButtonContainer>
           <Button handleClick={() => router.push("/form")}>Add new card</Button>
         </ButtonContainer>
