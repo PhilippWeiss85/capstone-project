@@ -6,7 +6,7 @@ export async function getAllLessons() {
 
   const lessons = await Lesson.find();
   const sanitizedLessons = lessons.map((lesson) => ({
-    id: lesson._id.toString(),
+    id: lesson.id.toString(),
     name: lesson.name,
     description: lesson.description,
     image: lesson.image,

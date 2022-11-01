@@ -7,7 +7,7 @@ export default async function handler(request, response) {
 
     const gameCard = await GameCard.find();
     const sanitizedGameCard = gameCard.map((game) => ({
-      id: game._id.toString(),
+      id: game._id,
       type: game.type,
       name: game.name,
       date: game.date,
