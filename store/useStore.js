@@ -13,7 +13,7 @@ const useStore = create(
 
           set((state) => {
             return {
-              games: initialGamesList ?? [],
+              games: initialGamesList ?? [], // set initial games array to db fetch
             };
           });
         },
@@ -55,7 +55,7 @@ const useStore = create(
           const sanitizedNewGameObject = {
             ...newGameObject.addGameCard,
             id: newGameObject.addGameCard._id,
-          };
+          }; // translate _id to id to prevent rendering issue in gamelist page (key prop)
 
           set((state) => {
             return {
@@ -95,17 +95,17 @@ const useStore = create(
             body: JSON.stringify(updatedGameCard),
           });
           const updateGameCardResult = await response.json();
-          console.log(updateGameCardResult);
 
           set((state) => {
             const updatedGameList = state.games.map((game) => {
               if (game.id === updateGameCardResult._id) {
-                console.log(game);
+                // match id with _id to return if statement properly
+
                 const gameToUpdate = {
                   ...game,
                   results: updateGameCardResult.results,
                 };
-                console.log("gametoUpdate", gameToUpdate);
+
                 return gameToUpdate;
               }
 

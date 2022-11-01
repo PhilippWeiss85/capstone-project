@@ -14,9 +14,8 @@ export default async function handler(request, response) {
   } else if (request.method === "PATCH") {
     const results = JSON.parse(request.body);
     const updatedGameWithResults = await GameCard.findByIdAndUpdate(id, results, {
-      new: true,
+      new: true, // new: true => render with updated data
     });
-    console.log(updatedGameWithResults);
 
     return response.status(201).json(updatedGameWithResults);
   } else {
