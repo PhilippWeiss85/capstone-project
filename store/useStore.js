@@ -10,6 +10,17 @@ const useStore = create(
         // games: examplegames,
         games: [],
 
+        getInitialGameState: async () => {
+          const res = await fetch("/api/gamelist");
+          const initialGamesList = await res.json();
+
+          set((state) => {
+            return {
+              games: initialGamesList ?? [],
+            };
+          });
+        },
+
         // append new card via form
         appendNewGame: async (type, name, date, time, place, court) => {
           const newGame = {
@@ -42,19 +53,28 @@ const useStore = create(
             method: "POST",
             body: JSON.stringify(newGame),
           });
+          const newGameObject = await res.json();
+          console.log(newGameObject);
 
           set((state) => {
-            const newGameList = [res.json().addGameCard, ...state.games];
             return {
-              games: newGameList,
+              games: [...state.games, newGameObject.addGameCard],
             };
           });
         },
 
         // delete card with "x"-icon in gamelist
-        deleteGame: (id) => {
+        deleteGame: async (id) => {
+          const response = await fetch(`/api/gamelist/${id}`, {
+            method: "DELETE",
+          });
+          const deleteGameCard = await response.json();
+          console.log(deleteGameCard);
+
           set((state) => {
-            const gameListAfterDeletion = state.games.filter((game) => game.id !== id);
+            const gameListAfterDeletion = state.games.filter(
+              (game) => game.id !== deleteGameCard._id
+            );
             return {
               games: gameListAfterDeletion,
             };
