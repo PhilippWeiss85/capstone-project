@@ -1,6 +1,5 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import { nanoid } from "nanoid";
 
 const useStore = create(
   persist(
@@ -22,7 +21,6 @@ const useStore = create(
         // append new card via form
         appendNewGame: async (type, name, date, time, place, court) => {
           const newGame = {
-            id: nanoid(),
             type: type,
             name: name,
             date: date,
@@ -52,11 +50,16 @@ const useStore = create(
             method: "POST",
             body: JSON.stringify(newGame),
           });
-          const newGameObject = await res.json();
+          const newGameObject = await res.json(); // includes message & addGameCard from api/gamelist
+
+          const sanitizedNewGameObject = {
+            ...newGameObject.addGameCard,
+            id: newGameObject.addGameCard._id,
+          };
 
           set((state) => {
             return {
-              games: [...state.games, newGameObject.addGameCard],
+              games: [...state.games, sanitizedNewGameObject],
             };
           });
         },
@@ -79,21 +82,36 @@ const useStore = create(
         },
 
         // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
-        updateGameDetail: (id, gameresult, set1, set2, set3) => {
+        updateGameDetail: async (id, gameresult, set1, set2, set3) => {
+          const updatedGameCard = {
+            results: {
+              gameresult: gameresult,
+              set: [set1, set2, set3],
+            },
+          };
+
+          const response = await fetch(`api/gamelist/${id}`, {
+            method: "PATCH",
+            body: JSON.stringify(updatedGameCard),
+          });
+          const updateGameCardResult = await response.json();
+          console.log(updateGameCardResult);
+
           set((state) => {
             const updatedGameList = state.games.map((game) => {
-              if (game.id === id) {
+              if (game.id === updateGameCardResult._id) {
+                console.log(game);
                 const gameToUpdate = {
                   ...game,
-                  results: {
-                    gameresult: gameresult,
-                    set: [set1, set2, set3],
-                  },
+                  results: updateGameCardResult.results,
                 };
+                console.log("gametoUpdate", gameToUpdate);
                 return gameToUpdate;
               }
+
               return game;
             });
+
             return {
               games: updatedGameList,
             };

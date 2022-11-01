@@ -11,6 +11,14 @@ export default async function handler(request, response) {
   } else if (request.method === "DELETE") {
     const deletedGame = await GameCard.findByIdAndDelete(id);
     return response.status(201).json(deletedGame);
+  } else if (request.method === "PATCH") {
+    const results = JSON.parse(request.body);
+    const updatedGameWithResults = await GameCard.findByIdAndUpdate(id, results, {
+      new: true,
+    });
+    console.log(updatedGameWithResults);
+
+    return response.status(201).json(updatedGameWithResults);
   } else {
     return response.status(403).json({ message: "stop" });
   }

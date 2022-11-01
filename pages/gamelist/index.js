@@ -9,7 +9,7 @@ export default function GameList() {
   const getInitialGameState = useStore((state) => state.getInitialGameState);
   useEffect(() => {
     getInitialGameState();
-  }, []);
+  }, []); // why ist there a problem with missing dependency??? App works fine
 
   const gameList = useStore((state) => state.games);
   const router = useRouter();
