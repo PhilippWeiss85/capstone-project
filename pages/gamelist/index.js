@@ -3,13 +3,8 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
 
 export default function GameList() {
-  const getInitialGameState = useStore((state) => state.getInitialGameState);
-  useEffect(() => {
-    getInitialGameState();
-  }, []);
   const gameList = useStore((state) => state.games);
   const router = useRouter();
 
@@ -21,6 +16,7 @@ export default function GameList() {
     <>
       <MainWrapper>
         {gameList.map((game) => {
+          console.log(game.id);
           return (
             <DynamicGameCard
               key={game.id}

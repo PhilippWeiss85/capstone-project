@@ -24,6 +24,7 @@ const useStore = create(
         // append new card via form
         appendNewGame: async (type, name, date, time, place, court) => {
           const newGame = {
+            id: nanoid(),
             type: type,
             name: name,
             date: date,
