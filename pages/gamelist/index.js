@@ -20,6 +20,7 @@ export default function GameList() {
 
   return (
     <>
+      <h1>Your Gameplan</h1>
       <MainWrapper>
         {gameList.map((game) => {
           return (

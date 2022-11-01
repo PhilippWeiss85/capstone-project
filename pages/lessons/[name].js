@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import Image from "next/image";
 import dbConnect from "../../lib/dbConnect";
-import { getAllLessons } from "../../services/lessonServices";
-import { getLessonByName } from "../../services/lessonServices";
+import { getAllLessons, getLessonByName } from "../../services/lessonServices";
 
 export async function getStaticPaths() {
-  await dbConnect();
+  dbConnect();
   const lessons = await getAllLessons();
   const names = lessons.map((lesson) => lesson.name);
 

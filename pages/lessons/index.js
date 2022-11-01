@@ -54,12 +54,12 @@ const StyledH2 = styled.h2`
   padding: 0.4em;
 
   &:hover {
-    background-color: red;
+    background-color: #ffffff;
     cursor: pointer;
   }
 
   &:active {
-    background-color: black;
+    background-color: #000000;
   }
 `;
 
@@ -70,6 +70,6 @@ const LessonContainer = styled.section`
   }
 
   &:active {
-    box-shadow: 2px 2px 2px red;
+    box-shadow: 2px 2px 2px #000000;
   }
 `;

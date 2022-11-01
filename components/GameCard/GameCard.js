@@ -27,7 +27,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
             <BsPersonCircle /> {name}
           </PlayerContainer>
 
-          {results.gameresult === "" ? "" : <GameResult results={results} />}
+          {results.gameresult && <GameResult results={results} />}
         </PlayersAndResults>
 
         <DeleteButtonContainer>
