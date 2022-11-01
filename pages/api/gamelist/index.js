@@ -7,7 +7,7 @@ export default async function handler(request, response) {
 
     const gameCard = await GameCard.find();
     const sanitizedGameCard = gameCard.map((game) => ({
-      id: game._id,
+      id: game._id.toString(),
       type: game.type,
       name: game.name,
       date: game.date,
@@ -32,14 +32,11 @@ export default async function handler(request, response) {
         ],
       },
     }));
-    // const gameCards = await getAllGameCards();
     return response.status(200).json(sanitizedGameCard);
   } else if (request.method === "POST") {
     await dbConnect();
     const newGame = JSON.parse(request.body);
-    // console.log(newGame);
     const addGameCard = await GameCard.create(newGame);
-    // console.log(addGameCard);
     return response
       .status(201)
       .json({ message: "Gamecard created", addGameCard: addGameCard });

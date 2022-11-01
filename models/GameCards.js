@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 const gameCardSchema = new Schema({
-  id: { type: String, required: true },
+  id: { type: String, required: false },
   type: { type: String, required: true },
   name: { type: String, required: true },
   date: { type: String, required: true },

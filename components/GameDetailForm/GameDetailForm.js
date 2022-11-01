@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default function GameDetails({ id, showMoreDetails, results }) {
   const updateGameDetail = useStore((state) => state.updateGameDetail);
 
-  // useStates or controlled input
+  // useStates for controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
 
   const [firstSetScorePlayerOne, setFirstSetScorePlayerOne] = useState(

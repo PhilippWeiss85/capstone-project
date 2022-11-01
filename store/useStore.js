@@ -1,13 +1,11 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import { examplegames } from "../lib/db";
 import { nanoid } from "nanoid";
 
 const useStore = create(
   persist(
     (set) => {
       return {
-        // games: examplegames,
         games: [],
 
         getInitialGameState: async () => {
@@ -55,7 +53,6 @@ const useStore = create(
             body: JSON.stringify(newGame),
           });
           const newGameObject = await res.json();
-          console.log(newGameObject);
 
           set((state) => {
             return {
@@ -70,7 +67,6 @@ const useStore = create(
             method: "DELETE",
           });
           const deleteGameCard = await response.json();
-          console.log(deleteGameCard);
 
           set((state) => {
             const gameListAfterDeletion = state.games.filter(
