@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { BsChevronDoubleLeft } from "react-icons/bs";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 export default function Header() {
   const router = useRouter();
@@ -19,7 +20,9 @@ export default function Header() {
       ) : (
         router.pathname === "/form" && <h1>Create a new card</h1>
       )}
-      <StyledNav></StyledNav>
+      <MenuWrapper>
+        <BurgerMenu />
+      </MenuWrapper>
     </HeadWrapper>
   );
 }
@@ -27,27 +30,25 @@ export default function Header() {
 const HeadWrapper = styled.main`
   background-color: var(--background-navigation);
   margin-bottom: 2em;
-  padding: 0 2em;
+  padding: 0 1em;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-`;
-
-const StyledNav = styled.nav`
-  top: 0.7em;
-  right: 0.2em;
-  font-size: 2em;
 `;
 
 const PreviousPageIcon = styled.button`
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  font-size: 1.5em;
+  font-size: 1.8em;
+`;
+
+const MenuWrapper = styled.div`
+  height: 2em;
+  width: 2em;
 `;
