@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 import AnchorLink from "../components/StyledLink";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,16 +15,16 @@ export default function Home() {
 
       <MainWrapper>
         <h1>My App</h1>
-
+        <Image
+          src="/assets/Entry_Image_2400x1600.jpg"
+          alt="Entry image"
+          layout="fill"
+          objectFit="contain"
+          width={2400}
+          height={1600}
+        />
         <Link href="/gamelist" passHref>
-          <CategoryContainer>
-            <AnchorLink>gamelist</AnchorLink>
-          </CategoryContainer>
-        </Link>
-        <Link href="/lessons" passHref>
-          <CategoryContainer>
-            <AnchorLink>lessons</AnchorLink>
-          </CategoryContainer>
+          <StyledHeadline>Click to enter...</StyledHeadline>
         </Link>
       </MainWrapper>
     </div>
@@ -37,13 +38,17 @@ const MainWrapper = styled.main`
   justify-content: center;
   align-items: center;
   gap: 2em;
+  height: 100vh;
+  background: #0d0d0d;
 `;
 
-const CategoryContainer = styled.div`
-  width: 60%;
-  height: 200px;
-  border: 3px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const StyledHeadline = styled.h1`
+  position: absolute;
+  bottom: 25%;
+  z-index: 200;
+  color: #fff;
+
+  :hover {
+    color: red;
+  }
 `;

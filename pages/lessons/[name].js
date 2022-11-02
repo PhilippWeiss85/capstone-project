@@ -45,7 +45,7 @@ export default function SingleLesson({
 }) {
   return (
     <MainWrapper>
-      <h1>The tennis {name}</h1>
+      <h1>THE {name.toUpperCase()}</h1>
 
       <Image
         src={image}

@@ -2,13 +2,21 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
       :root {
-          --text-primary: #0c2c4d;
-          --background-primary: #edf0f5;
-          --background-secondary: #ADE856;
-          --box-shadow: hsla(241, 91%, 13%, 0.5);
+          --text-primary: #22b1a4;
+          --text-secondary: #ffffff;
+          --text-tertiary: #044454;
+          --background-primary: #050a19;
+          --background-secondary: #044454;
+          --background-tertiary: #b6cbbc;
+          --background-navigation: #d9d9d9;
+
+          /* --background-secondary: #b6cbbc; */
+          --attention-color-primary: #ec0c53;
+          --box-shadow: #ffffff;
           --background-true: hsla(141, 56%, 41%, 0.5);
           --background-false: hsla(10, 72%, 49%, 0.5);
-          --background-formlabel: hsla(241, 91%, 13%, 0.2)
+          /* --background-formlabel: hsla(241, 91%, 13%, 0.2) */
+          --background-forminput: #abc9c6;
       }
 
       /* noto-sans-regular - latin */
@@ -34,14 +42,13 @@ const GlobalStyle = createGlobalStyle`
           background-color: var(--background-primary);
           color: var(--text-primary);
           
-
       }
 
       h1 {
         position: relative;
         font-size: 1.5em;
         text-align: center;
-        padding-bottom: 1em;
+        padding: 1em 0;
       }
 
       h2 {

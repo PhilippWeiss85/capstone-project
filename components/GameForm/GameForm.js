@@ -168,7 +168,8 @@ const SubmitButton = styled.button`
   }
 
   &:active {
-    box-shadow: 3px 3px #000000;
+    box-shadow: 3px 3px var(--attention-color-primary);
+    background-color: var(--background-primary);
   }
 `;
 
@@ -181,6 +182,7 @@ const FormContainer = styled.form`
   padding: 1em 0.2em;
   max-width: 640px;
   margin: 0 auto;
+  background-color: var(--background-primary);
 `;
 
 const FormFieldSetRadio = styled.fieldset`
