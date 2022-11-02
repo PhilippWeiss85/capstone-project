@@ -26,7 +26,9 @@ export default function Header() {
 const HeadWrapper = styled.main`
   background-color: var(--background-navigation);
   margin-bottom: 2em;
-  border-radius: 0;
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 `;
 
 const StyledNav = styled.nav`

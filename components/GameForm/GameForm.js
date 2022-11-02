@@ -178,11 +178,9 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 4px solid var(--box-shadow);
   padding: 1em 0.2em;
   max-width: 640px;
   margin: 0 auto;
-  background-color: var(--background-primary);
 `;
 
 const FormFieldSetRadio = styled.fieldset`
@@ -217,10 +215,11 @@ const InputContainer = styled.input`
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
-  color: var(--box-shadow);
+  color: var(--background-primary);
+  background: var(--background-forminput);
 
   &::-webkit-datetime-edit-text {
-    color: #000000;
+    color: var(--background-primary);
     padding: 0 0.3em;
   }
 
@@ -240,7 +239,7 @@ const InputDropdown = styled.select`
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
-  color: var(--box-shadow);
+  background: var(--background-forminput);
 `;
 
 const FormList = styled.ul`
@@ -251,6 +250,7 @@ const FormList = styled.ul`
   width: 100%;
   padding: 0.3em 0;
   margin: 1em 0;
+  background: var(--background-forminput);
 `;
 
 const FormRadioItem = styled.li`

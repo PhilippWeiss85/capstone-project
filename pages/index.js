@@ -48,6 +48,7 @@ const StyledHeadline = styled.h1`
   color: #fff;
 
   :hover {
-    color: red;
+    color: var(--attention-color-primary);
+    cursor: pointer;
   }
 `;

@@ -7,7 +7,12 @@ import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
 
 import styled from "styled-components";
-import { BsPersonCircle, BsX, BsThreeDots } from "react-icons/bs";
+import {
+  BsPersonCircle,
+  BsX,
+  BsChevronDoubleDown,
+  BsChevronDoubleUp,
+} from "react-icons/bs";
 
 export default function GameCard({ type, name, date, time, place, court, id, results }) {
   const deleteGame = useStore((state) => state.deleteGame);
@@ -61,7 +66,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
         )}
         <EditButtonContainer>
           <EditButton handleClick={showMoreDetails}>
-            <BsThreeDots />
+            {showMore === true ? <BsChevronDoubleUp /> : <BsChevronDoubleDown />}
           </EditButton>
         </EditButtonContainer>
       </CardContainer>
@@ -81,7 +86,7 @@ const CardType = styled.h2`
   padding: 0.2em 0.4em;
   z-index: 200;
   color: var(--text-secondary);
-  background: ${({ type }) => (type === "Match" ? "#2ea357" : "#d74123")};
+  background: ${({ type }) => (type === "Match" ? "#165D29" : "#6A1F1F ")};
 `;
 
 const CardContainer = styled.section`
@@ -89,7 +94,7 @@ const CardContainer = styled.section`
   margin: auto 1em;
   mix-blend-mode: normal;
   position: relative;
-  box-shadow: 4px 4px 4px var(--box-shadow);
+  box-shadow: 4px 4px 4px 1px hsl(241deg 13% 40%);
   background: var(--background-secondary);
 `;
 
@@ -97,10 +102,8 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 1.3em 0 0.8em 0;
-  gap: 1.5em;
-  word-break: break-all;
-  color: var(--text-primary);
+  margin: 2em 0 0.8em 0;
+  gap: 1em;
   font-size: 1.3em;
 `;
 
@@ -114,17 +117,17 @@ const PlayerIconContainer = styled.div`
 const PlayerNameContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
-  width: 45%;
+  font-size: 0.7em;
+  width: 30%;
 `;
 
 const ResultContainer = styled.div`
-  box-shadow: 1px 1px 1px var(--background-tertiary);
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
   display: flex;
   align-items: center;
-  gap: 1.5em;
-  width: 45%;
+  width: 60%;
+  font-size: 0.7em;
 `;
 
 const DeleteButtonContainer = styled.div`
@@ -138,6 +141,7 @@ const DeleteButtonContainer = styled.div`
 const EditButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 0.5em;
 `;
 
 const CardList = styled.article`

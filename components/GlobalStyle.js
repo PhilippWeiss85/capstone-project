@@ -49,6 +49,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.5em;
         text-align: center;
         padding: 1em 0;
+        
+    
       }
 
       h2 {
