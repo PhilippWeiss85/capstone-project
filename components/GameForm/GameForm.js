@@ -179,6 +179,8 @@ const FormContainer = styled.form`
   justify-content: center;
   border: 4px solid var(--box-shadow);
   padding: 1em 0.2em;
+  max-width: 640px;
+  margin: 0 auto;
 `;
 
 const FormFieldSetRadio = styled.fieldset`

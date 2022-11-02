@@ -1,89 +1,121 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
-import { examplegames, games } from "../lib/db";
-import { nanoid } from "nanoid";
 
-const useStore = create(
-  persist(
-    (set) => {
-      return {
-        games: examplegames,
+const useStore = create((set) => {
+  return {
+    games: [],
 
-        // append new card via form
-        appendNewGame: (type, name, date, time, place, court) => {
-          set((state) => {
-            const newGameList = [
-              {
-                id: nanoid(),
-                type: type,
-                name: name,
-                date: date,
-                time: time,
-                place: place,
-                court: court,
-                results: {
-                  gameresult: undefined,
-                  set: [
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                    {
-                      Player1: "",
-                      Player2: "",
-                    },
-                  ],
-                },
-              },
-              ...state.games,
-            ];
-            return {
-              games: newGameList,
-            };
-          });
-        },
+    getInitialGameState: async () => {
+      const res = await fetch("/api/gamelist");
+      const initialGamesList = await res.json();
 
-        // delete card with "x"-icon in gamelist
-        deleteGame: (id) => {
-          set((state) => {
-            const gameListAfterDeletion = state.games.filter((game) => game.id !== id);
-            return {
-              games: gameListAfterDeletion,
-            };
-          });
-        },
+      set((state) => {
+        return {
+          games: initialGamesList ?? [], // set initial games array to db fetch
+        };
+      });
+    },
 
-        // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
-        updateGameDetail: (id, gameresult, set1, set2, set3) => {
-          set((state) => {
-            const updatedGameList = state.games.map((game) => {
-              if (game.id === id) {
-                const gameToUpdate = {
-                  ...game,
-                  results: {
-                    gameresult: gameresult,
-                    set: [set1, set2, set3],
-                  },
-                };
-                return gameToUpdate;
-              }
-              return game;
-            });
-            return {
-              games: updatedGameList,
-            };
-          });
+    // append new card via form
+    appendNewGame: async (type, name, date, time, place, court) => {
+      const newGame = {
+        type: type,
+        name: name,
+        date: date,
+        time: time,
+        place: place,
+        court: court,
+        results: {
+          gameresult: "",
+          set: [
+            {
+              Player1: "",
+              Player2: "",
+            },
+            {
+              Player1: "",
+              Player2: "",
+            },
+            {
+              Player1: "",
+              Player2: "",
+            },
+          ],
         },
       };
+
+      const res = await fetch("/api/gamelist", {
+        method: "POST",
+        body: JSON.stringify(newGame),
+      });
+      const newGameObject = await res.json(); // includes message & addGameCard from api/gamelist
+
+      const sanitizedNewGameObject = {
+        ...newGameObject.addGameCard,
+        id: newGameObject.addGameCard._id,
+      }; // translate _id to id to prevent rendering issue in gamelist page (key prop)
+
+      set((state) => {
+        return {
+          games: [...state.games, sanitizedNewGameObject],
+        };
+      });
     },
-    {
-      name: "GameCard",
-    }
-  )
-);
+
+    // delete card with "x"-icon in gamelist
+    deleteGame: async (id) => {
+      const response = await fetch(`/api/gamelist/${id}`, {
+        method: "DELETE",
+      });
+      const deleteGameCard = await response.json();
+
+      set((state) => {
+        const gameListAfterDeletion = state.games.filter(
+          (game) => game.id !== deleteGameCard._id
+        );
+        return {
+          games: gameListAfterDeletion,
+        };
+      });
+    },
+
+    // used https://www.robinwieruch.de/react-update-item-in-list/ as tutorial
+    updateGameDetail: async (id, gameresult, set1, set2, set3) => {
+      const updatedGameCard = {
+        results: {
+          gameresult: gameresult,
+          set: [set1, set2, set3],
+        },
+      };
+
+      const response = await fetch(`api/gamelist/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify(updatedGameCard),
+      });
+      const updateGameCardResult = await response.json();
+
+      set((state) => {
+        const updatedGameList = state.games.map((game) => {
+          if (game.id === updateGameCardResult._id) {
+            // match id with _id to return if statement properly
+
+            const gameToUpdate = {
+              ...game,
+              results: updateGameCardResult.results,
+            };
+
+            return gameToUpdate;
+          }
+
+          return game;
+        });
+
+        return {
+          games: updatedGameList,
+        };
+      });
+    },
+  };
+});
 
 export default useStore;

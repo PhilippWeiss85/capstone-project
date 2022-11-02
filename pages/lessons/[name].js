@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { getLessonByName, getAllLessons } from "../../lib/db";
 import Image from "next/image";
+import dbConnect from "../../lib/dbConnect";
+import { getAllLessons, getLessonByName } from "../../services/lessonServices";
 
 export async function getStaticPaths() {
+  dbConnect();
   const lessons = await getAllLessons();
   const names = lessons.map((lesson) => lesson.name);
 
@@ -13,12 +15,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  dbConnect();
   const { name } = context.params;
   const lessons = await getLessonByName(name);
 
   return {
     props: {
-      id: lessons.id,
       name: lessons.name,
       description: lessons.description,
       image: lessons.image,
@@ -50,8 +52,8 @@ export default function SingleLesson({
         alt={alt}
         layout="responsive"
         objectFit="cover"
-        width={1024}
-        height={512}
+        width={1710}
+        height={1198}
       />
       <ContentWrapper>
         <ArticleWrapper>
@@ -61,10 +63,12 @@ export default function SingleLesson({
         <ArticleWrapper>
           <h2>Steps</h2>
           <ListWrapper>
-            <ListItem>Grip: {step1}</ListItem>
-            <ListItem>{step2}</ListItem>
-            <ListItem>{step3}</ListItem>
-            <ListItem>{step4}</ListItem>
+            <ListItem>
+              <span>Grip:</span> {step1}
+            </ListItem>
+            <ListItem>Stance/Position: {step2}</ListItem>
+            <ListItem>Swing: {step3}</ListItem>
+            <ListItem>Follow Through: {step4}</ListItem>
           </ListWrapper>
         </ArticleWrapper>
       </ContentWrapper>
@@ -83,7 +87,7 @@ const ContentWrapper = styled.section`
 const ArticleWrapper = styled.article`
   gap: 1em;
   padding-top: 1em;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 const ListWrapper = styled.ol`

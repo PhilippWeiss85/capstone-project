@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { getAllLessons } from "../../lib/db";
+import dbConnect from "../../lib/dbConnect";
+import { getAllLessons } from "../../services/lessonServices";
 
 export async function getStaticProps() {
+  await dbConnect();
   const lessons = await getAllLessons();
 
   return {
@@ -17,7 +19,9 @@ export default function LessonsList({ lessons }) {
       <h1>Your Training Progress</h1>
       {lessons.map((lesson) => (
         <LessonContainer key={lesson.id}>
-          <h2>{lesson.name.toUpperCase()}</h2>
+          <Link href={`/lessons/${lesson.name}`}>
+            <StyledH2>{lesson.name.toUpperCase()}</StyledH2>
+          </Link>
           <Link href={`/lessons/${lesson.name}`}>
             <a>
               <Image
@@ -25,8 +29,8 @@ export default function LessonsList({ lessons }) {
                 alt={lesson.alt}
                 layout="responsive"
                 objectFit="contain"
-                width={1024}
-                height={512}
+                width={1710}
+                height={1198}
               />
             </a>
           </Link>
@@ -40,6 +44,32 @@ const MainWrapper = styled.main`
   margin: 10vw;
 `;
 
+const StyledH2 = styled.h2`
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
+  color: #ffffff;
+  width: 100%;
+  padding: 0.4em;
+
+  &:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: #000000;
+  }
+`;
+
 const LessonContainer = styled.section`
   margin: 2em auto;
+  position: relative;
+  &:hover {
+  }
+
+  &:active {
+    box-shadow: 2px 2px 2px #000000;
+  }
 `;
