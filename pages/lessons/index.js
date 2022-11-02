@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function LessonsList({ lessons }) {
   return (
-    <main>
+    <MainWrapper>
       {lessons.map((lesson) => (
         <LessonContainer key={lesson.id}>
           <Link href={`/lessons/${lesson.name}`}>
@@ -35,9 +35,13 @@ export default function LessonsList({ lessons }) {
           </Link>
         </LessonContainer>
       ))}
-    </main>
+    </MainWrapper>
   );
 }
+
+const MainWrapper = styled.main`
+  margin: 10vw;
+`;
 
 const StyledH2 = styled.h2`
   position: absolute;
@@ -49,22 +53,22 @@ const StyledH2 = styled.h2`
   padding: 0.4em;
 
   &:hover {
-    background-color: var(--background-secondary);
+    background-color: red;
+    cursor: pointer;
   }
 
   &:active {
-    box-shadow: 3px 3px var(--attention-color-primary);
-    background-color: var(--background-primary);
+    background-color: black;
   }
 `;
 
 const LessonContainer = styled.section`
-  margin: 0 auto 2em auto;
+  margin: 2em auto;
+  max-width: 640px;
   position: relative;
   &:hover {
   }
 
   &:active {
-    box-shadow: 2px 2px 2px #000000;
   }
 `;

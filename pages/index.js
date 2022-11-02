@@ -19,7 +19,7 @@ export default function Home() {
           src="/assets/Entry_Image_2400x1600.jpg"
           alt="Entry image"
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
           width={2400}
           height={1600}
         />
@@ -39,7 +39,6 @@ const MainWrapper = styled.main`
   align-items: center;
   gap: 2em;
   height: 100vh;
-  background: #0d0d0d;
 `;
 
 const StyledHeadline = styled.h1`
