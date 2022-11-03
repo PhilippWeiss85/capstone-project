@@ -98,7 +98,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
       <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
         <ResultLegend aria-label="Add your result">Result</ResultLegend>
-        <ResultLabelLeft htmlFor="result">won</ResultLabelLeft>
+        <ResultLabelLeft htmlFor="won">won</ResultLabelLeft>
         <ResultsInput
           aria-labelledby="I won"
           type="radio"
@@ -106,7 +106,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           value="won"
           checked={finalResult === "won"}
           onChange={(event) => setFinalResult(event.target.value)}
-          id="resultwon"
+          id="won"
           required
         />
         <ResultsInput
@@ -116,10 +116,10 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           value="lost"
           checked={finalResult === "lost"}
           onChange={(event) => setFinalResult(event.target.value)}
-          id="resultlost"
+          id="lost"
           required
         />
-        <ResultLabelRight htmlFor="result">lost</ResultLabelRight>
+        <ResultLabelRight htmlFor="lost">lost</ResultLabelRight>
       </FieldsetsGame>
 
       <Fieldsets>
