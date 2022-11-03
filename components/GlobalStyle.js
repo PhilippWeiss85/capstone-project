@@ -9,13 +9,10 @@ const GlobalStyle = createGlobalStyle`
           --background-secondary: #044454;
           --background-tertiary: #b6cbbc;
           --background-navigation: #d9d9d9;
-
-          /* --background-secondary: #b6cbbc; */
           --attention-color-primary: #ec0c53;
           --box-shadow: #ffffff;
           --background-true: hsla(141, 56%, 41%, 0.5);
           --background-false: hsla(10, 72%, 49%, 0.5);
-          /* --background-formlabel: hsla(241, 91%, 13%, 0.2) */
           --background-forminput: #abc9c6;
       }
 
