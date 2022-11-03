@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
@@ -11,7 +10,6 @@ export default function GameList() {
   }, [getInitialGameState]); // why ist there a problem with missing dependency??? App works fine
 
   const gameList = useStore((state) => state.games);
-  const router = useRouter();
 
   const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
     ssr: false,
