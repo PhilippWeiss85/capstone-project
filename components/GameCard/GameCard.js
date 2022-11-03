@@ -48,16 +48,16 @@ export default function GameCard({ type, name, date, time, place, court, id, res
         </DeleteButtonContainer>
         <CardList>
           <DateHeadline> Date:</DateHeadline>
-          <p> {date}</p>
+          <StyledContent> {date}</StyledContent>
 
           <TimeHeadline>Time:</TimeHeadline>
-          <p>{time} </p>
+          <StyledContent>{time} </StyledContent>
 
           <PlaceHeadline>Place:</PlaceHeadline>
-          <p> {place} </p>
+          <StyledContent> {place} </StyledContent>
 
           <CourtHeadline>Court:</CourtHeadline>
-          <p> {court} </p>
+          <StyledContent> {court} </StyledContent>
         </CardList>
         {showMore === true ? (
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
@@ -157,13 +157,21 @@ const CardList = styled.article`
 
 const DateHeadline = styled.p`
   grid-area: date;
+  margin: 0.2em 0;
 `;
 const TimeHeadline = styled.p`
   grid-area: time;
+  margin: 0.2em 0;
 `;
 const PlaceHeadline = styled.p`
   grid-area: place;
+  margin: 0.2em 0;
 `;
 const CourtHeadline = styled.p`
   grid-area: court;
+  margin: 0.2em 0;
+`;
+
+const StyledContent = styled.p`
+  margin: 0.2em 0;
 `;

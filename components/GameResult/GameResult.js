@@ -55,7 +55,7 @@ const Result = styled.p`
   grid-area: result;
   display: flex;
   justify-content: center;
-  padding: 1em;
+  padding: 0 1em;
   height: 1.5em;
   align-items: center;
   color: #000000;
