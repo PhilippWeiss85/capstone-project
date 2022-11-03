@@ -4,36 +4,37 @@ import useStore from "../../store/useStore";
 
 export default function LineChart() {
   const gameList = useStore((state) => state.games);
-  // Calculate won/lost games
 
-  //   let gamesWon = 0;
-  //   let gamesLost = 0;
-  //   gameList.map((game) => {
-  //     if (game.results.gameresult === "won") {
-  //       gamesWon = ++gamesWon;
-  //     }
-  //     if (game.results.gameresult === "lost") {
-  //       gamesLost = ++gamesLost;
-  //     }
-  //   });
+  // get gameDates
+  const gameDates = gameList.map((game) => {
+    return game.date;
+  });
 
-  //   const gameResultStats = [gamesWon, gamesLost];
+  // get won/lost games
+  const gamesWon = gameList.map((game) => {
+    return game.results.gameresult === "won";
+  });
+  const gamesLost = gameList.map((game) => {
+    return game.results.gameresult === "lost";
+  });
 
-  const config = {
-    type: "line",
-    data: data,
-  };
-
-  const labels = [1, 2, 3, 4];
+  const labels = gameDates;
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "My First Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "Won",
+        data: gamesWon,
         fill: false,
         borderColor: "rgb(75, 192, 192)",
-        tension: 0.1,
+        tension: 0.3,
+      },
+      {
+        label: "Lost",
+        data: gamesLost,
+        fill: false,
+        borderColor: "rgb(10, 19, 192)",
+        tension: 0.3,
       },
     ],
   };
