@@ -36,9 +36,6 @@ export default function GameList() {
             />
           );
         })}
-        <ButtonContainer>
-          <Button handleClick={() => router.push("/form")}>Add new card</Button>
-        </ButtonContainer>
       </MainWrapper>
     </>
   );
@@ -47,9 +44,4 @@ export default function GameList() {
 const MainWrapper = styled.main`
   max-width: 640px;
   margin: 0 auto;
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
 `;

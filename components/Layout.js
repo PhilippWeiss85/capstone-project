@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import styled from "styled-components";
 
 export default function Layout({ children }) {
@@ -6,6 +7,7 @@ export default function Layout({ children }) {
     <>
       <Header />
       <StyledMain>{children}</StyledMain>
+      <Footer />
     </>
   );
 }

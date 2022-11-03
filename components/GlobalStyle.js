@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
       * {
           box-sizing: border-box;
           padding: 0;
-          margin: 0;
+          
           border-radius: 5px;
       }
   
@@ -41,14 +41,14 @@ const GlobalStyle = createGlobalStyle`
           font-family: 'Noto Sans', sans-serif;
           background-color: var(--background-primary);
           color: var(--text-primary);
-          
+          margin: 0 0 70px 0;
       }
 
       h1 {
         position: relative;
         font-size: 1.5em;
         text-align: center;
-        padding: 1em 0;
+        padding: 0 0;
         
     
       }

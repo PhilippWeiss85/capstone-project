@@ -178,7 +178,7 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em 0.2em;
+  padding: 0 0.2em;
   max-width: 640px;
   margin: 0 auto;
 `;

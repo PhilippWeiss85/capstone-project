@@ -146,12 +146,11 @@ const EditButtonContainer = styled.div`
 
 const CardList = styled.article`
   display: grid;
-  grid-template-rows: auto;
   grid-template-areas: "date" "time" "place" "court";
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: column;
-  gap: 0.5em;
-  mix-blend-mode: normal;
-  padding: 1em 1em;
+  padding: 0 1em;
+  gap: 0;
   box-shadow: 2px 1px 2px 1px var(--background-tertiary);
   border-radius: 10px;
 `;
