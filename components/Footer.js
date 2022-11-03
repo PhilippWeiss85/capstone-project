@@ -9,13 +9,13 @@ export default function Footer() {
 
   return (
     <FooterWrapper>
-      <IconWrapper onClick={() => router.push("/gamelist")}>
+      <IconWrapper type="button" onClick={() => router.push("/gamelist")}>
         <BiHomeHeart />
       </IconWrapper>
-      <IconWrapper onClick={() => router.push("/form")}>
+      <IconWrapper type="button" onClick={() => router.push("/form")}>
         <RiAddLine />
       </IconWrapper>
-      <IconWrapper onClick={() => router.push("/lessons")}>
+      <IconWrapper type="button" onClick={() => router.push("/lessons")}>
         <BsJournalText />
       </IconWrapper>
     </FooterWrapper>

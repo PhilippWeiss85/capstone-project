@@ -36,7 +36,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
             ""
           ) : (
             <ResultContainer>
-              <GameResult results={results} />{" "}
+              <GameResult results={results} />
             </ResultContainer>
           )}
         </PlayersAndResults>
