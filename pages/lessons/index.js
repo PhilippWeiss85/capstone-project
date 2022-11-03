@@ -16,7 +16,6 @@ export async function getStaticProps() {
 export default function LessonsList({ lessons }) {
   return (
     <MainWrapper>
-      <h1>Your Training Progress</h1>
       {lessons.map((lesson) => (
         <LessonContainer key={lesson.id}>
           <Link href={`/lessons/${lesson.name}`}>
@@ -54,22 +53,22 @@ const StyledH2 = styled.h2`
   padding: 0.4em;
 
   &:hover {
-    background-color: #ffffff;
+    background-color: red;
     cursor: pointer;
   }
 
   &:active {
-    background-color: #000000;
+    background-color: black;
   }
 `;
 
 const LessonContainer = styled.section`
   margin: 2em auto;
+  max-width: 640px;
   position: relative;
   &:hover {
   }
 
   &:active {
-    box-shadow: 2px 2px 2px #000000;
   }
 `;

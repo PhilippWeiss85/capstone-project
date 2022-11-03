@@ -56,22 +56,25 @@ const Result = styled.p`
   display: flex;
   justify-content: center;
   padding: 1em;
+  height: 1.5em;
   align-items: center;
+  color: #000000;
+
   background: ${({ gameresult }) =>
     gameresult === "won" ? "#2ea357" : gameresult === "lost" ? "#d74123" : ""};
 `;
 
 const AllSets = styled.article`
-  background-color: var(--background-primary);
   gap: 0.5em;
-  border: 3px solid black;
+  width: 100%;
+  margin-left: 1em;
+  color: #000000;
 `;
 
 const SetContainer = styled.aside`
-  background-color: var(--background-primary);
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.2em;
 `;
 

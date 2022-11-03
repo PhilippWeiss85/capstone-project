@@ -1,5 +1,5 @@
 import create from "zustand";
-import { persist } from "zustand/middleware";
+import { AiFillAlert, AiFillAlipaySquare } from "react-icons/ai";
 
 const useStore = create((set) => {
   return {
@@ -8,7 +8,6 @@ const useStore = create((set) => {
     getInitialGameState: async () => {
       const res = await fetch("/api/gamelist");
       const initialGamesList = await res.json();
-
       set((state) => {
         return {
           games: initialGamesList ?? [], // set initial games array to db fetch

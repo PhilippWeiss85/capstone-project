@@ -11,11 +11,7 @@ const StyledButton = styled.button`
   border: none;
 
   &:hover {
-    transition: 0.2s ease-in-out;
-    font-size: 2.3em;
-  }
-
-  &:active {
-    color: var(--background-secondary);
+    transition: 0.1s ease-in-out;
+    color: var(--color-tertiary);
   }
 `;
