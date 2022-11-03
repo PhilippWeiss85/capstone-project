@@ -76,7 +76,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
 
 const Card = styled.section`
   position: relative;
-  margin: 3em 0;
+  margin: 0 0;
 `;
 
 const CardType = styled.h2`
@@ -91,7 +91,7 @@ const CardType = styled.h2`
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: auto 1em;
+  margin: 2em 1em;
   mix-blend-mode: normal;
   position: relative;
   box-shadow: 4px 4px 4px 1px hsl(241deg 13% 40%);

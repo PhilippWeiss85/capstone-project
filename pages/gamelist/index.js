@@ -60,6 +60,7 @@ const MainWrapper = styled.main`
 const StyledHeadline = styled.h2`
   text-align: center;
   padding: 0;
+  margin: 1em 0;
 `;
 
 const StatisticWrapper = styled.section`
@@ -67,4 +68,13 @@ const StatisticWrapper = styled.section`
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--background-secondary);
+  }
 `;
