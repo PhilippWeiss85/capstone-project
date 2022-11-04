@@ -3,8 +3,11 @@ import useStore from "../../store/useStore";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import PieChart from "../../components/Charts/PieChart";
-import LineChart from "../../components/Charts/LineChart";
-import { CanvasContainer } from "../../components/Charts/CanvasContainer";
+import {
+  PieChartContainer,
+  BarChartContainer,
+} from "../../components/Charts/CanvasContainer";
+import BarChart from "../../components/Charts/BarChart";
 
 export default function GameList() {
   const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
@@ -23,13 +26,12 @@ export default function GameList() {
       <MainWrapper>
         <StyledHeadline>Your Statistics</StyledHeadline>
         <StatisticWrapper>
-          <CanvasContainer>
+          <PieChartContainer>
             <PieChart />
-          </CanvasContainer>
-          <CanvasContainer>
-            <LineChart />
-            <LineChart />
-          </CanvasContainer>
+          </PieChartContainer>
+          <BarChartContainer>
+            <BarChart />
+          </BarChartContainer>
         </StatisticWrapper>
         <StyledHeadline>Your Games</StyledHeadline>
         {gameList.map((game) => {

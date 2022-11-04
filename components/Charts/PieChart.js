@@ -30,5 +30,5 @@ export default function PieChart() {
       },
     ],
   };
-  return <Pie data={data} />;
+  return <Pie data={data} height={300} />;
 }

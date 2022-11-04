@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import AnchorLink from "../components/StyledLink";
+
 import Image from "next/image";
 
 export default function Home() {
