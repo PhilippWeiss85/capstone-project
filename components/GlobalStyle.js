@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
           --background-true: hsla(141, 56%, 41%, 0.5);
           --background-false: hsla(10, 72%, 49%, 0.5);
           --background-forminput: #abc9c6;
+
       }
 
       /* noto-sans-regular - latin */

@@ -18,34 +18,27 @@ export default function BarChart() {
   }
 
   const numberOfCourtsPlayed = getWordCount(courts);
+  console.log(numberOfCourtsPlayed);
 
+  const labels = [];
   const data = {
     labels: [],
+
     datasets: [
       {
-        label: "Your most played courts",
+        label: "Played courts",
         data: numberOfCourtsPlayed,
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(75, 192, 192)",
-          "rgb(255, 205, 86)",
-          "rgb(201, 203, 207)",
-          "rgb(54, 162, 235)",
-        ],
+        backgroundColor: ["#d9fbfb", "	#9ef0f0", "#3ddbd9", "#08bdba"],
       },
     ],
-  };
-
-  const options = {
-    scales: {
-      x: {
-        display: true,
-      },
-      y: {
-        display: true,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
       },
     },
   };
 
-  return <Bar data={data} options={options} height={300} width={450} />;
+  return <Bar data={data} height={300} width={400} />;
 }
