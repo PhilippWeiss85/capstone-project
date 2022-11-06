@@ -18,7 +18,6 @@ export default function BarChart() {
   }
 
   const numberOfCourtsPlayed = getWordCount(courts);
-  console.log(numberOfCourtsPlayed);
 
   const labels = "Number of courts played";
   const options = {
