@@ -21,7 +21,6 @@ export default function GameList() {
   return (
     <>
       <MainWrapper>
-        <StyledHeadline>Your Statistics</StyledHeadline>
         <StatisticWrapper>
           <ChartContainer>
             <PieChart />
@@ -30,7 +29,6 @@ export default function GameList() {
             <BarChart />
           </ChartContainer>
         </StatisticWrapper>
-        <StyledHeadline>Your Games</StyledHeadline>
         {gameList.map((game) => {
           return (
             <DynamicGameCard
@@ -56,14 +54,7 @@ const MainWrapper = styled.main`
   margin: 0 auto;
 `;
 
-const StyledHeadline = styled.h2`
-  text-align: center;
-  padding: 0;
-  margin: 1em 0;
-`;
-
 const StatisticWrapper = styled.section`
-  padding: 1em 0;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;

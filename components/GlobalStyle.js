@@ -2,19 +2,14 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
       :root {
-          --text-primary: #808080; // p tags etc
-          --text-secondary: #ffffff; // content headline
-          --text-tertiary: #4D4D4D; // navigation
-          --text-navigation: #BBF244;
-          --background-primary: #F0F7F5; //like white/grey
-          --background-secondary:#E6EDEB;
-          --background-tertiary: #b6cbbc;
-          --background-navigation: #012340;
-          --background-navgation-active: #ffffff;
+          --text-primary: #4D4D4D; // p tags etc --> dark
+          --text-secondary: #ffffff; // content headline --> white
+          --text-navigation: #BBF244; // light yellow
+          --background-primary: #F0F7F5; // white/grey
+          --background-secondary:#E6EDEB; // cardcontainer color
+          --background-tertiary: #b6cbbc; // grey
+          --background-navigation: #012340; // darkblue
           --attention-color-primary: #ec0c53;
-          --box-shadow: #ffffff;
-          --background-true: hsla(141, 56%, 41%, 0.5);
-          --background-false: hsla(10, 72%, 49%, 0.5);
           --background-forminput: #abc9c6;
 
       }
