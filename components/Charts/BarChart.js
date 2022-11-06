@@ -28,7 +28,7 @@ export default function BarChart() {
       {
         label: "Played courts",
         data: numberOfCourtsPlayed,
-        backgroundColor: ["#d9fbfb", "	#9ef0f0", "#3ddbd9", "#08bdba"],
+        backgroundColor: ["	#ffd7d9", "#ffb3b8 ", "#ff8389", "#fa4d56 "],
       },
     ],
     options: {

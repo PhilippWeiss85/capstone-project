@@ -2,13 +2,15 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
       :root {
-          --text-primary: #22b1a4;
-          --text-secondary: #ffffff;
-          --text-tertiary: #044454;
-          --background-primary: #050a19;
-          --background-secondary: #044454;
+          --text-primary: #808080; // p tags etc
+          --text-secondary: #ffffff; // content headline
+          --text-tertiary: #4D4D4D; // navigation
+          --text-navigation: #BBF244;
+          --background-primary: #F0F7F5; //like white/grey
+          --background-secondary:#E6EDEB;
           --background-tertiary: #b6cbbc;
-          --background-navigation: #d9d9d9;
+          --background-navigation: #012340;
+          --background-navgation-active: #ffffff;
           --attention-color-primary: #ec0c53;
           --box-shadow: #ffffff;
           --background-true: hsla(141, 56%, 41%, 0.5);

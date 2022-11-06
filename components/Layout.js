@@ -13,5 +13,5 @@ export default function Layout({ children }) {
 }
 
 const StyledMain = styled.main`
-  min-height: calc(100vh - 8rem);
+  min-height: calc(100vh - 60px);
 `;

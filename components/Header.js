@@ -17,9 +17,10 @@ export default function Header() {
 
 const HeadWrapper = styled.main`
   background-color: var(--background-navigation);
+  border-radius: 0;
   margin-bottom: 2em;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -28,6 +29,7 @@ const HeadWrapper = styled.main`
 
 const Headline = styled.h1`
   text-align: center;
+  color: var(--text-navigation);
 `;
 
 const IconContainer = styled.button`
@@ -39,6 +41,7 @@ const IconContainer = styled.button`
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  color: var(--text-navigation);
 `;
 
 const PreviousPageIcon = styled(BsChevronDoubleLeft)`
