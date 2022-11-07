@@ -34,6 +34,7 @@ const FooterWrapper = styled.main`
   justify-content: space-around;
   align-items: center;
   z-index: 500;
+  border-radius: 0;
 `;
 
 const IconWrapper = styled.button`
@@ -48,9 +49,11 @@ const IconWrapper = styled.button`
   width: 4em;
   height: 60px;
   border-radius: 0;
+  color: var(--text-navigation);
 
   &:hover {
-    transition: 0.3s ease-in-out;
-    background-color: var(--background-secondary);
+    transition: 0.33s ease-in-out;
+    color: var(--background-navigation);
+    background-color: var(--text-navigation);
   }
 `;

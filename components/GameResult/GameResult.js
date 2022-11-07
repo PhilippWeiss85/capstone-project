@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FaTrophy } from "react-icons/fa";
+import { MdOutlineDoNotDisturbOn } from "react-icons/md";
 
 export default function GameResult({ results }) {
   // used for display logic of set containers
@@ -8,7 +10,10 @@ export default function GameResult({ results }) {
 
   return (
     <ResultContainer>
-      <Result gameresult={results.gameresult}>{results.gameresult}</Result>
+      <Result gameresult={results.gameresult}>
+        {results.gameresult.toUpperCase()}{" "}
+        {results.gameresult === "won" ? <FaTrophy /> : <MdOutlineDoNotDisturbOn />}
+      </Result>
       {emptySets.length < 3 && (
         <AllSets>
           {results.set[0].Player1 === "" ||
@@ -45,59 +50,55 @@ export default function GameResult({ results }) {
   );
 }
 
-const ResultContainer = styled.section`
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-areas: "result setone settwo setthree";
+const ResultContainer = styled.article`
+  width: 130px;
+  position: absolute;
 `;
 
 const Result = styled.p`
-  grid-area: result;
+  border-radius: 0;
   display: flex;
-  justify-content: center;
-  padding: 1em;
-  height: 1.5em;
+  justify-content: space-around;
   align-items: center;
-  color: #000000;
-
+  margin: 0;
+  color: var(--text-secondary);
+  height: 1.5em;
   background: ${({ gameresult }) =>
-    gameresult === "won" ? "#2ea357" : gameresult === "lost" ? "#d74123" : ""};
+    gameresult === "won"
+      ? "hsla(141, 50%, 50%, 1)"
+      : gameresult === "lost"
+      ? "	hsla(8, 95%, 51%, 1)"
+      : ""};
 `;
 
 const AllSets = styled.article`
-  gap: 0.5em;
   width: 100%;
-  margin-left: 1em;
-  color: #000000;
+  display: grid;
+  grid-template-areas: "set1 set2 set3";
+  grid-template-rows: 1.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--background-tertiary);
+  border-radius: 0;
 `;
 
 const SetContainer = styled.aside`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.2em;
+  justify-content: center;
+  background-color: #f0f7f5;
+  border-radius: 0;
+  margin: 0.15em 0.15em;
+  gap: 0.1em;
 `;
 
 const SetOne = styled.p`
-  grid-area: setone;
-  background-color: #ffffff;
-  width: 1.2em;
-  height: 1.2em;
-  text-align: center;
+  grid-area: set1;
 `;
 
 const SetTwo = styled.p`
-  grid-area: settwo;
-  background-color: #ffffff;
-  width: 1.2em;
-  height: 1.2em;
-  text-align: center;
+  grid-area: set2;
 `;
 
 const SetThree = styled.p`
-  grid-area: setthree;
-  background-color: #ffffff;
-  width: 1.2em;
-  height: 1.2em;
-  text-align: center;
+  grid-area: set3;
 `;

@@ -45,7 +45,7 @@ const MainWrapper = styled.main`
 
 const StyledH2 = styled.h2`
   position: absolute;
-  bottom: 0;
+  bottom: -0.6em;
   z-index: 100;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
   color: #ffffff;
