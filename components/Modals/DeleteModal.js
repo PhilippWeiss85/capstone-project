@@ -14,7 +14,7 @@ export default function DeleteModal({ id, setDeleteModal, deleteModal }) {
           <DeleteButton id={id} handleClick={deleteGame}>
             delete
           </DeleteButton>
-          <Button handleClick={setDeleteModal(false)}>cancel</Button>
+          <Button handleClick={() => setDeleteModal(false)}>cancel</Button>
         </ButtonContainer>
       </ModalContainer>
     </ModalOverlay>
