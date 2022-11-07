@@ -4,6 +4,11 @@ import { AiFillAlert, AiFillAlipaySquare } from "react-icons/ai";
 const useStore = create((set) => {
   return {
     games: [],
+    toggleModal: false,
+
+    // toggleModal: () => {
+    //   set((state) =>)
+    // }
 
     getInitialGameState: async () => {
       const res = await fetch("/api/gamelist");

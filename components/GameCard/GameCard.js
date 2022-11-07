@@ -91,8 +91,9 @@ const CardContainer = styled.section`
   margin: 2em 1em;
   mix-blend-mode: normal;
   position: relative;
-  box-shadow: 0 4px 2px 0px hsl(241deg 13% 40%);
-  background: var(--background-secondary);
+  border-radius: 0;
+  box-shadow: 0 1px 0px 0px var(--background-tertiary);
+  background: var(--background-primary);
 `;
 
 const PlayersAndResults = styled.article`

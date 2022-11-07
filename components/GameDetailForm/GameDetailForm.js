@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useStore from "../../store/useStore";
+import Modal from "../Modals/Modal";
 
 import styled from "styled-components";
 
@@ -86,7 +87,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
         );
         showMoreDetails();
       } else {
-        alert("Please enter both set scores to continue");
+        <Modal toggleModal={toggleModal} />;
+        // alert("Please enter both set scores to continue");
       }
     } else {
       alert("Please add the previous sets first");

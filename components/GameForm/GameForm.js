@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
+import Modal from "../Modals/Modal";
 
 import styled from "styled-components";
 
@@ -15,7 +16,8 @@ export default function AddGameForm() {
 
     // to prevent name emty name inputs
     if (data.opponent.trim() === "") {
-      window.alert("Please enter a valid name");
+      // window.alert("Please enter a valid name");
+      <Modal />;
     } else {
       appendNewGame(
         data.gametype,
@@ -68,7 +70,7 @@ export default function AddGameForm() {
         <InputContainer
           role="input"
           type="text"
-          minLength="2"
+          // minLength="2"
           required
           name="opponent"
           id="opponent"
