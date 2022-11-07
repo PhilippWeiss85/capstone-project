@@ -8,7 +8,8 @@ export default function PieChart() {
 
   let gamesWon = 0;
   let gamesLost = 0;
-  gameList.map((game) => {
+
+  gameList.forEach((game) => {
     if (game.results.gameresult === "won") {
       gamesWon = ++gamesWon;
     }
