@@ -21,6 +21,5 @@ describe("GameDetails", () => {
     render(<GameDetails id="3" showMoreDetails="true" results={testingResults} />);
 
     expect(screen.getAllByRole("numberinput")).toBeTruthy();
-    expect(screen.getAllByRole("numberinput")).not.toBeFalsy();
   });
 });
