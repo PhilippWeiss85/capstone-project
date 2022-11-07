@@ -100,7 +100,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
         <ResultLegend aria-label="Add your result">Result</ResultLegend>
         <ResultLabelLeft htmlFor="won">won</ResultLabelLeft>
         <ResultsInput
-          aria-labelledby="I won"
+          role="radioinput"
+          aria-label="won"
           type="radio"
           name="result"
           value="won"
@@ -110,7 +111,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           required
         />
         <ResultsInput
-          aria-labelledby="I lost"
+          aria-label="lost"
+          role="radioinput"
           type="radio"
           name="result"
           value="lost"
@@ -127,22 +129,24 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 1
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="firstsetplayerone"
           id="firstsetplayerone"
-          aria-label="Score player one"
+          aria-label="Set 1: Score player one"
           value={firstSetScorePlayerOne}
           onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="firstsetplayertwo"
           id="firstsetplayertwo"
-          aria-label="Score player two"
+          aria-label="Set 1: Score player two"
           value={firstSetScorePlayerTwo}
           onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
         />
@@ -153,22 +157,24 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 2
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="secondsetplayerone"
           id="secondsetplayerone"
-          aria-label="Score player one"
+          aria-label="Set 2: Score player one"
           value={secondSetScorePlayerOne}
           onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="secondsetplayertwo"
           id="secondsetplayertwo"
-          aria-label="Score player two"
+          aria-label="Set 2: Score player two"
           value={secondSetScorePlayerTwo}
           onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
         />
@@ -179,29 +185,31 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 3
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="thirdsetplayerone"
           id="thirdsetplayerone"
-          aria-label="Score player one"
+          aria-label="Set 3: Score player one"
           value={thirdSetScorePlayerOne}
           onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
           name="thirdsetplayertwo"
           id="thirdsetplayertwo"
-          aria-label="Score player two"
+          aria-label="Set 3: Score player two"
           value={thirdSetScorePlayerTwo}
           onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
         />
       </Fieldsets>
 
       <SaveButtonDiv>
-        <SubmitButton aria-label="save details" type="submit">
+        <SubmitButton aria-label="save details" type="submit" role="submitbutton">
           Save Results
         </SubmitButton>
       </SaveButtonDiv>

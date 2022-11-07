@@ -61,7 +61,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
           ""
         )}
         <EditButtonContainer>
-          <EditButton handleClick={showMoreDetails}>
+          <EditButton handleClick={showMoreDetails} role="toggle">
             {showMore === true ? <TbChevronUp /> : <TbChevronDown />}
           </EditButton>
         </EditButtonContainer>

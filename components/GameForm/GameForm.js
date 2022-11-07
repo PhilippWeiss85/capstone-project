@@ -40,57 +40,68 @@ export default function AddGameForm() {
           <FormRadioItem>
             <FormLabelRadio htmlFor="match">Match</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               required
               type="radio"
               name="gametype"
               id="match"
               value="Match"
-              aria-labelledby="Game type: match"
+              aria-label="match"
             />
           </FormRadioItem>
           <FormRadioItem>
             <FormLabelRadio htmlFor="training">Training</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               required
               type="radio"
               name="gametype"
               id="training"
               value="Training"
-              aria-labelledby="Game type: training"
+              aria-label="training"
             />
           </FormRadioItem>
         </FormList>
       </FormFieldSetRadio>
       <FormFieldSetInput>
-        <FormLabel htmlFor="opponent">Opponent`s Name</FormLabel>
+        <FormLabel htmlFor="opponent">Opponent</FormLabel>
         <InputContainer
+          role="input"
           type="text"
           minLength="2"
           required
           name="opponent"
           id="opponent"
-          aria-labelledby="Add a name"
+          aria-label="name"
         />
-        <FormLabel htmlFor="opponent">Date</FormLabel>
+        <FormLabel htmlFor="date">Date</FormLabel>
         <InputContainer
+          role="input"
           type="date"
           required
           name="date"
           id="date"
           min="2022-10-01"
           max="2099-12-31"
-          aria-label="Add a date"
+          aria-label="date"
         />
-        <FormLabel htmlFor="opponent">Time</FormLabel>
+        <FormLabel htmlFor="time">Time</FormLabel>
         <InputContainer
+          role="input"
           type="time"
           required
           name="time"
           id="time"
-          aria-label="Add a time"
+          aria-label="time"
         />
         <FormLabel htmlFor="place">Place</FormLabel>
-        <InputDropdown name="place" required id="place" aria-labelledby="Add a location">
+        <InputDropdown
+          name="place"
+          required
+          id="place"
+          aria-label="location"
+          role="input"
+        >
           <option value="">... please select a location</option>
           <option value="Rothof">Rothof</option>
           <option value="Sportscheck">Sportscheck</option>
@@ -103,50 +114,54 @@ export default function AddGameForm() {
           <FormRadioItem>
             <FormLabelRadio htmlFor="clay">Clay</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               type="radio"
               name="court"
               id="clay"
               value="Clay"
-              aria-labelledby="Court type: clay"
+              aria-label="clay"
             />
           </FormRadioItem>
           <FormRadioItem>
             <FormLabelRadio htmlFor="carpet">Carpet</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               required
               type="radio"
               name="court"
               id="carpet"
               value="Carpet"
-              aria-labelledby="Court type: carpet"
+              aria-label="Court type: carpet"
             />
           </FormRadioItem>
           <FormRadioItem>
             <FormLabelRadio htmlFor="hard">Hard</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               required
               type="radio"
               name="court"
               id="hard"
               value="Hard"
-              aria-labelledby="Court type: hard"
+              aria-label="hard"
             />
           </FormRadioItem>
           <FormRadioItem>
             <FormLabelRadio htmlFor="gras">Gras</FormLabelRadio>
             <RadioInput
+              role="radioinput"
               required
               type="radio"
               name="court"
               id="gras"
               value="Gras"
-              aria-labelledby="Court type: gras"
+              aria-labelledby="gras"
             />
           </FormRadioItem>
         </FormList>
       </FormFieldSetRadio>
       <ButtonFieldSet>
-        <SubmitButton aria-label="create new card" type="submit">
+        <SubmitButton aria-label="create new card" type="submit" role="submitbutton">
           Add Game
         </SubmitButton>
       </ButtonFieldSet>
