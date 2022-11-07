@@ -100,7 +100,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
         <ResultLegend aria-label="Add your result">Result</ResultLegend>
         <ResultLabelLeft htmlFor="won">won</ResultLabelLeft>
         <ResultsInput
-          aria-labelledby="I won"
+          role="radioinput"
+          aria-label="won"
           type="radio"
           name="result"
           value="won"
@@ -110,7 +111,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           required
         />
         <ResultsInput
-          aria-labelledby="I lost"
+          aria-label="lost"
+          role="radioinput"
           type="radio"
           name="result"
           value="lost"
@@ -127,6 +129,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 1
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -137,6 +140,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -153,6 +157,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 2
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -163,6 +168,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -179,6 +185,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           Set 3
         </SetLabel>
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -189,6 +196,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
         />
         <SetInput
+          role="numberinput"
           type="number"
           min="0"
           max="20"
@@ -201,7 +209,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
       </Fieldsets>
 
       <SaveButtonDiv>
-        <SubmitButton aria-label="save details" type="submit">
+        <SubmitButton aria-label="save details" type="submit" role="submitbutton">
           Save Results
         </SubmitButton>
       </SaveButtonDiv>
