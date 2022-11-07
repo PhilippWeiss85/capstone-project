@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useStore from "../../store/useStore";
 import DeleteButton from "../DeleteButton";
 
-export default function DeleteModal({ id, setDeleteModal, deleteModal }) {
+export default function DeleteModal({ id, setDeleteModal }) {
   const deleteGame = useStore((state) => state.deleteGame);
   return (
     <ModalOverlay>

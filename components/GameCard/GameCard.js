@@ -12,10 +12,8 @@ import { BsPersonCircle, BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
 export default function GameCard({ type, name, date, time, place, court, id, results }) {
-  const deleteGame = useStore((state) => state.deleteGame);
   const [showMore, setShowMore] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
-  console.log(deleteModal);
 
   // show detailed card information
   function showMoreDetails() {
@@ -24,9 +22,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
 
   return (
     <Card>
-      {deleteModal && (
-        <DeleteModal id={id} deleteModal={deleteModal} setDeleteModal={setDeleteModal} />
-      )}
+      {deleteModal && <DeleteModal id={id} setDeleteModal={setDeleteModal} />}
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>

@@ -1,17 +1,11 @@
 import styled from "styled-components";
-import useStore from "../store/useStore";
-import DeleteModal from "./Modals/DeleteModal";
 
 export default function DeleteButton({ children, handleClick, id }) {
-  const activateModal = useStore((state) => state.activateModal);
-  const modal = useStore((state) => state.modal);
-
   return (
     <>
       <StyledButton onClick={() => handleClick(id)}>{children}</StyledButton>
     </>
   );
-  // return <StyledButton onClick={() => handleClick(id)}>{children}</StyledButton>;
 }
 
 const StyledButton = styled.button`
