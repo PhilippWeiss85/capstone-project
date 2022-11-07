@@ -1,4 +1,5 @@
 import { screen, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event/";
 import { testingResults } from "../GameCard/GameCard.test";
 import GameDetails from "./GameDetailForm";
 
@@ -16,9 +17,10 @@ describe("GameDetails", () => {
     expect(screen.getByText("Set 3")).toBeVisible();
   });
 
-  it("should only accept number inputs form 0 to 20", () => {
+  it("result numbers should be a viable type", () => {
     render(<GameDetails id="3" showMoreDetails="true" results={testingResults} />);
 
-    expect();
+    expect(screen.getAllByRole("numberinput")).toBeTruthy();
+    expect(screen.getAllByRole("numberinput")).not.toBeFalsy();
   });
 });

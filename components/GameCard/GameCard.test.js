@@ -2,11 +2,11 @@ import { screen, render } from "@testing-library/react";
 import GameCard from "./GameCard";
 
 export const testingResults = {
-  gameresult: "",
+  gameresult: "won",
   set: [
-    { Player1: "", Player2: "," },
-    { Player1: "", Player2: "," },
-    { Player1: "", Player2: "," },
+    { Player1: 6, Player2: 1 },
+    { Player1: 2, Player2: 6 },
+    { Player1: 0, Player2: 20 },
   ],
 };
 
