@@ -6,6 +6,9 @@ import styled from "styled-components";
 
 export default function AddGameForm() {
   const appendNewGame = useStore((state) => state.appendNewGame);
+  const activateModal = useStore((state) => state.activateModal);
+  const modal = useStore((state) => state.modal);
+
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -16,8 +19,8 @@ export default function AddGameForm() {
 
     // to prevent name emty name inputs
     if (data.opponent.trim() === "") {
+      activateModal();
       // window.alert("Please enter a valid name");
-      <Modal />;
     } else {
       appendNewGame(
         data.gametype,
@@ -37,6 +40,13 @@ export default function AddGameForm() {
   return (
     <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
       <FormFieldSetRadio>
+        {modal && (
+          <Modal
+            headline="Please enter a valid name"
+            text="Please enter a valid name"
+            buttontext="understood"
+          />
+        )}
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
         <FormList>
           <FormRadioItem>

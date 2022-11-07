@@ -5,6 +5,7 @@ import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
+import DeleteModal from "../Modals/DeleteModal";
 
 import styled from "styled-components";
 import { BsPersonCircle, BsX } from "react-icons/bs";
@@ -13,6 +14,7 @@ import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 export default function GameCard({ type, name, date, time, place, court, id, results }) {
   const deleteGame = useStore((state) => state.deleteGame);
   const [showMore, setShowMore] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   // show detailed card information
   function showMoreDetails() {
@@ -21,6 +23,7 @@ export default function GameCard({ type, name, date, time, place, court, id, res
 
   return (
     <Card>
+      {deleteModal && <DeleteModal id={id} deleteModal={deleteModal} />}
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
@@ -38,9 +41,9 @@ export default function GameCard({ type, name, date, time, place, court, id, res
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <DeleteButton handleClick={deleteGame} id={id}>
-            <BsX />
-          </DeleteButton>
+          {/* <button onClick={setDeleteModal(true)}> */}
+          <BsX />
+          {/* </button> */}
         </DeleteButtonContainer>
         <CardList>
           <DateHeadline> Date:</DateHeadline>

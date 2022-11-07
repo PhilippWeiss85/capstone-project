@@ -20,8 +20,8 @@ export default function Home() {
           alt="Entry image"
           layout="fill"
           objectFit="cover"
-          width={2400}
-          height={1600}
+          // width={2400}
+          // height={1600}
         />
         <Link href="/gamelist" passHref>
           <StyledHeadline>Click to enter...</StyledHeadline>
@@ -32,6 +32,7 @@ export default function Home() {
 }
 
 const MainWrapper = styled.main`
+  position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -5,7 +5,11 @@ import Modal from "../Modals/Modal";
 import styled from "styled-components";
 
 export default function GameDetails({ id, showMoreDetails, results }) {
+  const modal = useStore((state) => state.modal);
+  const activateModal = useStore((state) => state.activateModal);
   const updateGameDetail = useStore((state) => state.updateGameDetail);
+  const [errorHeadline, setErrorHeadline] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   // useStates for controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
@@ -87,16 +91,20 @@ export default function GameDetails({ id, showMoreDetails, results }) {
         );
         showMoreDetails();
       } else {
-        <Modal toggleModal={toggleModal} />;
-        // alert("Please enter both set scores to continue");
+        setErrorHeadline("Please enter both set scores to continue");
+        setErrorText("Please enter both set scores to continueTEXT");
+        activateModal();
       }
     } else {
-      alert("Please add the previous sets first");
+      setErrorHeadline("Please add the previous sets first");
+      setErrorText("Please add the previous sets firstTEXT");
+      activateModal();
     }
   }
 
   return (
     <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
+      {modal && <Modal headline={errorHeadline} text={errorText} buttontext="oki" />}
       <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
         <ResultLegend aria-label="Add your result">Result</ResultLegend>

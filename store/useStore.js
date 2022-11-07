@@ -1,14 +1,21 @@
 import create from "zustand";
-import { AiFillAlert, AiFillAlipaySquare } from "react-icons/ai";
 
 const useStore = create((set) => {
   return {
     games: [],
-    toggleModal: false,
+    modal: false,
 
-    // toggleModal: () => {
-    //   set((state) =>)
-    // }
+    activateModal: () => {
+      set((state) => {
+        return { modal: true };
+      });
+    },
+
+    closeModal: () => {
+      set((state) => {
+        return { modal: false };
+      });
+    },
 
     getInitialGameState: async () => {
       const res = await fetch("/api/gamelist");
