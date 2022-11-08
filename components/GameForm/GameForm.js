@@ -24,14 +24,7 @@ export default function AddGameForm() {
         body: formData,
       });
       const img = await response.json();
-
-      // console.log("Browser: response from API: ", img);
-      // console.log("test", img.url);
-      // console.log("test", img.height);
-      // console.log("test", img.width);
-
-      // setImage(img);
-      console.log("image", img);
+      // to prevent name emty name inputs
       if (data.opponent.trim() === "") {
         activateModal();
       } else {
@@ -53,7 +46,6 @@ export default function AddGameForm() {
       setError(error);
     }
 
-    // to prevent name emty name inputs
     router.push("/gamelist");
     console.log(data);
   }

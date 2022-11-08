@@ -30,8 +30,6 @@ export default function GameCard({
     setShowMore((previousDetails) => !previousDetails);
   }
 
-  console.log(imageWidth);
-
   return (
     <Card>
       {deleteModal && (
@@ -132,7 +130,9 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin: 1.5em 0 1em 0;
+
   gap: 1em;
   font-size: 1.3em;
 `;
@@ -140,7 +140,7 @@ const PlayersAndResults = styled.article`
 const PlayerImageContainer = styled.div`
   position: relative;
   border-radius: 50%;
-  width: 75px;
+  width: 50px;
   overflow: hidden;
   aspect-ratio: 1;
   background-color: #ffffff;
@@ -159,13 +159,14 @@ const PlayerNameContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
   font-size: 0.7em;
-  width: 35%;
+  width: 100px;
   word-break: break-word;
 `;
 
 const ResultContainer = styled.div`
-  display: flex;
-  align-items: center;
+  position: absolute;
+  right: -10%;
+  top: 30%;
   width: 60%;
   font-size: 0.7em;
 `;
