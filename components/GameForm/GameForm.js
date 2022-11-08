@@ -111,7 +111,7 @@ export default function AddGameForm() {
           <option value="">... please select a location</option>
           <option value="Rothof">Rothof</option>
           <option value="Sportscheck">Sportscheck</option>
-          <option value="Fideliopark">Fidelopark</option>
+          <option value="Fideliopark">Fideliopark</option>
         </InputDropdown>
       </FormFieldSetInput>
       <FormFieldSetRadio>
