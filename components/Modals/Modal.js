@@ -1,8 +1,9 @@
 import Button from "../Button";
 import styled from "styled-components";
 import useStore from "../../store/useStore";
+import { FaRegCheckCircle } from "react-icons/fa";
 
-export default function Modal({ headline, text, buttontext }) {
+export default function Modal({ headline, text }) {
   const closeModal = useStore((state) => state.closeModal);
 
   return (
@@ -10,7 +11,9 @@ export default function Modal({ headline, text, buttontext }) {
       <ModalContainer>
         <ModalHeadline>{headline}</ModalHeadline>
         <ModalText>{text}</ModalText>
-        <Button handleClick={closeModal}>{buttontext}</Button>
+        <StyledConfirmButton onClick={() => closeModal()}>
+          <FaRegCheckCircle />
+        </StyledConfirmButton>
       </ModalContainer>
     </ModalOverlay>
   );
@@ -26,7 +29,7 @@ const ModalOverlay = styled.section`
   align-items: center;
   top: 0;
   left: 0;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(1px);
 `;
 
 const ModalContainer = styled.article`
@@ -43,10 +46,24 @@ const ModalContainer = styled.article`
 `;
 
 const ModalHeadline = styled.h3`
+  text-align: center;
   margin: 0;
   padding: 0.5em;
 `;
 
 const ModalText = styled.p`
   padding: 0.5em;
+  text-align: center;
+`;
+
+const StyledConfirmButton = styled.button`
+  background-color: transparent;
+  color: var(--attention-color-primary);
+  font-size: 2.5em;
+  border: none;
+
+  &:hover {
+    transition: 0.1s ease-in;
+    color: hsla(141, 50%, 50%, 1);
+  }
 `;

@@ -1,7 +1,4 @@
 import { useState } from "react";
-import useStore from "../../store/useStore";
-
-import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
@@ -22,7 +19,9 @@ export default function GameCard({ type, name, date, time, place, court, id, res
 
   return (
     <Card>
-      {deleteModal && <DeleteModal id={id} setDeleteModal={setDeleteModal} />}
+      {deleteModal && (
+        <DeleteModal type={type} name={name} id={id} setDeleteModal={setDeleteModal} />
+      )}
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
@@ -40,9 +39,9 @@ export default function GameCard({ type, name, date, time, place, court, id, res
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <button onClick={() => setDeleteModal(true)}>
+          <StyledDeleteButtonButton onClick={() => setDeleteModal(true)}>
             <BsX />
-          </button>
+          </StyledDeleteButtonButton>
         </DeleteButtonContainer>
         <CardList>
           <DateHeadline> Date:</DateHeadline>
@@ -94,8 +93,8 @@ const CardContainer = styled.section`
   mix-blend-mode: normal;
   position: relative;
   border-radius: 0;
-  box-shadow: 0 1px 0px 0px var(--background-tertiary);
-  background: var(--background-primary);
+  box-shadow: 0 2px 0 0 var(--background-tertiary);
+  background: var(--background-secondary);
 `;
 
 const PlayersAndResults = styled.article`
@@ -150,8 +149,8 @@ const CardList = styled.article`
   grid-auto-flow: column;
   padding: 0 1em;
   gap: 0;
-  box-shadow: 2px 1px 2px 1px var(--background-tertiary);
-  border-radius: 10px;
+  border-radius: 0;
+  background-color: var(--background-primary);
 `;
 
 const DateHeadline = styled.p`
@@ -173,4 +172,16 @@ const CourtHeadline = styled.p`
 
 const StyledContent = styled.p`
   margin: 0.2em 0;
+`;
+
+const StyledDeleteButtonButton = styled.button`
+  background-color: transparent;
+  color: var(--attention-color-primary);
+  font-size: 1.7em;
+  border: none;
+
+  &:hover {
+    transition: 0.1s ease-in;
+    font-size: 2em;
+  }
 `;

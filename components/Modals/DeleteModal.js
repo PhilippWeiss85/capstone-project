@@ -3,18 +3,20 @@ import styled from "styled-components";
 import useStore from "../../store/useStore";
 import DeleteButton from "../DeleteButton";
 
-export default function DeleteModal({ id, setDeleteModal }) {
+export default function DeleteModal({ id, setDeleteModal, type, name }) {
   const deleteGame = useStore((state) => state.deleteGame);
   return (
     <ModalOverlay>
       <ModalContainer>
-        <ModalHeadline>blablab</ModalHeadline>
-        <ModalText>blabalbalbal</ModalText>
+        <ModalHeadline>Are you sure you want to delete this game?</ModalHeadline>
+        <ModalText>
+          {type} with {name}
+        </ModalText>
         <ButtonContainer>
           <DeleteButton id={id} handleClick={deleteGame}>
-            delete
+            Delete
           </DeleteButton>
-          <Button handleClick={() => setDeleteModal(false)}>cancel</Button>
+          <Button handleClick={() => setDeleteModal(false)}>Cancel</Button>
         </ButtonContainer>
       </ModalContainer>
     </ModalOverlay>
@@ -31,7 +33,7 @@ const ModalOverlay = styled.section`
   align-items: center;
   top: 0;
   left: 0;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(1px);
 `;
 
 const ModalContainer = styled.article`
@@ -48,8 +50,9 @@ const ModalContainer = styled.article`
 `;
 
 const ModalHeadline = styled.h3`
-  margin: 0;
+  text-align: center;
   padding: 0.5em;
+  margin: 0;
 `;
 
 const ModalText = styled.p`

@@ -104,7 +104,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
 
   return (
     <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
-      {modal && <Modal headline={errorHeadline} text={errorText} buttontext="oki" />}
+      {modal && <Modal headline={errorHeadline} text={errorText} />}
       <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
         <ResultLegend aria-label="Add your result">Result</ResultLegend>

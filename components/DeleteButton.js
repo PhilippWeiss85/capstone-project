@@ -9,17 +9,20 @@ export default function DeleteButton({ children, handleClick, id }) {
 }
 
 const StyledButton = styled.button`
-  background-color: transparent;
-  color: var(--attention-color-primary);
-  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  filter: drop-shadow(5px 4px 4px #000000);
+  margin: 0 1em;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-size: 1.2em;
   border: none;
 
   &:hover {
-    transition: 0.2s ease-in-out;
-    font-size: 2em;
+    background-color: var(--background-secondary);
   }
 
   &:active {
-    transition: 0.2s ease;
+    box-shadow: 3px 3px var(--attention-color-primary);
+    background-color: var(--background-primary);
   }
 `;

@@ -50,5 +50,5 @@ export default function PieChart() {
     ],
   };
 
-  return <Pie data={data} height={300} options={options} />;
+  return <Pie data={data} height={300} width={250} options={options} />;
 }
