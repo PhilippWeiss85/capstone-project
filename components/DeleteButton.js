@@ -1,21 +1,27 @@
 import styled from "styled-components";
 
-export default function DeleteButton({ children, handleClick, id }) {
-  return <StyledButton onClick={() => handleClick(id)}>{children}</StyledButton>;
+export default function DeleteButton({ children, handleClick }) {
+  return (
+    <>
+      <StyledButton onClick={() => handleClick()}>{children}</StyledButton>
+    </>
+  );
 }
 
 const StyledButton = styled.button`
-  background-color: transparent;
-  color: var(--attention-color-primary);
-  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  filter: drop-shadow(2px 3px 3px #000000);
+  margin: 0 1em;
+  background-color: var(--attention-color-primary);
+  color: var(--text-secondary);
+  font-size: 1.2em;
   border: none;
 
   &:hover {
-    transition: 0.2s ease-in-out;
-    font-size: 2em;
+    box-shadow: 3px 3px var(--background-navigation);
   }
 
   &:active {
-    transition: 0.2s ease;
+    box-shadow: 3px 3px var(--background-primary);
   }
 `;

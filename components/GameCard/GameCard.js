@@ -1,18 +1,16 @@
 import { useState } from "react";
-import useStore from "../../store/useStore";
-
-import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
+import DeleteModal from "../Modals/DeleteModal";
 
 import styled from "styled-components";
 import { BsPersonCircle, BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
 export default function GameCard({ type, name, date, time, place, court, id, results }) {
-  const deleteGame = useStore((state) => state.deleteGame);
   const [showMore, setShowMore] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   // show detailed card information
   function showMoreDetails() {
@@ -21,6 +19,9 @@ export default function GameCard({ type, name, date, time, place, court, id, res
 
   return (
     <Card>
+      {deleteModal && (
+        <DeleteModal type={type} name={name} id={id} setDeleteModal={setDeleteModal} />
+      )}
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
@@ -38,9 +39,9 @@ export default function GameCard({ type, name, date, time, place, court, id, res
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <DeleteButton handleClick={deleteGame} id={id}>
+          <StyledDeleteButtonButton onClick={() => setDeleteModal(true)}>
             <BsX />
-          </DeleteButton>
+          </StyledDeleteButtonButton>
         </DeleteButtonContainer>
         <CardList>
           <DateHeadline> Date:</DateHeadline>
@@ -91,7 +92,8 @@ const CardContainer = styled.section`
   margin: 2em 1em;
   mix-blend-mode: normal;
   position: relative;
-  box-shadow: 0 4px 2px 0px hsl(241deg 13% 40%);
+  border-radius: 0;
+  box-shadow: 0 2px 0 0 var(--background-tertiary);
   background: var(--background-secondary);
 `;
 
@@ -147,8 +149,8 @@ const CardList = styled.article`
   grid-auto-flow: column;
   padding: 0 1em;
   gap: 0;
-  box-shadow: 2px 1px 2px 1px var(--background-tertiary);
-  border-radius: 10px;
+  border-radius: 0;
+  background-color: var(--background-primary);
 `;
 
 const DateHeadline = styled.p`
@@ -170,4 +172,16 @@ const CourtHeadline = styled.p`
 
 const StyledContent = styled.p`
   margin: 0.2em 0;
+`;
+
+const StyledDeleteButtonButton = styled.button`
+  background-color: transparent;
+  color: var(--attention-color-primary);
+  font-size: 1.7em;
+  border: none;
+
+  &:hover {
+    transition: 0.1s ease-in;
+    font-size: 2em;
+  }
 `;

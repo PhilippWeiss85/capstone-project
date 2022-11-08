@@ -6,7 +6,7 @@ export default function Button({ children, handleClick }) {
 
 const StyledButton = styled.button`
   padding: 0.2em 0.5em;
-  filter: drop-shadow(5px 4px 4px #000000);
+  filter: drop-shadow(2px 3px 3px #000000);
   margin: 0 1em;
   background-color: var(--background-primary);
   color: var(--text-primary);
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   border: none;
 
   &:hover {
-    background-color: var(--background-secondary);
+    box-shadow: 3px 3px var(--background-navigation);
   }
 
   &:active {

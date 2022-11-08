@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { BsChevronDoubleLeft } from "react-icons/bs";
+import { BsChevronLeft } from "react-icons/bs";
 
 export default function Header() {
   const router = useRouter();
@@ -43,7 +43,7 @@ const IconContainer = styled.button`
   color: var(--text-navigation);
 `;
 
-const PreviousPageIcon = styled(BsChevronDoubleLeft)`
+const PreviousPageIcon = styled(BsChevronLeft)`
   font-size: 2em;
   &:hover {
     transition: 0.1s ease-in-out;

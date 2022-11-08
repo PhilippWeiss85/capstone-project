@@ -1,10 +1,14 @@
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
+import Modal from "../Modals/Modal";
 
 import styled from "styled-components";
 
 export default function AddGameForm() {
   const appendNewGame = useStore((state) => state.appendNewGame);
+  const activateModal = useStore((state) => state.activateModal);
+  const modal = useStore((state) => state.modal);
+
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -15,7 +19,8 @@ export default function AddGameForm() {
 
     // to prevent name emty name inputs
     if (data.opponent.trim() === "") {
-      window.alert("Please enter a valid name");
+      activateModal();
+      // window.alert("Please enter a valid name");
     } else {
       appendNewGame(
         data.gametype,
@@ -35,6 +40,7 @@ export default function AddGameForm() {
   return (
     <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
       <FormFieldSetRadio>
+        {modal && <Modal headline="Please enter a valid name" />}
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
         <FormList>
           <FormRadioItem>
@@ -68,7 +74,7 @@ export default function AddGameForm() {
         <InputContainer
           role="input"
           type="text"
-          minLength="2"
+          // minLength="2"
           required
           name="opponent"
           id="opponent"
@@ -105,7 +111,7 @@ export default function AddGameForm() {
           <option value="">... please select a location</option>
           <option value="Rothof">Rothof</option>
           <option value="Sportscheck">Sportscheck</option>
-          <option value="Fideliopark">Fidelopark</option>
+          <option value="Fideliopark">Fideliopark</option>
         </InputDropdown>
       </FormFieldSetInput>
       <FormFieldSetRadio>
