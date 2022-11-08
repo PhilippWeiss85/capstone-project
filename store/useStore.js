@@ -28,7 +28,17 @@ const useStore = create((set) => {
     },
 
     // append new card via form
-    appendNewGame: async (type, name, date, time, place, court) => {
+    appendNewGame: async (
+      type,
+      name,
+      date,
+      time,
+      place,
+      court,
+      image,
+      imageWidth,
+      imageHeight
+    ) => {
       const newGame = {
         type: type,
         name: name,
@@ -36,6 +46,9 @@ const useStore = create((set) => {
         time: time,
         place: place,
         court: court,
+        image: image,
+        imageWidth: imageWidth,
+        imageHeight: imageHeight,
         results: {
           gameresult: "",
           set: [
@@ -60,7 +73,7 @@ const useStore = create((set) => {
         body: JSON.stringify(newGame),
       });
       const newGameObject = await res.json(); // includes message & addGameCard from api/gamelist
-
+      console.log(newGameObject);
       const sanitizedNewGameObject = {
         ...newGameObject.addGameCard,
         id: newGameObject.addGameCard._id,

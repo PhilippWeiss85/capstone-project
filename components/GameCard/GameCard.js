@@ -3,12 +3,25 @@ import EditButton from "../EditButton";
 import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
 import DeleteModal from "../Modals/DeleteModal";
+import Image from "next/image";
 
 import styled from "styled-components";
 import { BsPersonCircle, BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
-export default function GameCard({ type, name, date, time, place, court, id, results }) {
+export default function GameCard({
+  type,
+  name,
+  date,
+  time,
+  place,
+  court,
+  id,
+  results,
+  image,
+  imageWidth,
+  imageHeight,
+}) {
   const [showMore, setShowMore] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
@@ -16,6 +29,8 @@ export default function GameCard({ type, name, date, time, place, court, id, res
   function showMoreDetails() {
     setShowMore((previousDetails) => !previousDetails);
   }
+
+  console.log(imageWidth);
 
   return (
     <Card>
@@ -25,9 +40,25 @@ export default function GameCard({ type, name, date, time, place, court, id, res
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
-          <PlayerIconContainer>
-            <BsPersonCircle />
-          </PlayerIconContainer>
+          {image ? (
+            <PlayerImageContainer>
+              {" "}
+              <Image
+                src={image}
+                alt={image}
+                width={imageWidth}
+                height={imageHeight}
+                layout="fill"
+                objectFit="cover"
+              ></Image>
+            </PlayerImageContainer>
+          ) : (
+            <PlayerIconContainer>
+              {" "}
+              <BsPersonCircle />{" "}
+            </PlayerIconContainer>
+          )}
+
           <PlayerNameContainer>{name}</PlayerNameContainer>
           {results.gameresult === "" ? (
             ""
@@ -106,13 +137,24 @@ const PlayersAndResults = styled.article`
   font-size: 1.3em;
 `;
 
+const PlayerImageContainer = styled.div`
+  position: relative;
+  border-radius: 50%;
+  width: 75px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background-color: #ffffff;
+`;
+
 const PlayerIconContainer = styled.div`
   display: flex;
-  font-size: 2em;
+  font-size: 55px;
+  object-fit: fill;
   align-items: center;
   border-radius: 50%;
   background-color: #ffffff;
 `;
+
 const PlayerNameContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;

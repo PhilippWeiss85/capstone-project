@@ -41,6 +41,9 @@ export default function GameList() {
               place={game.place}
               court={game.court}
               results={game.results}
+              image={game.image}
+              imageWidth={game.imageWidth}
+              imageHeight={game.imageHeight}
             />
           );
         })}

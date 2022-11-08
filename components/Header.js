@@ -18,8 +18,6 @@ export default function Header() {
 const HeadWrapper = styled.main`
   background-color: var(--background-navigation);
   border-radius: 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   height: 60px;
   display: flex;
   justify-content: center;

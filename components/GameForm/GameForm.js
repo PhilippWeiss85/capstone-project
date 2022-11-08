@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import Modal from "../Modals/Modal";
+import { useState } from "react";
 
 import styled from "styled-components";
 
@@ -8,37 +9,58 @@ export default function AddGameForm() {
   const appendNewGame = useStore((state) => state.appendNewGame);
   const activateModal = useStore((state) => state.activateModal);
   const modal = useStore((state) => state.modal);
+  const [error, setError] = useState(null);
 
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
 
-    const formdata = new FormData(event.target);
-    const data = Object.fromEntries(formdata);
+    try {
+      const response = await fetch("/api/imageUpload", {
+        method: "post",
+        body: formData,
+      });
+      const img = await response.json();
+
+      // console.log("Browser: response from API: ", img);
+      // console.log("test", img.url);
+      // console.log("test", img.height);
+      // console.log("test", img.width);
+
+      // setImage(img);
+      console.log("image", img);
+      if (data.opponent.trim() === "") {
+        activateModal();
+      } else {
+        appendNewGame(
+          data.gametype,
+          data.opponent,
+          data.date,
+          data.time,
+          data.place,
+          data.court,
+          img.url,
+          img.width,
+          img.height
+        );
+
+        // event.target.reset();
+      }
+    } catch (error) {
+      setError(error);
+    }
 
     // to prevent name emty name inputs
-    if (data.opponent.trim() === "") {
-      activateModal();
-      // window.alert("Please enter a valid name");
-    } else {
-      appendNewGame(
-        data.gametype,
-        data.opponent,
-        data.date,
-        data.time,
-        data.place,
-        data.court
-      );
-
-      router.push("/gamelist");
-
-      event.target.reset();
-    }
+    router.push("/gamelist");
+    console.log(data);
   }
 
   return (
     <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
+      <input type="file" name="file" />
       <FormFieldSetRadio>
         {modal && <Modal headline="Please enter a valid name" />}
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
