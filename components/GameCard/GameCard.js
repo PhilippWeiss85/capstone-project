@@ -130,17 +130,15 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   margin: 1.5em 0 1em 0;
-
-  gap: 1em;
+  gap: 0.5em;
   font-size: 1.3em;
 `;
 
 const PlayerImageContainer = styled.div`
   position: relative;
   border-radius: 50%;
-  width: 50px;
+  width: 75px;
   overflow: hidden;
   aspect-ratio: 1;
   background-color: #ffffff;
@@ -148,7 +146,7 @@ const PlayerImageContainer = styled.div`
 
 const PlayerIconContainer = styled.div`
   display: flex;
-  font-size: 55px;
+  font-size: 75px;
   object-fit: fill;
   align-items: center;
   border-radius: 50%;
@@ -159,15 +157,13 @@ const PlayerNameContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
   font-size: 0.7em;
-  width: 100px;
+  width: 30%;
   word-break: break-word;
 `;
 
 const ResultContainer = styled.div`
-  position: absolute;
-  right: -10%;
-  top: 30%;
-  width: 60%;
+  position: relative;
+  width: 40%;
   font-size: 0.7em;
 `;
 
@@ -186,6 +182,7 @@ const EditButtonContainer = styled.div`
 `;
 
 const CardList = styled.article`
+  position: relative;
   display: grid;
   grid-template-areas: "date" "time" "place" "court";
   grid-template-columns: 1fr 1fr;

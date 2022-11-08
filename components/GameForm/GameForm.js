@@ -39,8 +39,6 @@ export default function AddGameForm() {
           img.width,
           img.height
         );
-
-        // event.target.reset();
       }
     } catch (error) {
       setError(error);
@@ -52,7 +50,6 @@ export default function AddGameForm() {
 
   return (
     <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
-      <input type="file" name="file" />
       <FormFieldSetRadio>
         {modal && <Modal headline="Please enter a valid name" />}
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
@@ -88,11 +85,19 @@ export default function AddGameForm() {
         <InputContainer
           role="input"
           type="text"
-          // minLength="2"
           required
           name="opponent"
           id="opponent"
           aria-label="name"
+        />
+        <FormLabel htmlFor="image">Give em a face</FormLabel>
+        <InputImageContainer
+          accept=".jpg, .jpeg, .png"
+          type="file"
+          name="file"
+          required
+          id="file"
+          aria-label="image"
         />
         <FormLabel htmlFor="date">Date</FormLabel>
         <InputContainer
@@ -246,11 +251,11 @@ const FormLabelRadio = styled.label`
 
 const InputContainer = styled.input`
   border: none;
-  margin: 1em 0;
+  margin: 0 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
-  color: var(--background-primary);
+  color: var(--text-primary);
   background: var(--background-forminput);
 
   &::-webkit-datetime-edit-text {
@@ -265,6 +270,23 @@ const InputContainer = styled.input`
     margin-right: 1em;
     height: 1.5em;
     width: 1.5em;
+  }
+`;
+
+const InputImageContainer = styled.input`
+  border: none;
+  margin: 1em 0;
+  height: 3em;
+  padding-left: 1em;
+  font-size: 1em;
+  color: var(--background-primary);
+  background: var(--background-forminput);
+
+  &.file-upload-button {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
   }
 `;
 
