@@ -9,7 +9,7 @@ export default function Modal({ headline }) {
     <ModalOverlay>
       <ModalContainer>
         <ModalHeadline>{headline}</ModalHeadline>
-        <StyledConfirmButton onClick={() => closeModal()}>
+        <StyledConfirmButton onClick={closeModal}>
           <FaRegCheckCircle />
         </StyledConfirmButton>
       </ModalContainer>

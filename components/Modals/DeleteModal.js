@@ -13,9 +13,7 @@ export default function DeleteModal({ id, setDeleteModal, type, name }) {
           {type} with {name}
         </ModalText>
         <ButtonContainer>
-          <DeleteButton id={id} handleClick={deleteGame}>
-            Delete
-          </DeleteButton>
+          <DeleteButton handleClick={() => deleteGame(id)}>Delete</DeleteButton>
           <Button handleClick={() => setDeleteModal(false)}>Cancel</Button>
         </ButtonContainer>
       </ModalContainer>

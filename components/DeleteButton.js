@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export default function DeleteButton({ children, handleClick, id }) {
+export default function DeleteButton({ children, handleClick }) {
   return (
     <>
-      <StyledButton onClick={() => handleClick(id)}>{children}</StyledButton>
+      <StyledButton onClick={() => handleClick()}>{children}</StyledButton>
     </>
   );
 }
