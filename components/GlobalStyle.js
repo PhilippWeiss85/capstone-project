@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
           --background-secondary:#E6EDEB; // cardcontainer color
           --background-tertiary: #b6cbbc; // grey
           --background-navigation: #012340; // darkblue
-          --attention-color-primary: #ec0c53;
+          --attention-color-primary: #ec0c53; // red
+        
           --background-forminput: #abc9c6;
 
       }

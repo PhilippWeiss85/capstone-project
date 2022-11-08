@@ -20,8 +20,6 @@ export default function Home() {
           alt="Entry image"
           layout="fill"
           objectFit="cover"
-          // width={2400}
-          // height={1600}
         />
         <Link href="/gamelist" passHref>
           <StyledHeadline>Click to enter...</StyledHeadline>

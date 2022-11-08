@@ -92,19 +92,17 @@ export default function GameDetails({ id, showMoreDetails, results }) {
         showMoreDetails();
       } else {
         setErrorHeadline("Please enter both set scores to continue");
-        setErrorText("Please enter both set scores to continueTEXT");
         activateModal();
       }
     } else {
       setErrorHeadline("Please add the previous sets first");
-      setErrorText("Please add the previous sets firstTEXT");
       activateModal();
     }
   }
 
   return (
     <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
-      {modal && <Modal headline={errorHeadline} text={errorText} />}
+      {modal && <Modal headline={errorHeadline} />}
       <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
         <ResultLegend aria-label="Add your result">Result</ResultLegend>

@@ -40,13 +40,7 @@ export default function AddGameForm() {
   return (
     <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
       <FormFieldSetRadio>
-        {modal && (
-          <Modal
-            headline="Please enter a valid name"
-            text="Please enter a valid name"
-            buttontext="understood"
-          />
-        )}
+        {modal && <Modal headline="Please enter a valid name" />}
         <FormLegend aria-label="Select your game type">Match Type</FormLegend>
         <FormList>
           <FormRadioItem>

@@ -10,19 +10,18 @@ export default function DeleteButton({ children, handleClick, id }) {
 
 const StyledButton = styled.button`
   padding: 0.2em 0.5em;
-  filter: drop-shadow(5px 4px 4px #000000);
+  filter: drop-shadow(2px 3px 3px #000000);
   margin: 0 1em;
-  background-color: var(--background-primary);
-  color: var(--text-primary);
+  background-color: var(--attention-color-primary);
+  color: var(--text-secondary);
   font-size: 1.2em;
   border: none;
 
   &:hover {
-    background-color: var(--background-secondary);
+    box-shadow: 3px 3px var(--background-navigation);
   }
 
   &:active {
-    box-shadow: 3px 3px var(--attention-color-primary);
-    background-color: var(--background-primary);
+    box-shadow: 3px 3px var(--background-primary);
   }
 `;

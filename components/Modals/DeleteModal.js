@@ -42,10 +42,11 @@ const ModalContainer = styled.article`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  height: 30%;
+  max-width: 450px;
+  height: 250px;
   padding: 1em 1em;
   border-radius: 10px;
-  background: var(--background-primary);
+  background: var(--background-secondary);
   box-shadow: 3px 5px 4px var(--background-tertiary);
 `;
 
