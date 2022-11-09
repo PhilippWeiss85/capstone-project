@@ -66,6 +66,6 @@ const StatisticWrapper = styled.section`
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: var(--background-navigation);
+    background: var(--background-navigation);
   }
 `;
