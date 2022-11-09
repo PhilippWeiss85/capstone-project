@@ -10,7 +10,6 @@ export default function AddGameForm() {
   const activateModal = useStore((state) => state.activateModal);
   const modal = useStore((state) => state.modal);
   const [error, setError] = useState(null);
-  const [image, setImage] = useState("");
 
   const router = useRouter();
 
@@ -21,7 +20,7 @@ export default function AddGameForm() {
 
     try {
       const response = await fetch("/api/imageUpload", {
-        method: "post",
+        method: "POST",
         body: formData,
       });
       const img = await response.json();
@@ -37,9 +36,7 @@ export default function AddGameForm() {
           data.time,
           data.place,
           data.court,
-          img.url,
-          img.width,
-          img.height
+          img.url
         );
       }
     } catch (error) {
@@ -47,7 +44,6 @@ export default function AddGameForm() {
     }
 
     router.push("/gamelist");
-    console.log("data", data);
   }
 
   return (
@@ -92,7 +88,7 @@ export default function AddGameForm() {
           id="opponent"
           aria-label="name"
         />
-        <FormLabel htmlFor="image">Give em a face</FormLabel>
+        <FormLabel htmlFor="image">Upload Image</FormLabel>
         <InputImageContainer
           accept=".jpg, .jpeg, .png"
           type="file"

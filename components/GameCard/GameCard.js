@@ -6,7 +6,7 @@ import DeleteModal from "../Modals/DeleteModal";
 import Image from "next/image";
 
 import styled from "styled-components";
-import { BsPersonCircle, BsX } from "react-icons/bs";
+import { BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
 export default function GameCard({
@@ -19,8 +19,6 @@ export default function GameCard({
   id,
   results,
   image,
-  imageWidth,
-  imageHeight,
 }) {
   const [showMore, setShowMore] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -38,24 +36,9 @@ export default function GameCard({
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
-          {image ? (
-            <PlayerImageContainer>
-              {" "}
-              <Image
-                src={image}
-                alt={image}
-                width={imageWidth}
-                height={imageHeight}
-                layout="fill"
-                objectFit="cover"
-              ></Image>
-            </PlayerImageContainer>
-          ) : (
-            <PlayerIconContainer>
-              {" "}
-              <BsPersonCircle />{" "}
-            </PlayerIconContainer>
-          )}
+          <PlayerImageContainer>
+            <Image src={image} alt={image} layout="fill" objectFit="cover"></Image>
+          </PlayerImageContainer>
 
           <PlayerNameContainer>{name}</PlayerNameContainer>
           {results.gameresult === "" ? (
@@ -141,15 +124,6 @@ const PlayerImageContainer = styled.div`
   width: 75px;
   overflow: hidden;
   aspect-ratio: 1;
-  background-color: #ffffff;
-`;
-
-const PlayerIconContainer = styled.div`
-  display: flex;
-  font-size: 75px;
-  object-fit: fill;
-  align-items: center;
-  border-radius: 50%;
   background-color: #ffffff;
 `;
 
