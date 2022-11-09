@@ -14,6 +14,9 @@ export default async function handler(request, response) {
       time: game.time,
       place: game.place,
       court: game.court,
+      image: game.image,
+      imageWidth: game.imageWidth,
+      imageHeight: game.imageHeight,
       results: {
         gameresult: game.results.gameresult,
         set: [

@@ -8,6 +8,7 @@ const gameCardSchema = new Schema({
   time: { type: String, required: true },
   place: { type: String, required: true },
   court: { type: String, required: true },
+  image: { type: String, required: false },
   results: {
     gameresult: { type: String },
     set: { type: Array },

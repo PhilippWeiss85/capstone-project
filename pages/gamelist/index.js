@@ -41,6 +41,7 @@ export default function GameList() {
               place={game.place}
               court={game.court}
               results={game.results}
+              image={game.image}
             />
           );
         })}
@@ -65,6 +66,6 @@ const StatisticWrapper = styled.section`
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: var(--background-navigation);
+    background: var(--background-navigation);
   }
 `;

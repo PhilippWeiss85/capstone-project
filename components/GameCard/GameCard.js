@@ -3,12 +3,23 @@ import EditButton from "../EditButton";
 import CardDetails from "../GameDetailForm/GameDetailForm";
 import GameResult from "../GameResult/GameResult";
 import DeleteModal from "../Modals/DeleteModal";
+import Image from "next/image";
 
 import styled from "styled-components";
-import { BsPersonCircle, BsX } from "react-icons/bs";
+import { BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
-export default function GameCard({ type, name, date, time, place, court, id, results }) {
+export default function GameCard({
+  type,
+  name,
+  date,
+  time,
+  place,
+  court,
+  id,
+  results,
+  image,
+}) {
   const [showMore, setShowMore] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
 
@@ -25,9 +36,10 @@ export default function GameCard({ type, name, date, time, place, court, id, res
       <CardType type={type}>{type}</CardType>
       <CardContainer>
         <PlayersAndResults>
-          <PlayerIconContainer>
-            <BsPersonCircle />
-          </PlayerIconContainer>
+          <PlayerImageContainer>
+            <Image src={image} alt={name} layout="fill" objectFit="cover"></Image>
+          </PlayerImageContainer>
+
           <PlayerNameContainer>{name}</PlayerNameContainer>
           {results.gameresult === "" ? (
             ""
@@ -102,29 +114,30 @@ const PlayersAndResults = styled.article`
   display: flex;
   align-items: center;
   margin: 1.5em 0 1em 0;
-  gap: 1em;
+  gap: 0.5em;
   font-size: 1.3em;
 `;
 
-const PlayerIconContainer = styled.div`
-  display: flex;
-  font-size: 2em;
-  align-items: center;
+const PlayerImageContainer = styled.div`
+  position: relative;
   border-radius: 50%;
+  width: 75px;
+  overflow: hidden;
+  aspect-ratio: 1;
   background-color: #ffffff;
 `;
+
 const PlayerNameContainer = styled.div`
   mix-blend-mode: normal;
   padding: 0.2em 0.5em;
   font-size: 0.7em;
-  width: 35%;
+  width: 30%;
   word-break: break-word;
 `;
 
 const ResultContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 60%;
+  position: relative;
+  width: 40%;
   font-size: 0.7em;
 `;
 
@@ -143,6 +156,7 @@ const EditButtonContainer = styled.div`
 `;
 
 const CardList = styled.article`
+  position: relative;
   display: grid;
   grid-template-areas: "date" "time" "place" "court";
   grid-template-columns: 1fr 1fr;

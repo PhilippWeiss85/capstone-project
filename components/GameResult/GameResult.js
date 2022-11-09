@@ -52,7 +52,6 @@ export default function GameResult({ results }) {
 
 const ResultContainer = styled.article`
   width: 130px;
-  position: absolute;
 `;
 
 const Result = styled.p`

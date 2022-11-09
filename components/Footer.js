@@ -23,7 +23,7 @@ export default function Footer() {
 }
 
 const FooterWrapper = styled.main`
-  background-color: var(--background-navigation);
+  background: var(--background-navigation);
   position: fixed;
   width: 100%;
   height: 60px;

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import Modal from "../Modals/Modal";
+import { useState } from "react";
 
 import styled from "styled-components";
 
@@ -8,33 +9,41 @@ export default function AddGameForm() {
   const appendNewGame = useStore((state) => state.appendNewGame);
   const activateModal = useStore((state) => state.activateModal);
   const modal = useStore((state) => state.modal);
+  const [error, setError] = useState(null);
 
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
 
-    const formdata = new FormData(event.target);
-    const data = Object.fromEntries(formdata);
+    try {
+      const response = await fetch("/api/imageUpload", {
+        method: "POST",
+        body: formData,
+      });
+      const img = await response.json();
 
-    // to prevent name emty name inputs
-    if (data.opponent.trim() === "") {
-      activateModal();
-      // window.alert("Please enter a valid name");
-    } else {
-      appendNewGame(
-        data.gametype,
-        data.opponent,
-        data.date,
-        data.time,
-        data.place,
-        data.court
-      );
-
-      router.push("/gamelist");
-
-      event.target.reset();
+      // to prevent name emty name inputs
+      if (data.opponent.trim() === "") {
+        activateModal();
+      } else {
+        appendNewGame(
+          data.gametype,
+          data.opponent,
+          data.date,
+          data.time,
+          data.place,
+          data.court,
+          img.url
+        );
+      }
+    } catch (error) {
+      setError(error);
     }
+
+    router.push("/gamelist");
   }
 
   return (
@@ -74,12 +83,21 @@ export default function AddGameForm() {
         <InputContainer
           role="input"
           type="text"
-          // minLength="2"
           required
           name="opponent"
           id="opponent"
           aria-label="name"
         />
+        <FormLabel htmlFor="image">Upload Image</FormLabel>
+        <InputImageContainer
+          accept=".jpg, .jpeg, .png "
+          type="file"
+          name="file"
+          required
+          id="file"
+          aria-label="image"
+        />
+        <ImageContainerText>Allowed image formats: .jpg, .jpg, .png</ImageContainerText>
         <FormLabel htmlFor="date">Date</FormLabel>
         <InputContainer
           role="input"
@@ -222,9 +240,11 @@ const FormFieldSetInput = styled.fieldset`
 
 const FormLegend = styled.legend`
   font-size: 1.2em;
+  padding: 1em 0 0;
 `;
 const FormLabel = styled.label`
   font-size: 1.2em;
+  margin: 1em 0 0;
 `;
 const FormLabelRadio = styled.label`
   font-size: 1em;
@@ -232,11 +252,11 @@ const FormLabelRadio = styled.label`
 
 const InputContainer = styled.input`
   border: none;
-  margin: 1em 0;
+  margin: 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
-  color: var(--background-primary);
+  color: var(--text-primary);
   background: var(--background-forminput);
 
   &::-webkit-datetime-edit-text {
@@ -254,9 +274,26 @@ const InputContainer = styled.input`
   }
 `;
 
+const InputImageContainer = styled.input`
+  border: none;
+  margin: 0;
+  height: 3em;
+  padding-left: 1em;
+  font-size: 1em;
+  color: var(--background-primary);
+  background: var(--background-forminput);
+`;
+
+const ImageContainerText = styled.p`
+  margin: 0 0 1em;
+  border-radius: 0;
+  color: var(--text-tertiary);
+  font-size: 0.9em;
+`;
+
 const InputDropdown = styled.select`
   border: none;
-  margin: 1em 0;
+  margin: 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
@@ -267,10 +304,9 @@ const FormList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  background: #ffffff;
   width: 100%;
   padding: 0.3em 0;
-  margin: 1em 0;
+  margin: 0;
   background: var(--background-forminput);
 `;
 
