@@ -4,6 +4,7 @@ const useStore = create((set) => {
   return {
     games: [],
     modal: false,
+    sortIcon: false,
 
     activateModal: () => {
       set((state) => {
@@ -14,6 +15,12 @@ const useStore = create((set) => {
     closeModal: () => {
       set((state) => {
         return { modal: false };
+      });
+    },
+
+    toggleSortMenu: () => {
+      set((state) => {
+        return { sortIcon: !state.sortIcon };
       });
     },
 
@@ -70,7 +77,7 @@ const useStore = create((set) => {
 
       set((state) => {
         return {
-          games: [...state.games, sanitizedNewGameObject],
+          games: [sanitizedNewGameObject, ...state.games],
         };
       });
     },

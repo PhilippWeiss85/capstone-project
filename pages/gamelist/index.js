@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import PieChart from "../../components/Charts/PieChart";
 import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
+import { FaSort } from "react-icons/fa";
+import SortGames from "../../components/SortGames/SortGames";
 
 export default function GameList() {
   const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
@@ -17,10 +19,23 @@ export default function GameList() {
     getInitialGameState();
   }, [getInitialGameState]);
   const gameList = useStore((state) => state.games);
+  const toggleSortMenu = useStore((state) => state.toggleSortMenu);
+  const sortIcon = useStore((state) => state.sortIcon);
+
+  console.log(sortIcon);
 
   return (
     <>
       <MainWrapper>
+        <SortIcon onClick={() => toggleSortMenu()}>
+          <FaSort />
+        </SortIcon>
+        {sortIcon && (
+          <SortMenu>
+            <SortGames />
+          </SortMenu>
+        )}
+
         <StatisticWrapper>
           <ChartContainer>
             <PieChart />
@@ -53,6 +68,23 @@ export default function GameList() {
 const MainWrapper = styled.main`
   max-width: 640px;
   margin: 0 auto;
+`;
+
+const SortIcon = styled.button`
+  position: absolute;
+  right: 1em;
+  top: 18px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--text-navigation);
+`;
+
+const SortMenu = styled.section`
+  background-color: red;
+  position: absolute;
+  right: 0;
+  top: 3em;
 `;
 
 const StatisticWrapper = styled.section`

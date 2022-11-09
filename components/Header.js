@@ -26,12 +26,15 @@ const HeadWrapper = styled.header`
 `;
 
 const Headline = styled.h1`
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
   color: var(--text-navigation);
 `;
 
 const IconContainer = styled.button`
-  position: absolute;
+  position: relative;
   left: 1em;
   background: none;
   color: inherit;
