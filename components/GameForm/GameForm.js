@@ -10,6 +10,7 @@ export default function AddGameForm() {
   const activateModal = useStore((state) => state.activateModal);
   const modal = useStore((state) => state.modal);
   const [error, setError] = useState(null);
+  const [image, setImage] = useState("");
 
   const router = useRouter();
 
@@ -24,6 +25,7 @@ export default function AddGameForm() {
         body: formData,
       });
       const img = await response.json();
+
       // to prevent name emty name inputs
       if (data.opponent.trim() === "") {
         activateModal();
@@ -45,7 +47,7 @@ export default function AddGameForm() {
     }
 
     router.push("/gamelist");
-    console.log(data);
+    console.log("data", data);
   }
 
   return (
