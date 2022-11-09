@@ -90,16 +90,14 @@ export default function AddGameForm() {
         />
         <FormLabel htmlFor="image">Upload Image</FormLabel>
         <InputImageContainer
-          accept=".jpg, .jpeg, .png .webp"
+          accept=".jpg, .jpeg, .png "
           type="file"
           name="file"
           required
           id="file"
           aria-label="image"
         />
-        <ImageContainerText>
-          Allowed image formats: .jpg, .jpg, .png, .webp
-        </ImageContainerText>
+        <ImageContainerText>Allowed image formats: .jpg, .jpg, .png</ImageContainerText>
         <FormLabel htmlFor="date">Date</FormLabel>
         <InputContainer
           role="input"
