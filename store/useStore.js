@@ -28,7 +28,17 @@ const useStore = create((set) => {
     },
 
     // append new card via form
-    appendNewGame: async (type, name, date, time, place, court, image) => {
+    appendNewGame: async (
+      type,
+      name,
+      date,
+      time,
+      place,
+      court,
+      image,
+      imageWidth,
+      imageHeight
+    ) => {
       const newGame = {
         type: type,
         name: name,
@@ -37,7 +47,8 @@ const useStore = create((set) => {
         place: place,
         court: court,
         image: image,
-
+        imageWidth: imageWidth,
+        imageHeight: imageHeight,
         results: {
           gameresult: "",
           set: [
