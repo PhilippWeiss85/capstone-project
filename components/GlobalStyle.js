@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
           --background-primary: #F0F7F5; // white/grey
           --background-secondary:#E6EDEB; // cardcontainer color
           --background-tertiary: #b6cbbc; // grey
-          --background-navigation: #012340; // darkblue
+          --background-navigation: linear-gradient(180deg, rgba(17,59,94,1) 0%, rgba(1,35,64,1) 53%); // darkblue
           --attention-color-primary: #ec0c53; // red
         
           --background-forminput: #abc9c6;

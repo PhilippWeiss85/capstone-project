@@ -15,8 +15,9 @@ export default function Header() {
   );
 }
 
-const HeadWrapper = styled.main`
-  background-color: var(--background-navigation);
+const HeadWrapper = styled.header`
+  background: var(--background-navigation);
+
   border-radius: 0;
   height: 60px;
   display: flex;
@@ -42,7 +43,7 @@ const IconContainer = styled.button`
 `;
 
 const PreviousPageIcon = styled(BsChevronLeft)`
-  font-size: 2em;
+  font-size: 1.4em;
   &:hover {
     transition: 0.1s ease-in-out;
     fill: var(--background-primary);
