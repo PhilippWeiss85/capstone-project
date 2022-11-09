@@ -90,13 +90,16 @@ export default function AddGameForm() {
         />
         <FormLabel htmlFor="image">Upload Image</FormLabel>
         <InputImageContainer
-          accept=".jpg, .jpeg, .png"
+          accept=".jpg, .jpeg, .png .webp"
           type="file"
           name="file"
           required
           id="file"
           aria-label="image"
         />
+        <ImageContainerText>
+          Allowed image formats: .jpg, .jpg, .png, .webp
+        </ImageContainerText>
         <FormLabel htmlFor="date">Date</FormLabel>
         <InputContainer
           role="input"
@@ -239,9 +242,11 @@ const FormFieldSetInput = styled.fieldset`
 
 const FormLegend = styled.legend`
   font-size: 1.2em;
+  padding: 1em 0 0;
 `;
 const FormLabel = styled.label`
   font-size: 1.2em;
+  margin: 1em 0 0;
 `;
 const FormLabelRadio = styled.label`
   font-size: 1em;
@@ -249,7 +254,7 @@ const FormLabelRadio = styled.label`
 
 const InputContainer = styled.input`
   border: none;
-  margin: 0 0;
+  margin: 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
@@ -273,24 +278,24 @@ const InputContainer = styled.input`
 
 const InputImageContainer = styled.input`
   border: none;
-  margin: 1em 0;
+  margin: 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
   color: var(--background-primary);
   background: var(--background-forminput);
+`;
 
-  &.file-upload-button {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-  }
+const ImageContainerText = styled.p`
+  margin: 0 0 1em;
+  border-radius: 0;
+  color: var(--text-tertiary);
+  font-size: 0.9em;
 `;
 
 const InputDropdown = styled.select`
   border: none;
-  margin: 1em 0;
+  margin: 0;
   height: 3em;
   padding-left: 1em;
   font-size: 1em;
@@ -301,10 +306,9 @@ const FormList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  background: #ffffff;
   width: 100%;
   padding: 0.3em 0;
-  margin: 1em 0;
+  margin: 0;
   background: var(--background-forminput);
 `;
 

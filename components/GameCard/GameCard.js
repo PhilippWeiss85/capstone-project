@@ -37,7 +37,7 @@ export default function GameCard({
       <CardContainer>
         <PlayersAndResults>
           <PlayerImageContainer>
-            <Image src={image} alt={image} layout="fill" objectFit="cover"></Image>
+            <Image src={image} alt={name} layout="fill" objectFit="cover"></Image>
           </PlayerImageContainer>
 
           <PlayerNameContainer>{name}</PlayerNameContainer>
