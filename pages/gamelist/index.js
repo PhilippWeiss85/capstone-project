@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import PieChart from "../../components/Charts/PieChart";
 import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
-import { FaSort } from "react-icons/fa";
+
+import { BsSortDown } from "react-icons/bs";
 import SortGames from "../../components/SortGames/SortGames";
 
 export default function GameList() {
@@ -27,7 +28,7 @@ export default function GameList() {
     <>
       <MainWrapper>
         <SortIcon onClick={toggleSortMenu}>
-          <FaSort />
+          <BsSortDown />
         </SortIcon>
         {sortIcon && (
           <SortMenu>
@@ -72,19 +73,24 @@ const MainWrapper = styled.main`
 
 const SortIcon = styled.button`
   position: absolute;
-  right: 1em;
-  top: 18px;
+  right: 0;
+  top: 5px;
+  height: 50px;
+  width: 50px;
   background: none;
   border: none;
   font-size: 1.5em;
   color: var(--text-navigation);
+
+  &:hover {
+    color: var(--text-secondary);
+  }
 `;
 
 const SortMenu = styled.section`
-  background-color: red;
   position: absolute;
   right: 0;
-  top: 3em;
+  top: 3.7em;
 `;
 
 const StatisticWrapper = styled.section`

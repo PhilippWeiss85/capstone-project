@@ -34,21 +34,25 @@ const Headline = styled.h1`
 `;
 
 const IconContainer = styled.button`
-  position: relative;
-  left: 1em;
+  position: absolute;
+  z-index: 200;
   background: none;
-  color: inherit;
+  left: 0;
+  top: 5px;
+  height: 50px;
+  width: 50px;
   border: none;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   color: var(--text-navigation);
+
+  &:hover {
+    transition: 0.1s ease-in-out;
+    color: var(--text-secondary);
+  }
 `;
 
 const PreviousPageIcon = styled(BsChevronLeft)`
   font-size: 1.4em;
-  &:hover {
-    transition: 0.1s ease-in-out;
-    fill: var(--background-primary);
-  }
 `;
