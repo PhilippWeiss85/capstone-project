@@ -29,7 +29,7 @@ const useStore = create((set, get) => {
 
     sortGamesByName: () => {
       const toggleSort = get().nameToggle;
-      const sortedGamesByName = get().games.sort((a, b) => {
+      const sortedGamesByName = [...get().games].sort((a, b) => {
         const nameA = a.name;
         const nameB = b.name;
         if (toggleSort === false) {
@@ -50,7 +50,6 @@ const useStore = create((set, get) => {
         }
       });
       console.log(toggleSort);
-      get().toggleSortMenu();
       set({
         games: sortedGamesByName,
         nameToggle: !toggleSort,
@@ -59,7 +58,7 @@ const useStore = create((set, get) => {
 
     sortGamesByType: () => {
       const toggleSort = get().typeToggle;
-      const sortedGamesByType = get().games.sort((a, b) => {
+      const sortedGamesByType = [...get().games].sort((a, b) => {
         const typeA = a.type;
         const typeB = b.type;
 
@@ -80,7 +79,6 @@ const useStore = create((set, get) => {
           }
         }
       });
-      get().toggleSortMenu();
       set({
         games: sortedGamesByType,
         typeToggle: !toggleSort,
@@ -89,7 +87,7 @@ const useStore = create((set, get) => {
 
     sortGamesByResult: () => {
       const toggleSort = get().resultToggle;
-      const sortedGames = get().games.sort((a, b) => {
+      const sortedGames = [...get().games].sort((a, b) => {
         const resultA = a.results.gameresult;
         const resultB = b.results.gameresult;
         if (toggleSort === false) {
@@ -109,7 +107,6 @@ const useStore = create((set, get) => {
           }
         }
       });
-      get().toggleSortMenu();
       set({
         games: sortedGames,
         resultToggle: !toggleSort,
