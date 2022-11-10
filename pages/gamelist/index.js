@@ -18,21 +18,35 @@ export default function GameList() {
   useEffect(() => {
     getInitialGameState();
   }, [getInitialGameState]);
+
   const gameList = useStore((state) => state.games);
   const toggleSortMenu = useStore((state) => state.toggleSortMenu);
   const sortIcon = useStore((state) => state.sortIcon);
 
-  console.log(sortIcon);
+  function sortGamesByName() {
+    gameList.sort((a, b) => {
+      const nameA = a.name;
+      const nameB = b.name;
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    });
+    toggleSortMenu(); // if you disable this code the list rerenders only after closing the toggleMenu
+  }
 
   return (
     <>
       <MainWrapper>
-        <SortIcon onClick={() => toggleSortMenu()}>
+        <SortIcon onClick={toggleSortMenu}>
           <FaSort />
         </SortIcon>
         {sortIcon && (
           <SortMenu>
-            <SortGames />
+            <SortGames sortGamesByName={sortGamesByName} />
           </SortMenu>
         )}
 
@@ -44,6 +58,7 @@ export default function GameList() {
             <BarChart />
           </ChartContainer>
         </StatisticWrapper>
+
         {gameList.map((game) => {
           return (
             <DynamicGameCard

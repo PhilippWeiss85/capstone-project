@@ -1,48 +1,10 @@
-import useStore from "../../store/useStore";
 import styled from "styled-components";
 
-export default function SortGames() {
-  const gameList = useStore((state) => state.games);
-
-  const sortGamesByName = gameList.sort((a, b) => {
-    const nameA = a.name;
-    const nameB = b.name;
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  });
-
-  const sortGamesByType = gameList.sort((a, b) => {
-    const nameA = a.name;
-    const nameB = b.name;
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  });
-
-  const sortGamesByResult = gameList.sort((a, b) => {
-    const nameA = a.name;
-    const nameB = b.name;
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  });
-
+export default function SortGames({ sortGamesByName }) {
   return (
     <>
       <FilterContainer>
-        <FilterButton>Name </FilterButton>
-        <FilterButton>Type</FilterButton>
-        <FilterButton>Result</FilterButton>
+        <FilterButton onClick={sortGamesByName}>Name </FilterButton>
       </FilterContainer>
     </>
   );
