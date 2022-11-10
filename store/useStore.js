@@ -1,10 +1,13 @@
 import create from "zustand";
 
-const useStore = create((set) => {
+const useStore = create((set, get) => {
   return {
     games: [],
     modal: false,
     sortIcon: false,
+    nameToggle: false,
+    typeToggle: false,
+    resultToggle: false,
 
     activateModal: () => {
       set((state) => {
@@ -21,6 +24,95 @@ const useStore = create((set) => {
     toggleSortMenu: () => {
       set((state) => {
         return { sortIcon: !state.sortIcon };
+      });
+    },
+
+    sortGamesByName: () => {
+      const toggleSort = get().nameToggle;
+      const sortedGamesByName = get().games.sort((a, b) => {
+        const nameA = a.name;
+        const nameB = b.name;
+        if (toggleSort === false) {
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        }
+        if (toggleSort === true) {
+          if (nameA < nameB) {
+            return 1;
+          }
+          if (nameA > nameB) {
+            return -1;
+          }
+        }
+      });
+      console.log(toggleSort);
+      get().toggleSortMenu();
+      set({
+        games: sortedGamesByName,
+        nameToggle: !toggleSort,
+      });
+    },
+
+    sortGamesByType: () => {
+      const toggleSort = get().typeToggle;
+      const sortedGamesByType = get().games.sort((a, b) => {
+        const typeA = a.type;
+        const typeB = b.type;
+
+        if (toggleSort === false) {
+          if (typeA < typeB) {
+            return -1;
+          }
+          if (typeA > typeB) {
+            return 1;
+          }
+        }
+        if (toggleSort === true) {
+          if (typeA < typeB) {
+            return 1;
+          }
+          if (typeA > typeB) {
+            return -1;
+          }
+        }
+      });
+      get().toggleSortMenu();
+      set({
+        games: sortedGamesByType,
+        typeToggle: !toggleSort,
+      });
+    },
+
+    sortGamesByResult: () => {
+      const toggleSort = get().resultToggle;
+      const sortedGames = get().games.sort((a, b) => {
+        const resultA = a.results.gameresult;
+        const resultB = b.results.gameresult;
+        if (toggleSort === false) {
+          if (resultA < resultB) {
+            return -1;
+          }
+          if (resultA > resultB) {
+            return 1;
+          }
+        }
+        if (toggleSort === true) {
+          if (resultA < resultB) {
+            return 1;
+          }
+          if (resultA > resultB) {
+            return -1;
+          }
+        }
+      });
+      get().toggleSortMenu();
+      set({
+        games: sortedGames,
+        resultToggle: !toggleSort,
       });
     },
 

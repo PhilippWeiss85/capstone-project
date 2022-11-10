@@ -23,25 +23,6 @@ export default function GameList() {
   const toggleSortMenu = useStore((state) => state.toggleSortMenu);
   const sortIcon = useStore((state) => state.sortIcon);
 
-  // useEffect(() => {
-  //   sortGamesByName();
-  // }, [gameList]); // test rerendering with useeffect
-
-  function sortGamesByName() {
-    gameList.sort((a, b) => {
-      const nameA = a.name;
-      const nameB = b.name;
-
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-    });
-    // toggleSortMenu(); // if you disable this code the list rerenders only after closing the toggleMenu
-  }
-
   return (
     <>
       <MainWrapper>
@@ -50,7 +31,7 @@ export default function GameList() {
         </SortIcon>
         {sortIcon && (
           <SortMenu>
-            <SortGames sortGamesByName={sortGamesByName} />
+            <SortGames />
           </SortMenu>
         )}
 

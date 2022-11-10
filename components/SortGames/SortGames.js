@@ -1,10 +1,17 @@
 import styled from "styled-components";
+import useStore from "../../store/useStore";
 
-export default function SortGames({ sortGamesByName }) {
+export default function SortGames() {
+  const sortGamesByName = useStore((state) => state.sortGamesByName);
+  const sortGamesByType = useStore((state) => state.sortGamesByType);
+  const sortGamesByResult = useStore((state) => state.sortGamesByResult);
+
   return (
     <>
       <FilterContainer>
-        <FilterButton onClick={sortGamesByName}>Name </FilterButton>
+        <FilterButton onClick={sortGamesByName}>Name</FilterButton>
+        <FilterButton onClick={sortGamesByType}>Type</FilterButton>
+        <FilterButton onClick={sortGamesByResult}>Result</FilterButton>
       </FilterContainer>
     </>
   );
