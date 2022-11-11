@@ -17,7 +17,12 @@ export default function BarChart() {
     }, {});
   }
 
+  // get courtnames + number of courts as Object {gras: 1, ...}
   const numberOfCourtsPlayed = getWordCount(courts);
+
+  const playedTimesOnCourt = Object.keys(numberOfCourtsPlayed) // returns a new array formed form numberOfCourtsPlayed Object: {"gras": 1, ...} => ["gras", ...]
+    .sort() // sort the new array by courtname
+    .map((court) => numberOfCourtsPlayed[court]); // map over the sorted array an give back the count from numberOfCourtsPlayed
 
   const labels = "Number of courts played";
   const options = {
@@ -61,11 +66,11 @@ export default function BarChart() {
     },
   };
   const data = {
-    labels: [],
+    labels: ["Carpet", "Clay", "Gras", "Carpet"],
     datasets: [
       {
         label: "Times played",
-        data: numberOfCourtsPlayed,
+        data: playedTimesOnCourt,
         backgroundColor: ["#d0e2ff", "#e8daff ", "#bae6ff", "#9ef0f0 "],
       },
     ],

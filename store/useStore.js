@@ -39,6 +39,9 @@ const useStore = create((set, get) => {
           if (nameA > nameB) {
             return 1;
           }
+          if (nameA === nameB) {
+            return 0;
+          }
         }
         if (toggleSort === true) {
           if (nameA < nameB) {
@@ -46,6 +49,9 @@ const useStore = create((set, get) => {
           }
           if (nameA > nameB) {
             return -1;
+          }
+          if (nameA === nameB) {
+            return 0;
           }
         }
       });
@@ -68,6 +74,9 @@ const useStore = create((set, get) => {
           if (typeA > typeB) {
             return 1;
           }
+          if (typeA === typeB) {
+            return 0;
+          }
         }
         if (toggleSort === true) {
           if (typeA < typeB) {
@@ -75,6 +84,9 @@ const useStore = create((set, get) => {
           }
           if (typeA > typeB) {
             return -1;
+          }
+          if (typeA === typeB) {
+            return 0;
           }
         }
       });
@@ -96,6 +108,9 @@ const useStore = create((set, get) => {
           if (resultA > resultB) {
             return 1;
           }
+          if (resultA === resultB) {
+            return 0;
+          }
         }
         if (toggleSort === true) {
           if (resultA < resultB) {
@@ -103,6 +118,9 @@ const useStore = create((set, get) => {
           }
           if (resultA > resultB) {
             return -1;
+          }
+          if (resultA === resultB) {
+            return 0;
           }
         }
       });
