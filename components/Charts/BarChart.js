@@ -66,7 +66,7 @@ export default function BarChart() {
     },
   };
   const data = {
-    labels: ["Carpet", "Clay", "Gras", "Carpet"],
+    labels: ["Carpet", "Clay", "Gras", "Hard"],
     datasets: [
       {
         label: "Times played",
