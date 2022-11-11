@@ -7,7 +7,7 @@ import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
 import { PuffLoader } from "react-spinners";
 import { LoadingContainer } from "../../components/LoadingContainer";
-
+import { useState } from "react";
 import { BsSortDown } from "react-icons/bs";
 import SortGames from "../../components/SortGames/SortGames";
 
@@ -43,7 +43,6 @@ export default function GameList() {
               <SortGames />
             </SortMenu>
           )}
-
           <StatisticWrapper>
             <ChartContainer>
               <PieChart />
@@ -52,23 +51,24 @@ export default function GameList() {
               <BarChart />
             </ChartContainer>
           </StatisticWrapper>
-
-          {gameList.map((game) => {
-            return (
-              <DynamicGameCard
-                key={game.id}
-                id={game.id}
-                type={game.type}
-                name={game.name}
-                date={game.date}
-                time={game.time}
-                place={game.place}
-                court={game.court}
-                results={game.results}
-                image={game.image}
-              />
-            );
-          })}
+          <>
+            {gameList.map((game) => {
+              return (
+                <DynamicGameCard
+                  key={game.id}
+                  id={game.id}
+                  type={game.type}
+                  name={game.name}
+                  date={game.date}
+                  time={game.time}
+                  place={game.place}
+                  court={game.court}
+                  results={game.results}
+                  image={game.image}
+                />
+              );
+            })}
+          </>
         </MainWrapper>
       )}
     </>

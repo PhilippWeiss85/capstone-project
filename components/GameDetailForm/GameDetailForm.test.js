@@ -1,5 +1,4 @@
 import { screen, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event/";
 import { testingResults } from "../GameCard/GameCard.test";
 import GameDetails from "./GameDetailForm";
 

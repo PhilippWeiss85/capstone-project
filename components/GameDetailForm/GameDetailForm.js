@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useStore from "../../store/useStore";
 import Modal from "../Modals/Modal";
-
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export default function GameDetails({ id, showMoreDetails, results }) {
@@ -100,126 +100,136 @@ export default function GameDetails({ id, showMoreDetails, results }) {
   }
 
   return (
-    <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
-      {modal && <Modal headline={errorHeadline} />}
-      <FieldsetsGame>
-        <ResultLegend aria-label="Add your result">Add your results</ResultLegend>
-        <ResultLabelLeft htmlFor="won">Won</ResultLabelLeft>
-        <ResultsInput
-          role="radioinput"
-          aria-label="won"
-          type="radio"
-          name="result"
-          value="won"
-          checked={finalResult === "won"}
-          onChange={(event) => setFinalResult(event.target.value)}
-          id="won"
-          required
-        />
-        <ResultsInput
-          aria-label="lost"
-          role="radioinput"
-          type="radio"
-          name="result"
-          value="lost"
-          checked={finalResult === "lost"}
-          onChange={(event) => setFinalResult(event.target.value)}
-          id="lost"
-          required
-        />
-        <ResultLabelRight htmlFor="lost">Lost</ResultLabelRight>
-      </FieldsetsGame>
+    <motion.nav
+      initial={{ opacity: 0, scale: 0.5, y: -100 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        duration: 0.3,
+        delay: 0.2,
+        ease: [0.1, 0.71, 0.4, 1],
+      }}
+    >
+      <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
+        {modal && <Modal headline={errorHeadline} />}
+        <FieldsetsGame>
+          <ResultLegend aria-label="Add your result">Add your results</ResultLegend>
+          <ResultLabelLeft htmlFor="won">Won</ResultLabelLeft>
+          <ResultsInput
+            role="radioinput"
+            aria-label="won"
+            type="radio"
+            name="result"
+            value="won"
+            checked={finalResult === "won"}
+            onChange={(event) => setFinalResult(event.target.value)}
+            id="won"
+            required
+          />
+          <ResultsInput
+            aria-label="lost"
+            role="radioinput"
+            type="radio"
+            name="result"
+            value="lost"
+            checked={finalResult === "lost"}
+            onChange={(event) => setFinalResult(event.target.value)}
+            id="lost"
+            required
+          />
+          <ResultLabelRight htmlFor="lost">Lost</ResultLabelRight>
+        </FieldsetsGame>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of first set" htmlFor="firstset">
-          Set 1
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="firstsetplayerone"
-          id="firstsetplayerone"
-          aria-label="Set 1: Score player one"
-          value={firstSetScorePlayerOne}
-          onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="firstsetplayertwo"
-          id="firstsetplayertwo"
-          aria-label="Set 1: Score player two"
-          value={firstSetScorePlayerTwo}
-          onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of first set" htmlFor="firstset">
+            Set 1
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="firstsetplayerone"
+            id="firstsetplayerone"
+            aria-label="Set 1: Score player one"
+            value={firstSetScorePlayerOne}
+            onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="firstsetplayertwo"
+            id="firstsetplayertwo"
+            aria-label="Set 1: Score player two"
+            value={firstSetScorePlayerTwo}
+            onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of second set" htmlFor="secondset">
-          Set 2
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="secondsetplayerone"
-          id="secondsetplayerone"
-          aria-label="Set 2: Score player one"
-          value={secondSetScorePlayerOne}
-          onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="secondsetplayertwo"
-          id="secondsetplayertwo"
-          aria-label="Set 2: Score player two"
-          value={secondSetScorePlayerTwo}
-          onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of second set" htmlFor="secondset">
+            Set 2
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="secondsetplayerone"
+            id="secondsetplayerone"
+            aria-label="Set 2: Score player one"
+            value={secondSetScorePlayerOne}
+            onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="secondsetplayertwo"
+            id="secondsetplayertwo"
+            aria-label="Set 2: Score player two"
+            value={secondSetScorePlayerTwo}
+            onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of third set" htmlFor="thirdset">
-          Set 3
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="thirdsetplayerone"
-          id="thirdsetplayerone"
-          aria-label="Set 3: Score player one"
-          value={thirdSetScorePlayerOne}
-          onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="thirdsetplayertwo"
-          id="thirdsetplayertwo"
-          aria-label="Set 3: Score player two"
-          value={thirdSetScorePlayerTwo}
-          onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of third set" htmlFor="thirdset">
+            Set 3
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="thirdsetplayerone"
+            id="thirdsetplayerone"
+            aria-label="Set 3: Score player one"
+            value={thirdSetScorePlayerOne}
+            onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="thirdsetplayertwo"
+            id="thirdsetplayertwo"
+            aria-label="Set 3: Score player two"
+            value={thirdSetScorePlayerTwo}
+            onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <SaveButtonDiv>
-        <SubmitButton aria-label="save details" type="submit" role="submitbutton">
-          Save
-        </SubmitButton>
-      </SaveButtonDiv>
-    </DetailsForm>
+        <SaveButtonDiv>
+          <SubmitButton aria-label="save details" type="submit" role="submitbutton">
+            Save
+          </SubmitButton>
+        </SaveButtonDiv>
+      </DetailsForm>
+    </motion.nav>
   );
 }
 

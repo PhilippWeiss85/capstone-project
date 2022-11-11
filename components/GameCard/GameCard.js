@@ -11,6 +11,8 @@ import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 import { BsCalendar3, BsClockHistory } from "react-icons/bs";
 import { GiPositionMarker, GiTennisCourt } from "react-icons/gi";
 
+import { motion } from "framer-motion";
+
 export default function GameCard({
   type,
   name,
@@ -78,6 +80,7 @@ export default function GameCard({
           </CourtHeadline>
           <StyledContent>{court}</StyledContent>
         </CardList>
+
         {showMore === true ? (
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
         ) : (

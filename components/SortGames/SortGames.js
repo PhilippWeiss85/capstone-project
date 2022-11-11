@@ -7,12 +7,10 @@ export default function SortGames() {
   const sortGamesByType = useStore((state) => state.sortGamesByType);
   const sortGamesByResult = useStore((state) => state.sortGamesByResult);
 
-  const toggleSort = useStore((state) => state.toggleSort);
   const nameToggle = useStore((state) => state.nameToggle);
   const typeToggle = useStore((state) => state.typeToggle);
   const resultToggle = useStore((state) => state.resultToggle);
 
-  console.log(nameToggle);
   return (
     <>
       <FilterContainer>
