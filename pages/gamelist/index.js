@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import PieChart from "../../components/Charts/PieChart";
 import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
+import { PuffLoader } from "react-spinners";
 
 import { BsSortDown } from "react-icons/bs";
 import SortGames from "../../components/SortGames/SortGames";
@@ -23,48 +24,64 @@ export default function GameList() {
   const gameList = useStore((state) => state.games);
   const toggleSortMenu = useStore((state) => state.toggleSortMenu);
   const sortIcon = useStore((state) => state.sortIcon);
+  const isLoading = useStore((state) => state.isLoading);
 
   return (
     <>
-      <MainWrapper>
-        <SortIcon onClick={toggleSortMenu}>
-          <BsSortDown />
-        </SortIcon>
-        {sortIcon && (
-          <SortMenu>
-            <SortGames />
-          </SortMenu>
-        )}
+      {isLoading === true ? (
+        <LoaderContainer>
+          <PuffLoader color="#BBF244" loading size={300} speedMultiplier={1.4} />
+        </LoaderContainer>
+      ) : (
+        <MainWrapper>
+          <SortIcon onClick={toggleSortMenu}>
+            <BsSortDown />
+          </SortIcon>
+          {sortIcon && (
+            <SortMenu>
+              <SortGames />
+            </SortMenu>
+          )}
 
-        <StatisticWrapper>
-          <ChartContainer>
-            <PieChart />
-          </ChartContainer>
-          <ChartContainer>
-            <BarChart />
-          </ChartContainer>
-        </StatisticWrapper>
+          <StatisticWrapper>
+            <ChartContainer>
+              <PieChart />
+            </ChartContainer>
+            <ChartContainer>
+              <BarChart />
+            </ChartContainer>
+          </StatisticWrapper>
 
-        {gameList.map((game) => {
-          return (
-            <DynamicGameCard
-              key={game.id}
-              id={game.id}
-              type={game.type}
-              name={game.name}
-              date={game.date}
-              time={game.time}
-              place={game.place}
-              court={game.court}
-              results={game.results}
-              image={game.image}
-            />
-          );
-        })}
-      </MainWrapper>
+          {gameList.map((game) => {
+            return (
+              <DynamicGameCard
+                key={game.id}
+                id={game.id}
+                type={game.type}
+                name={game.name}
+                date={game.date}
+                time={game.time}
+                place={game.place}
+                court={game.court}
+                results={game.results}
+                image={game.image}
+              />
+            );
+          })}
+        </MainWrapper>
+      )}
     </>
   );
 }
+
+const LoaderContainer = styled.section`
+  max-width: 640px;
+  margin: 3em auto;
+  display: flex;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+`;
 
 const MainWrapper = styled.main`
   max-width: 640px;

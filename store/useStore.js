@@ -8,6 +8,7 @@ const useStore = create((set, get) => {
     nameToggle: false,
     typeToggle: false,
     resultToggle: false,
+    isLoading: false,
 
     activateModal: () => {
       set((state) => {
@@ -131,8 +132,14 @@ const useStore = create((set, get) => {
     },
 
     getInitialGameState: async () => {
+      set((state) => {
+        return { isLoading: true };
+      });
       const res = await fetch("/api/gamelist");
       const initialGamesList = await res.json();
+      set((state) => {
+        return { isLoading: false };
+      });
       set((state) => {
         return {
           games: initialGamesList ?? [], // set initial games array to db fetch

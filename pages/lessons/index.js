@@ -7,7 +7,6 @@ import { getAllLessons } from "../../services/lessonServices";
 export async function getStaticProps() {
   await dbConnect();
   const lessons = await getAllLessons();
-
   return {
     props: { lessons: lessons },
   };
