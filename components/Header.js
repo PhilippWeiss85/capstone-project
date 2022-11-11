@@ -26,26 +26,33 @@ const HeadWrapper = styled.header`
 `;
 
 const Headline = styled.h1`
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
   color: var(--text-navigation);
 `;
 
 const IconContainer = styled.button`
   position: absolute;
-  left: 1em;
+  z-index: 200;
   background: none;
-  color: inherit;
+  left: 0;
+  top: 5px;
+  height: 50px;
+  width: 50px;
   border: none;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   color: var(--text-navigation);
+
+  &:hover {
+    transition: 0.1s ease-in-out;
+    color: var(--text-secondary);
+  }
 `;
 
 const PreviousPageIcon = styled(BsChevronLeft)`
   font-size: 1.4em;
-  &:hover {
-    transition: 0.1s ease-in-out;
-    fill: var(--background-primary);
-  }
 `;

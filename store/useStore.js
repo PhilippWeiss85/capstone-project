@@ -1,9 +1,13 @@
 import create from "zustand";
 
-const useStore = create((set) => {
+const useStore = create((set, get) => {
   return {
     games: [],
     modal: false,
+    sortIcon: false,
+    nameToggle: false,
+    typeToggle: false,
+    resultToggle: false,
 
     activateModal: () => {
       set((state) => {
@@ -14,6 +18,115 @@ const useStore = create((set) => {
     closeModal: () => {
       set((state) => {
         return { modal: false };
+      });
+    },
+
+    toggleSortMenu: () => {
+      set((state) => {
+        return { sortIcon: !state.sortIcon };
+      });
+    },
+
+    sortGamesByName: () => {
+      const toggleSort = get().nameToggle;
+      const sortedGamesByName = [...get().games].sort((a, b) => {
+        const nameA = a.name;
+        const nameB = b.name;
+        if (toggleSort === false) {
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          if (nameA === nameB) {
+            return 0;
+          }
+        }
+        if (toggleSort === true) {
+          if (nameA < nameB) {
+            return 1;
+          }
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA === nameB) {
+            return 0;
+          }
+        }
+      });
+      set({
+        games: sortedGamesByName,
+        nameToggle: !toggleSort,
+      });
+    },
+
+    sortGamesByType: () => {
+      const toggleSort = get().typeToggle;
+      const sortedGamesByType = [...get().games].sort((a, b) => {
+        const typeA = a.type;
+        const typeB = b.type;
+
+        if (toggleSort === false) {
+          if (typeA < typeB) {
+            return -1;
+          }
+          if (typeA > typeB) {
+            return 1;
+          }
+          if (typeA === typeB) {
+            return 0;
+          }
+        }
+        if (toggleSort === true) {
+          if (typeA < typeB) {
+            return 1;
+          }
+          if (typeA > typeB) {
+            return -1;
+          }
+          if (typeA === typeB) {
+            return 0;
+          }
+        }
+      });
+      set({
+        games: sortedGamesByType,
+        typeToggle: !toggleSort,
+      });
+    },
+
+    sortGamesByResult: () => {
+      const toggleSort = get().resultToggle;
+      const sortedGames = [...get().games].sort((a, b) => {
+        const resultA = a.results.gameresult;
+        const resultB = b.results.gameresult;
+        if (toggleSort === false) {
+          if (resultA < resultB) {
+            return -1;
+          }
+          if (resultA > resultB) {
+            return 1;
+          }
+          if (resultA === resultB) {
+            return 0;
+          }
+        }
+        if (toggleSort === true) {
+          if (resultA < resultB) {
+            return 1;
+          }
+          if (resultA > resultB) {
+            return -1;
+          }
+          if (resultA === resultB) {
+            return 0;
+          }
+        }
+      });
+      set({
+        games: sortedGames,
+        resultToggle: !toggleSort,
       });
     },
 
@@ -70,7 +183,7 @@ const useStore = create((set) => {
 
       set((state) => {
         return {
-          games: [...state.games, sanitizedNewGameObject],
+          games: [sanitizedNewGameObject, ...state.games],
         };
       });
     },

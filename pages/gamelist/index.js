@@ -6,6 +6,9 @@ import PieChart from "../../components/Charts/PieChart";
 import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
 
+import { BsSortDown } from "react-icons/bs";
+import SortGames from "../../components/SortGames/SortGames";
+
 export default function GameList() {
   const DynamicGameCard = dynamic(() => import("../../components/GameCard/GameCard"), {
     ssr: false,
@@ -16,11 +19,23 @@ export default function GameList() {
   useEffect(() => {
     getInitialGameState();
   }, [getInitialGameState]);
+
   const gameList = useStore((state) => state.games);
+  const toggleSortMenu = useStore((state) => state.toggleSortMenu);
+  const sortIcon = useStore((state) => state.sortIcon);
 
   return (
     <>
       <MainWrapper>
+        <SortIcon onClick={toggleSortMenu}>
+          <BsSortDown />
+        </SortIcon>
+        {sortIcon && (
+          <SortMenu>
+            <SortGames />
+          </SortMenu>
+        )}
+
         <StatisticWrapper>
           <ChartContainer>
             <PieChart />
@@ -29,6 +44,7 @@ export default function GameList() {
             <BarChart />
           </ChartContainer>
         </StatisticWrapper>
+
         {gameList.map((game) => {
           return (
             <DynamicGameCard
@@ -53,6 +69,28 @@ export default function GameList() {
 const MainWrapper = styled.main`
   max-width: 640px;
   margin: 0 auto;
+`;
+
+const SortIcon = styled.button`
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 50px;
+  width: 50px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--text-navigation);
+
+  &:hover {
+    color: var(--text-secondary);
+  }
+`;
+
+const SortMenu = styled.section`
+  position: absolute;
+  right: 0;
+  top: 3.7em;
 `;
 
 const StatisticWrapper = styled.section`

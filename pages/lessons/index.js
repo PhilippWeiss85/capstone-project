@@ -40,12 +40,12 @@ export default function LessonsList({ lessons }) {
 }
 
 const MainWrapper = styled.main`
-  margin: 10vw;
+  margin: 0 10vw;
 `;
 
 const StyledH2 = styled.h2`
   position: absolute;
-  bottom: -0.6em;
+  bottom: -16px;
   z-index: 100;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
   color: #ffffff;
@@ -53,12 +53,9 @@ const StyledH2 = styled.h2`
   padding: 0.4em;
 
   &:hover {
-    background-color: red;
+    transition: 0.1s ease-in;
+    background-color: var(--text-navigation);
     cursor: pointer;
-  }
-
-  &:active {
-    background-color: black;
   }
 `;
 
@@ -66,9 +63,4 @@ const LessonContainer = styled.section`
   margin: 2em auto;
   max-width: 640px;
   position: relative;
-  &:hover {
-  }
-
-  &:active {
-  }
 `;
