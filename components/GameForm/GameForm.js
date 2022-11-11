@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import useStore from "../../store/useStore";
 import Modal from "../Modals/Modal";
 import { useState } from "react";
+import { PuffLoader } from "react-spinners";
+import { LoadingContainer } from "../LoadingContainer";
 
 import styled from "styled-components";
 
@@ -10,6 +12,7 @@ export default function AddGameForm() {
   const activateModal = useStore((state) => state.activateModal);
   const modal = useStore((state) => state.modal);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -19,12 +22,13 @@ export default function AddGameForm() {
     const data = Object.fromEntries(formData);
 
     try {
+      setLoading(true);
       const response = await fetch("/api/imageUpload", {
         method: "POST",
         body: formData,
       });
       const img = await response.json();
-
+      setLoading(false);
       // to prevent name emty name inputs
       if (data.opponent.trim() === "") {
         activateModal();
@@ -47,149 +51,159 @@ export default function AddGameForm() {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
-      <FormFieldSetRadio>
-        {modal && <Modal headline="Please enter a valid name" />}
-        <FormLegend aria-label="Select your game type">Match Type</FormLegend>
-        <FormList>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="match">Match</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
+    <>
+      {loading === true ? (
+        <LoadingContainer>
+          <PuffLoader color="#BBF244" loading size={300} speedMultiplier={1.5} />
+        </LoadingContainer>
+      ) : (
+        <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
+          <FormFieldSetRadio>
+            {modal && <Modal headline="Please enter a valid name" />}
+            <FormLegend aria-label="Select your game type">Match Type</FormLegend>
+            <FormList>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="match">Match</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  required
+                  type="radio"
+                  name="gametype"
+                  id="match"
+                  value="Match"
+                  aria-label="match"
+                />
+              </FormRadioItem>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="training">Training</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  required
+                  type="radio"
+                  name="gametype"
+                  id="training"
+                  value="Training"
+                  aria-label="training"
+                />
+              </FormRadioItem>
+            </FormList>
+          </FormFieldSetRadio>
+          <FormFieldSetInput>
+            <FormLabel htmlFor="opponent">Opponent</FormLabel>
+            <InputContainer
+              role="input"
+              type="text"
               required
-              type="radio"
-              name="gametype"
-              id="match"
-              value="Match"
-              aria-label="match"
+              name="opponent"
+              id="opponent"
+              aria-label="name"
             />
-          </FormRadioItem>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="training">Training</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
+            <FormLabel htmlFor="image">Upload Image</FormLabel>
+            <InputImageContainer
+              accept=".jpg, .jpeg, .png "
+              type="file"
+              name="file"
               required
-              type="radio"
-              name="gametype"
-              id="training"
-              value="Training"
-              aria-label="training"
+              id="file"
+              aria-label="image"
             />
-          </FormRadioItem>
-        </FormList>
-      </FormFieldSetRadio>
-      <FormFieldSetInput>
-        <FormLabel htmlFor="opponent">Opponent</FormLabel>
-        <InputContainer
-          role="input"
-          type="text"
-          required
-          name="opponent"
-          id="opponent"
-          aria-label="name"
-        />
-        <FormLabel htmlFor="image">Upload Image</FormLabel>
-        <InputImageContainer
-          accept=".jpg, .jpeg, .png "
-          type="file"
-          name="file"
-          required
-          id="file"
-          aria-label="image"
-        />
-        <ImageContainerText>Allowed image formats: .jpg, .jpg, .png</ImageContainerText>
-        <FormLabel htmlFor="date">Date</FormLabel>
-        <InputContainer
-          role="input"
-          type="date"
-          required
-          name="date"
-          id="date"
-          min="2022-10-01"
-          max="2099-12-31"
-          aria-label="date"
-        />
-        <FormLabel htmlFor="time">Time</FormLabel>
-        <InputContainer
-          role="input"
-          type="time"
-          required
-          name="time"
-          id="time"
-          aria-label="time"
-        />
-        <FormLabel htmlFor="place">Place</FormLabel>
-        <InputDropdown
-          name="place"
-          required
-          id="place"
-          aria-label="location"
-          role="input"
-        >
-          <option value="">... please select a location</option>
-          <option value="Rothof">Rothof</option>
-          <option value="Sportscheck">Sportscheck</option>
-          <option value="Fideliopark">Fideliopark</option>
-        </InputDropdown>
-      </FormFieldSetInput>
-      <FormFieldSetRadio>
-        <FormLegend aria-label="Choose your court">Choose your court</FormLegend>
-        <FormList>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="clay">Clay</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
-              type="radio"
-              name="court"
-              id="clay"
-              value="Clay"
-              aria-label="clay"
-            />
-          </FormRadioItem>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="carpet">Carpet</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
+            <ImageContainerText>
+              Allowed image formats: .jpg, .jpg, .png
+            </ImageContainerText>
+            <FormLabel htmlFor="date">Date</FormLabel>
+            <InputContainer
+              role="input"
+              type="date"
               required
-              type="radio"
-              name="court"
-              id="carpet"
-              value="Carpet"
-              aria-label="Court type: carpet"
+              name="date"
+              id="date"
+              min="2022-10-01"
+              max="2099-12-31"
+              aria-label="date"
             />
-          </FormRadioItem>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="hard">Hard</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
+            <FormLabel htmlFor="time">Time</FormLabel>
+            <InputContainer
+              role="input"
+              type="time"
               required
-              type="radio"
-              name="court"
-              id="hard"
-              value="Hard"
-              aria-label="hard"
+              name="time"
+              id="time"
+              aria-label="time"
             />
-          </FormRadioItem>
-          <FormRadioItem>
-            <FormLabelRadio htmlFor="gras">Gras</FormLabelRadio>
-            <RadioInput
-              role="radioinput"
+            <FormLabel htmlFor="place">Place</FormLabel>
+            <InputDropdown
+              name="place"
               required
-              type="radio"
-              name="court"
-              id="gras"
-              value="Gras"
-              aria-labelledby="gras"
-            />
-          </FormRadioItem>
-        </FormList>
-      </FormFieldSetRadio>
-      <ButtonFieldSet>
-        <SubmitButton aria-label="create new card" type="submit" role="submitbutton">
-          Add Game
-        </SubmitButton>
-      </ButtonFieldSet>
-    </FormContainer>
+              id="place"
+              aria-label="location"
+              role="input"
+            >
+              <option value="">... please select a location</option>
+              <option value="Rothof">Rothof</option>
+              <option value="Sportscheck">Sportscheck</option>
+              <option value="Fideliopark">Fideliopark</option>
+            </InputDropdown>
+          </FormFieldSetInput>
+          <FormFieldSetRadio>
+            <FormLegend aria-label="Choose your court">Choose your court</FormLegend>
+            <FormList>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="clay">Clay</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  type="radio"
+                  name="court"
+                  id="clay"
+                  value="Clay"
+                  aria-label="clay"
+                />
+              </FormRadioItem>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="carpet">Carpet</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  required
+                  type="radio"
+                  name="court"
+                  id="carpet"
+                  value="Carpet"
+                  aria-label="Court type: carpet"
+                />
+              </FormRadioItem>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="hard">Hard</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  required
+                  type="radio"
+                  name="court"
+                  id="hard"
+                  value="Hard"
+                  aria-label="hard"
+                />
+              </FormRadioItem>
+              <FormRadioItem>
+                <FormLabelRadio htmlFor="gras">Gras</FormLabelRadio>
+                <RadioInput
+                  role="radioinput"
+                  required
+                  type="radio"
+                  name="court"
+                  id="gras"
+                  value="Gras"
+                  aria-labelledby="gras"
+                />
+              </FormRadioItem>
+            </FormList>
+          </FormFieldSetRadio>
+          <ButtonFieldSet>
+            <SubmitButton aria-label="create new card" type="submit" role="submitbutton">
+              Add Game
+            </SubmitButton>
+          </ButtonFieldSet>
+        </FormContainer>
+      )}
+    </>
   );
 }
 

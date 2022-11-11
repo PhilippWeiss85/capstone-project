@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ChartContainer = styled.div`
-  height: 300px;
+  height: 230px;
   display: inline-block;
   padding-bottom: 0.5em;
   margin: 0 1em;

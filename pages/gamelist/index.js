@@ -6,6 +6,7 @@ import PieChart from "../../components/Charts/PieChart";
 import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
 import { PuffLoader } from "react-spinners";
+import { LoadingContainer } from "../../components/LoadingContainer";
 
 import { BsSortDown } from "react-icons/bs";
 import SortGames from "../../components/SortGames/SortGames";
@@ -29,9 +30,9 @@ export default function GameList() {
   return (
     <>
       {isLoading === true ? (
-        <LoaderContainer>
-          <PuffLoader color="#BBF244" loading size={300} speedMultiplier={1.4} />
-        </LoaderContainer>
+        <LoadingContainer>
+          <PuffLoader color="#BBF244" loading size={300} speedMultiplier={1.5} />
+        </LoadingContainer>
       ) : (
         <MainWrapper>
           <SortIcon onClick={toggleSortMenu}>
@@ -74,15 +75,6 @@ export default function GameList() {
   );
 }
 
-const LoaderContainer = styled.section`
-  max-width: 640px;
-  margin: 3em auto;
-  display: flex;
-  height: 300px;
-  align-items: center;
-  justify-content: center;
-`;
-
 const MainWrapper = styled.main`
   max-width: 640px;
   margin: 0 auto;
@@ -116,7 +108,7 @@ const StatisticWrapper = styled.section`
   white-space: nowrap;
 
   ::-webkit-scrollbar {
-    -webkit-appearance: none;
+    -webkit-appearance: auto;
     height: 6px;
   }
   ::-webkit-scrollbar-thumb {

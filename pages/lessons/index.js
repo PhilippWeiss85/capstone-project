@@ -53,7 +53,7 @@ const StyledH2 = styled.h2`
 
   &:hover {
     transition: 0.1s ease-in;
-    background-color: var(--text-navigation);
+    background: var(--background-lessons-hover);
     cursor: pointer;
   }
 `;

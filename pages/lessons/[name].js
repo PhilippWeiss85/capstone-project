@@ -54,46 +54,55 @@ export default function SingleLesson({
         objectFit="cover"
         width={1710}
         height={1198}
+        priority="true"
       />
-      <ContentWrapper>
+      <section>
         <ArticleWrapper>
-          <h2>Description</h2>
-          <p>{description}</p>
+          <SubHeadline>Description</SubHeadline>
+          <TextContent>{description}</TextContent>
         </ArticleWrapper>
         <ArticleWrapper>
-          <h2>Steps</h2>
+          <SubHeadline>Steps</SubHeadline>
           <ListWrapper>
-            <ListItem>
-              <span>Grip:</span> {step1}
-            </ListItem>
+            <ListItem>Grip: {step1}</ListItem>
             <ListItem>Stance/Position: {step2}</ListItem>
             <ListItem>Swing: {step3}</ListItem>
             <ListItem>Follow Through: {step4}</ListItem>
           </ListWrapper>
         </ArticleWrapper>
-      </ContentWrapper>
+      </section>
     </MainWrapper>
   );
 }
 
 const MainWrapper = styled.main`
-  margin: 10vw;
+  max-width: 640px;
+  margin: 0 auto;
 `;
 
-const ContentWrapper = styled.section`
+const SubHeadline = styled.h2`
+  padding: 0;
+  margin: 0;
+`;
+
+const TextContent = styled.p`
+  background: var(--background-primary);
   padding: 1em;
+  box-shadow: 0 2px 0 var(--background-tertiary);
+  border-radius: 0;
 `;
 
 const ArticleWrapper = styled.article`
   gap: 1em;
   padding-top: 1em;
-  overflow: hidden;
+  overflow-x: hidden;
+  margin: 1em 0 2em 0;
+  padding: 0 1em;
 `;
 
 const ListWrapper = styled.ol`
-  display: flex;
-  flex-direction: column;
-  padding: 0 1em;
+  padding: 1em 2em;
+  background: red;
 `;
 
 const ListItem = styled.li`

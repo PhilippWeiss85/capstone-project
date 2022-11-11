@@ -7,22 +7,35 @@ export default function SortGames() {
   const sortGamesByType = useStore((state) => state.sortGamesByType);
   const sortGamesByResult = useStore((state) => state.sortGamesByResult);
 
+  const toggleSort = useStore((state) => state.toggleSort);
+  const nameToggle = useStore((state) => state.nameToggle);
+  const typeToggle = useStore((state) => state.typeToggle);
+  const resultToggle = useStore((state) => state.resultToggle);
+
+  console.log(nameToggle);
   return (
     <>
       <FilterContainer>
         <FilterButton onClick={sortGamesByName}>
-          <FaSort /> Name
+          {nameToggle === false ? <FaSort /> : <FaSort />}
+          <p> Name</p>
         </FilterButton>
         <FilterButton onClick={sortGamesByType}>
-          <FaSort /> Type
+          {typeToggle === false ? <FaSort /> : <FaSort />}
+          <p>Type</p>
         </FilterButton>
         <FilterButton onClick={sortGamesByResult}>
-          <FaSort /> Result
+          {resultToggle === false ? <FaSort /> : <FaSort />}
+          <p>Result</p>
         </FilterButton>
       </FilterContainer>
     </>
   );
 }
+
+const DefaultToggleIcon = styled.svg`
+  z-index: -100;
+`;
 
 const FilterContainer = styled.section`
   background: rgba(1, 35, 64, 1) 53%;

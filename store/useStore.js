@@ -176,7 +176,9 @@ const useStore = create((set, get) => {
           ],
         },
       };
-
+      set((state) => {
+        return { isLoading: true };
+      });
       const res = await fetch("/api/gamelist", {
         method: "POST",
         body: JSON.stringify(newGame),
@@ -187,7 +189,9 @@ const useStore = create((set, get) => {
         ...newGameObject.addGameCard,
         id: newGameObject.addGameCard._id,
       }; // translate _id to id to prevent rendering issue in gamelist page (key prop)
-
+      set((state) => {
+        return { isLoading: false };
+      });
       set((state) => {
         return {
           games: [sanitizedNewGameObject, ...state.games],

@@ -8,6 +8,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import { BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
+import { BsCalendar3, BsClockHistory } from "react-icons/bs";
+import { GiPositionMarker, GiTennisCourt } from "react-icons/gi";
 
 export default function GameCard({
   type,
@@ -51,22 +53,30 @@ export default function GameCard({
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <StyledDeleteButtonButton onClick={() => setDeleteModal(true)}>
+          <StyledDeleteButton onClick={() => setDeleteModal(true)}>
             <BsX />
-          </StyledDeleteButtonButton>
+          </StyledDeleteButton>
         </DeleteButtonContainer>
         <CardList>
-          <DateHeadline> Date:</DateHeadline>
+          <DateHeadline>
+            <BsCalendar3 />
+          </DateHeadline>
           <StyledContent> {date}</StyledContent>
 
-          <TimeHeadline>Time:</TimeHeadline>
+          <TimeHeadline>
+            <BsClockHistory />
+          </TimeHeadline>
           <StyledContent>{time} </StyledContent>
 
-          <PlaceHeadline>Place:</PlaceHeadline>
+          <PlaceHeadline>
+            <GiPositionMarker />
+          </PlaceHeadline>
           <StyledContent> {place} </StyledContent>
 
-          <CourtHeadline>Court:</CourtHeadline>
-          <StyledContent> {court} </StyledContent>
+          <CourtHeadline>
+            <GiTennisCourt />
+          </CourtHeadline>
+          <StyledContent>{court}</StyledContent>
         </CardList>
         {showMore === true ? (
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
@@ -136,7 +146,9 @@ const PlayerNameContainer = styled.div`
 `;
 
 const ResultContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: -45px;
+  left: 100px;
   width: 40%;
   font-size: 0.7em;
 `;
@@ -159,7 +171,7 @@ const CardList = styled.article`
   position: relative;
   display: grid;
   grid-template-areas: "date" "time" "place" "court";
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-auto-flow: column;
   padding: 0 1em;
   gap: 0;
@@ -170,25 +182,42 @@ const CardList = styled.article`
 const DateHeadline = styled.p`
   grid-area: date;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const TimeHeadline = styled.p`
   grid-area: time;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const PlaceHeadline = styled.p`
   grid-area: place;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const CourtHeadline = styled.p`
   grid-area: court;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 
 const StyledContent = styled.p`
   margin: 0.2em 0;
+  font-size: 1em;
 `;
 
-const StyledDeleteButtonButton = styled.button`
+const StyledDeleteButton = styled.button`
   background-color: transparent;
   color: var(--attention-color-primary);
   font-size: 1.7em;

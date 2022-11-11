@@ -9,7 +9,6 @@ export default function GameDetails({ id, showMoreDetails, results }) {
   const activateModal = useStore((state) => state.activateModal);
   const updateGameDetail = useStore((state) => state.updateGameDetail);
   const [errorHeadline, setErrorHeadline] = useState("");
-  const [errorText, setErrorText] = useState("");
 
   // useStates for controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
@@ -103,10 +102,9 @@ export default function GameDetails({ id, showMoreDetails, results }) {
   return (
     <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
       {modal && <Modal headline={errorHeadline} />}
-      <Headline>Add your GameResults</Headline>
       <FieldsetsGame>
-        <ResultLegend aria-label="Add your result">Result</ResultLegend>
-        <ResultLabelLeft htmlFor="won">won</ResultLabelLeft>
+        <ResultLegend aria-label="Add your result">Add your results</ResultLegend>
+        <ResultLabelLeft htmlFor="won">Won</ResultLabelLeft>
         <ResultsInput
           role="radioinput"
           aria-label="won"
@@ -129,7 +127,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
           id="lost"
           required
         />
-        <ResultLabelRight htmlFor="lost">lost</ResultLabelRight>
+        <ResultLabelRight htmlFor="lost">Lost</ResultLabelRight>
       </FieldsetsGame>
 
       <Fieldsets>
@@ -218,7 +216,7 @@ export default function GameDetails({ id, showMoreDetails, results }) {
 
       <SaveButtonDiv>
         <SubmitButton aria-label="save details" type="submit" role="submitbutton">
-          Save Results
+          Save
         </SubmitButton>
       </SaveButtonDiv>
     </DetailsForm>
@@ -231,7 +229,7 @@ const SubmitButton = styled.button`
   margin: 0 1em;
   background-color: var(--background-primary);
   color: var(--text-primary);
-  font-size: 1.2em;
+  font-size: 1em;
   border: none;
 
   &:hover {
@@ -248,33 +246,42 @@ const DetailsForm = styled.form`
   position: relative;
   display: grid;
   grid-template-areas:
-    "headline headline headline"
     "results results results"
     "setone settwo setthree"
     "button button button";
-  grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 0.5fr 0.5fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5em;
-  padding: 1em 1em 0 1em;
+  margin-top: 1em;
+  background: var(--background-primary);
 `;
 
 const FieldsetsGame = styled.fieldset`
-  border: 2px solid black;
   grid-area: results;
   display: flex;
   align-items: center;
-  padding: 0 30%;
+  border: none;
 `;
 
 const Fieldsets = styled.fieldset`
-  border: 2px solid black;
   grid-area: setone settwo setthree;
   display: flex;
+  border: none;
   flex-direction: column;
+  margin: 0.5em;
+  padding: 0.5em;
+  color: var(--text-secondary);
+  background: var(--background-navigation);
 `;
 
 const ResultLegend = styled.legend`
+  width: 100%;
+  border-radius: 0;
+  color: var(--text-secondary);
   text-align: center;
+  border-bottom: 1px solid var(--text-primary);
+  padding: 0.7em 1em;
+  background: var(--background-navigation);
 `;
 
 const SaveButtonDiv = styled.div`
@@ -282,15 +289,9 @@ const SaveButtonDiv = styled.div`
   margin: 1em auto;
 `;
 
-const Headline = styled.h3`
-  grid-area: headline;
-  text-align: center;
-  padding-top: 0.5em;
-  font-size: 1.2em;
-`;
-
 const ResultLabelLeft = styled.label`
   margin: 0 0 0 auto;
+  padding: 1em 0;
 `;
 
 const ResultLabelRight = styled.label`

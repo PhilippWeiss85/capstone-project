@@ -10,14 +10,13 @@ export default function Header() {
       <IconContainer onClick={() => router.back()}>
         <PreviousPageIcon />
       </IconContainer>
-      <Headline>My Tennis App</Headline>
+      <Headline>Courtisoul</Headline>
     </HeadWrapper>
   );
 }
 
 const HeadWrapper = styled.header`
   background: var(--background-navigation);
-
   border-radius: 0;
   height: 60px;
   display: flex;
@@ -27,9 +26,7 @@ const HeadWrapper = styled.header`
 
 const Headline = styled.h1`
   position: relative;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
+  /* margin-left: 1em; */
   color: var(--text-navigation);
 `;
 
