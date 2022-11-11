@@ -49,7 +49,6 @@ const useStore = create((set, get) => {
           }
         }
       });
-      console.log(toggleSort);
       set({
         games: sortedGamesByName,
         nameToggle: !toggleSort,
