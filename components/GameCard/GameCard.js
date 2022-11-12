@@ -11,8 +11,6 @@ import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 import { BsCalendar3, BsClockHistory } from "react-icons/bs";
 import { GiPositionMarker, GiTennisCourt } from "react-icons/gi";
 
-import { motion } from "framer-motion";
-
 export default function GameCard({
   type,
   name,
@@ -98,23 +96,23 @@ export default function GameCard({
 
 const Card = styled.section`
   position: relative;
-  margin: 0 0;
 `;
 
 const CardType = styled.h2`
   position: absolute;
-  top: -0.8em;
-  left: 0.8em;
+  top: -2em;
+  left: 0.3em;
   padding: 0.2em 0.4em;
   z-index: 200;
   color: var(--text-primary);
+
   background: ${({ type }) =>
     type === "Match" ? "hsla(90, 100%, 50%, 0.8)" : "	hsl(75, 100%, 60%, 0.8) "};
 `;
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: 2em 1em;
+  margin: 2em 0.5em;
   mix-blend-mode: normal;
   position: relative;
   border-radius: 0;
@@ -126,7 +124,7 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 1.5em 0 1em 0;
+  margin: 0.3em 0 1em 0;
   gap: 0.5em;
   font-size: 1.3em;
 `;
@@ -149,11 +147,11 @@ const PlayerNameContainer = styled.div`
 `;
 
 const ResultContainer = styled.div`
-  position: absolute;
-  top: -45px;
-  left: 100px;
+  position: relative;
   width: 40%;
   font-size: 0.7em;
+  margin-top: 0em;
+  align-self: flex-start;
 `;
 
 const DeleteButtonContainer = styled.div`
@@ -167,7 +165,7 @@ const DeleteButtonContainer = styled.div`
 const EditButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
+  height: 30px;
 `;
 
 const CardList = styled.article`
@@ -177,7 +175,7 @@ const CardList = styled.article`
   grid-template-columns: 1fr 1.5fr;
   grid-auto-flow: column;
   padding: 0 1em;
-  gap: 0;
+  margin-bottom: 0.5em;
   border-radius: 0;
   background-color: var(--background-primary);
 `;

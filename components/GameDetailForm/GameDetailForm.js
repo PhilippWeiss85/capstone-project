@@ -101,10 +101,10 @@ export default function GameDetails({ id, showMoreDetails, results }) {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, scale: 0.5, y: -100 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
+      initial={{ opacity: 0, scale: 0.3 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{
-        duration: 0.3,
+        duration: 0.4,
         delay: 0.2,
         ease: [0.1, 0.71, 0.4, 1],
       }}
@@ -259,10 +259,9 @@ const DetailsForm = styled.form`
     "results results results"
     "setone settwo setthree"
     "button button button";
-  grid-template-rows: 1fr 0.5fr 0.5fr;
+  padding-bottom: 0.1em;
+  grid-template-rows: 5em 6em 2em;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5em;
-  margin-top: 1em;
   background: var(--background-primary);
 `;
 
@@ -296,7 +295,7 @@ const ResultLegend = styled.legend`
 
 const SaveButtonDiv = styled.div`
   grid-area: button;
-  margin: 1em auto;
+  margin: 0 auto;
 `;
 
 const ResultLabelLeft = styled.label`

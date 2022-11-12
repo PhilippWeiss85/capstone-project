@@ -5,7 +5,9 @@ const AnchorLink = styled.a`
   filter: drop-shadow(5px 4px 4px #000000);
   margin: 0 1em;
   background-color: var(--background-primary);
-  color: var(--text-primary);
+  /* color: var(--text-primary); */
+  color: ${({ active }) => (active ? "lime" : "white")};
+  cursor: pointer;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -13,10 +15,6 @@ const AnchorLink = styled.a`
 
   &:hover {
     background-color: var(--background-secondary);
-  }
-
-  &:active {
-    box-shadow: 3px 3px black;
   }
 `;
 

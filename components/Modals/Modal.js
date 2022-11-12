@@ -38,8 +38,7 @@ const ModalContainer = styled.article`
   gap: 1em;
   width: 80%;
   max-width: 450px;
-  height: 250px;
-
+  height: 180px;
   padding: 1em 1em;
   border-radius: 10px;
   background: var(--background-primary);

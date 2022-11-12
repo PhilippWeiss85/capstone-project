@@ -58,16 +58,25 @@ export default function SingleLesson({
       />
       <section>
         <ArticleWrapper>
-          <SubHeadline>Description</SubHeadline>
           <TextContent>{description}</TextContent>
         </ArticleWrapper>
         <ArticleWrapper>
-          <SubHeadline>Steps</SubHeadline>
+          <SubHeadline>Key Concepts</SubHeadline>
           <ListWrapper>
-            <ListItem>Grip: {step1}</ListItem>
-            <ListItem>Stance/Position: {step2}</ListItem>
-            <ListItem>Swing: {step3}</ListItem>
-            <ListItem>Follow Through: {step4}</ListItem>
+            <ListItem>
+              <StyledSpan>Grip</StyledSpan>
+              {step1}
+            </ListItem>
+            <ListItem>
+              <StyledSpan>Stance/Position</StyledSpan> {step2}
+            </ListItem>
+            <ListItem>
+              <StyledSpan>Swingpath</StyledSpan>
+              {step3}
+            </ListItem>
+            <ListItem>
+              <StyledSpan>Follow Through</StyledSpan> {step4}
+            </ListItem>
           </ListWrapper>
         </ArticleWrapper>
       </section>
@@ -81,14 +90,14 @@ const MainWrapper = styled.main`
 `;
 
 const SubHeadline = styled.h2`
-  padding: 0;
+  padding: 1em 0 0 0;
   margin: 0;
 `;
 
 const TextContent = styled.p`
-  background: var(--background-primary);
+  background: var(--background-secondary);
   padding: 1em;
-  box-shadow: 0 2px 0 var(--background-tertiary);
+  margin: 1em 0 0 0;
   border-radius: 0;
 `;
 
@@ -96,15 +105,23 @@ const ArticleWrapper = styled.article`
   gap: 1em;
   padding-top: 1em;
   overflow-x: hidden;
-  margin: 1em 0 2em 0;
   padding: 0 1em;
 `;
 
-const ListWrapper = styled.ol`
-  padding: 1em 2em;
-  background: red;
+const ListWrapper = styled.ul`
+  list-style: none;
+`;
+
+const StyledSpan = styled.span`
+  color: var(--text-primary);
+  border-radius: 0;
+  text-align: center;
 `;
 
 const ListItem = styled.li`
-  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0.5em 1.5em;
+  background-color: var(--background-secondary);
 `;

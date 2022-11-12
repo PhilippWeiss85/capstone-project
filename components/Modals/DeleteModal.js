@@ -8,10 +8,9 @@ export default function DeleteModal({ id, setDeleteModal, type, name }) {
   return (
     <ModalOverlay>
       <ModalContainer>
-        <ModalHeadline>Are you sure you want to delete this game?</ModalHeadline>
-        <ModalText>
-          {type} with {name}
-        </ModalText>
+        <ModalHeadline>
+          Are you sure you want to delete your {type} with {name}?
+        </ModalHeadline>
         <ButtonContainer>
           <DeleteButton handleClick={() => deleteGame(id)}>Delete</DeleteButton>
           <Button handleClick={() => setDeleteModal(false)}>Cancel</Button>
@@ -52,10 +51,6 @@ const ModalHeadline = styled.h3`
   text-align: center;
   padding: 0.5em;
   margin: 0;
-`;
-
-const ModalText = styled.p`
-  padding: 0.5em;
 `;
 
 const ButtonContainer = styled.div`
