@@ -5,7 +5,7 @@ import { useState } from "react";
 import { PuffLoader } from "react-spinners";
 import { LoadingContainer } from "../LoadingContainer";
 import { motion } from "framer-motion";
-import { FiUpload } from "react-icons/fi";
+import { FiUpload, FiCheck } from "react-icons/fi";
 
 import styled from "styled-components";
 
@@ -15,6 +15,8 @@ export default function AddGameForm() {
   const modal = useStore((state) => state.modal);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [imageUpload, setImageUpload] = useState(false);
+  const [imageName, setImageName] = useState("");
 
   const router = useRouter();
 
@@ -50,6 +52,15 @@ export default function AddGameForm() {
     }
 
     router.push("/gamelist");
+  }
+
+  function handleChange(event) {
+    setImageUpload(true);
+    const imageString = event.target.value;
+    const manipulatedImageString = imageString.substr(12);
+    // console.log(imageString);
+    // console.log(manipulatedImageString);
+    setImageName(manipulatedImageString);
   }
 
   return (
@@ -114,8 +125,18 @@ export default function AddGameForm() {
                 </OpponentContainer>
 
                 <ImageLabel htmlFor="file">
-                  <FiUpload />
-                  <ImageLabelText>Upload Image</ImageLabelText>
+                  {imageUpload === false ? (
+                    <>
+                      <FiUpload />
+                      <ImageLabelText>Upload Image</ImageLabelText>
+                    </>
+                  ) : (
+                    <>
+                      <FiCheck />
+                      <ImageLabelText>{imageName}</ImageLabelText>
+                    </>
+                  )}
+
                   <InputImageContainer
                     accept=".jpg, .jpeg, .png "
                     type="file"
@@ -123,6 +144,7 @@ export default function AddGameForm() {
                     required
                     id="file"
                     aria-label="upload image"
+                    onChange={handleChange}
                   />
                 </ImageLabel>
               </OpponentWrapper>
@@ -342,7 +364,8 @@ const ImageLabelText = styled.p`
 
 const InputImageContainer = styled.input`
   height: 1px;
-  width: 1px; // for accessibility reasons
+  width: 1px;
+  // for accessibility reasons
 `;
 
 const InputDropdown = styled.select`
