@@ -137,12 +137,11 @@ const useStore = create((set, get) => {
       });
       const res = await fetch("/api/gamelist");
       const initialGamesList = await res.json();
-      set((state) => {
-        return { isLoading: false };
-      });
+
       set((state) => {
         return {
-          games: initialGamesList ?? [], // set initial games array to db fetch
+          games: initialGamesList ?? [],
+          isLoading: false, // set initial games array to db fetch
         };
       });
     },

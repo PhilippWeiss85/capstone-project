@@ -1,10 +1,22 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-
-import Image from "next/image";
+import lottie from "lottie-web";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current, // the dom element that will contain the animation
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "/tennis-ball.json", // the path to the animation json
+    });
+  }, []);
+
   return (
     <div>
       <Head>
@@ -14,14 +26,10 @@ export default function Home() {
       </Head>
 
       <MainWrapper>
-        <Image
-          src="/assets/Entry_Image_2400x1600.jpg"
-          alt="Entry image"
-          layout="fill"
-          objectFit="cover"
-        />
+        <Styledh1>Welcome to Courtisoul</Styledh1>
+        <div className="container" ref={container}></div>
         <Link href="/gamelist" passHref>
-          <StyledHeadline>Click here to enter...</StyledHeadline>
+          <Styledh2>Click here to enter...</Styledh2>
         </Link>
       </MainWrapper>
     </div>
@@ -39,11 +47,18 @@ const MainWrapper = styled.main`
   height: 100vh;
 `;
 
-const StyledHeadline = styled.h1`
+const Styledh1 = styled.h1`
   position: absolute;
-  bottom: 25%;
+  top: 10%;
   z-index: 200;
-  color: #fff;
+  color: var(--text-primary);
+`;
+
+const Styledh2 = styled.h2`
+  position: absolute;
+  bottom: 20%;
+  z-index: 200;
+  color: var(--text-primary);
 
   :hover {
     color: var(--attention-color-primary);
