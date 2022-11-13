@@ -89,6 +89,7 @@ const SortIcon = styled.button`
   border: none;
   font-size: 1.5em;
   color: var(--text-navigation);
+  cursor: pointer;
 `;
 
 const SortMenu = styled.section`

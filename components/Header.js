@@ -50,6 +50,7 @@ const LogoContainer = styled.div`
   z-index: 200;
   width: 80px;
   margin: 0 auto;
+  cursor: pointer;
 `;
 
 const PreviousPageIcon = styled(BsChevronLeft)`
