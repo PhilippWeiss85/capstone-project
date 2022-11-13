@@ -20,8 +20,4 @@ const StyledButton = styled.button`
   &:hover {
     box-shadow: 3px 3px var(--background-navigation);
   }
-
-  &:active {
-    box-shadow: 3px 3px var(--background-primary);
-  }
 `;

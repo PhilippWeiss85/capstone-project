@@ -418,9 +418,4 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: var(--background-secondary);
   }
-
-  &:active {
-    box-shadow: 3px 3px var(--attention-color-primary);
-    background-color: var(--background-primary);
-  }
 `;
