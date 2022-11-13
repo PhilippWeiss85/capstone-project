@@ -79,8 +79,6 @@ const AllSets = styled.article`
   grid-template-areas: "set1 set2 set3";
   grid-template-rows: 1.5em;
   grid-template-columns: 1fr 1fr 1fr;
-  /* background-color: var(--background-tertiary);
-  border-radius: 0; */
 `;
 
 const SetContainer = styled.aside`

@@ -31,10 +31,6 @@ export default function SortGames() {
   );
 }
 
-const DefaultToggleIcon = styled.svg`
-  z-index: -100;
-`;
-
 const SortContainer = styled.section`
   background: rgba(1, 35, 64, 1) 53%;
   display: flex;
