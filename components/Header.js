@@ -11,7 +11,7 @@ export default function Header() {
       <IconContainer onClick={() => router.back()}>
         <PreviousPageIcon />
       </IconContainer>
-      <LogoContainer>
+      <LogoContainer onClick={() => router.push("/gamelist")}>
         <Image
           src="/header_logo_bold.svg"
           alt="Logo"
@@ -20,7 +20,7 @@ export default function Header() {
           objectFit="fill"
           layout="responsive"
           priority="true"
-        ></Image>
+        />
       </LogoContainer>
     </HeadWrapper>
   );
