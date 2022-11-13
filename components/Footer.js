@@ -1,59 +1,67 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { BiHomeHeart } from "react-icons/bi";
 import { RiAddLine } from "react-icons/ri";
 import { BsJournalText } from "react-icons/bs";
 
 export default function Footer() {
-  const router = useRouter();
+  const { pathname } = useRouter();
 
   return (
-    <FooterWrapper>
-      <IconWrapper type="button" onClick={() => router.push("/gamelist")}>
-        <BiHomeHeart />
-      </IconWrapper>
-      <IconWrapper type="button" onClick={() => router.push("/form")}>
-        <RiAddLine />
-      </IconWrapper>
-      <IconWrapper type="button" onClick={() => router.push("/lessons")}>
-        <BsJournalText />
-      </IconWrapper>
-    </FooterWrapper>
+    <StyledFooter>
+      <NavWrapper>
+        <Link href="/gamelist" passHref>
+          <NavItem isActive={pathname === "/gamelist"}>
+            <BiHomeHeart />
+          </NavItem>
+        </Link>
+        <Link href="/form" passHref>
+          <NavItem isActive={pathname === "/form"}>
+            <RiAddLine />
+          </NavItem>
+        </Link>
+        <Link href="/lessons" passHref>
+          <NavItem isActive={pathname === "/lessons"}>
+            <BsJournalText />
+          </NavItem>
+        </Link>
+      </NavWrapper>
+    </StyledFooter>
   );
 }
 
-const FooterWrapper = styled.footer`
+const StyledFooter = styled.footer`
   background: var(--background-navigation);
-  position: fixed;
   width: 100%;
   height: 60px;
-  bottom: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   z-index: 500;
+  border-radius: 0;
+  position: fixed;
+  bottom: 0;
+`;
+
+const NavWrapper = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2em;
   border-radius: 0;
 `;
 
-const IconWrapper = styled.button`
-  background: none;
-  color: inherit;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  font-size: 2em;
-  height: auto;
-  width: 4em;
+const NavItem = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${({ isActive }) =>
+    isActive ? "var(--text-navigation)" : "var(--background-navigation)"};
   height: 60px;
+  width: 100%;
   border-radius: 0;
-  color: var(--text-navigation);
-
+  color: ${({ isActive }) =>
+    isActive ? "var(--background-navigation)" : "var(--text-navigation)"};
   &:hover {
-    transition: 0.33s ease-in-out;
+    background: var(--text-navigation);
     color: var(--background-navigation);
-    background-color: var(--text-navigation);
   }
 `;

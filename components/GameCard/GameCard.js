@@ -79,10 +79,8 @@ export default function GameCard({
           <StyledContent>{court}</StyledContent>
         </CardList>
 
-        {showMore === true ? (
+        {showMore && (
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
-        ) : (
-          ""
         )}
         <EditButtonContainer>
           <EditButton handleClick={showMoreDetails} role="toggle">
