@@ -8,13 +8,15 @@ export default function Home() {
   const container = useRef(null);
 
   useEffect(() => {
-    lottie.loadAnimation({
+    const animation = lottie.loadAnimation({
       container: container.current, // the dom element that will contain the animation
       renderer: "svg",
       loop: true,
       autoplay: true,
+      repeat: false,
       path: "/tennis-ball.json", // the path to the animation json
     });
+    return () => animation.destroy(); // to prevent rendering of a second animation
   }, []);
 
   return (
@@ -27,7 +29,7 @@ export default function Home() {
 
       <MainWrapper>
         <Styledh1>Welcome to Courtisoul</Styledh1>
-        <div className="container" ref={container}></div>
+        <div ref={container}></div>
         <Link href="/gamelist" passHref>
           <Styledh2>Click here to enter...</Styledh2>
         </Link>
