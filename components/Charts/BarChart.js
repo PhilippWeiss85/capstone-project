@@ -24,6 +24,9 @@ export default function BarChart() {
     .sort() // sort the new array by courtname
     .map((court) => numberOfCourtsPlayed[court]); // map over the sorted array an give back the count from numberOfCourtsPlayed
 
+  const playedCourts = Object.keys(numberOfCourtsPlayed) // returns a new array formed form numberOfCourtsPlayed Object: {"gras": 1, ...} => ["gras", ...]
+    .sort(); // sort the new array by courtname
+
   const labels = "Number of courts played";
   const options = {
     indexAxis: "y",
@@ -65,9 +68,11 @@ export default function BarChart() {
     },
   };
   const data = {
-    labels: ["Carpet", "Clay", "Gras", "Hard"],
+    labels: playedCourts,
     datasets: [
       {
+        barThickness: 20,
+        maxBarThickness: 20,
         label: "Times played",
         data: playedTimesOnCourt,
         backgroundColor: ["#007aa8", "#004965", "#bfeeff", "#66d5ff"],
