@@ -129,12 +129,12 @@ export default function AddGameForm() {
                   ) : (
                     <>
                       <ImageCheck />
-                      <ImageLabelText>Format is valid</ImageLabelText>
+                      <ImageLabelText>Image saved</ImageLabelText>
                     </>
                   )}
 
                   <InputImageContainer
-                    accept=".jpg, .jpeg, .png "
+                    accept=".jpg, .jpeg, .png"
                     type="file"
                     name="file"
                     required
@@ -277,11 +277,11 @@ const FormFieldSetInput = styled.fieldset`
 `;
 
 const FormLegend = styled.legend`
-  padding: 1em 0 0;
+  padding: 16px 0 0;
   font-size: 1em;
 `;
 const FormLabel = styled.label`
-  font-size: 1.1em;
+  font-size: 16px;
   margin: 1em 0 0 0;
   vertical-align: top;
   padding: 0 0.2em;

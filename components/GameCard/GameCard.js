@@ -104,8 +104,8 @@ const CardType = styled.h2`
   left: 0.3em;
   padding: 0.2em 0.4em;
   z-index: 200;
+  font-weight: normal;
   color: var(--text-primary);
-
   background: ${({ type }) =>
     type === "Match" ? "hsla(90, 100%, 50%, 0.8)" : "	hsl(75, 100%, 60%, 0.8) "};
 `;
