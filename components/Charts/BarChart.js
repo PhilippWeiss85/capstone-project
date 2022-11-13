@@ -26,21 +26,20 @@ export default function BarChart() {
 
   const labels = "Number of courts played";
   const options = {
+    indexAxis: "y",
     scales: {
       x: {
         grid: {
           display: false,
         },
         ticks: {
+          stepSize: 1,
           color: "#4D4D4D",
         },
       },
       y: {
         grid: {
           display: false,
-        },
-        ticks: {
-          stepSize: 1,
         },
       },
     },
@@ -76,5 +75,5 @@ export default function BarChart() {
     ],
   };
 
-  return <Bar data={data} height={300} width={400} options={options} />;
+  return <Bar data={data} height={300} width={300} options={options} />;
 }

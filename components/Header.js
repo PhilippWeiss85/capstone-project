@@ -43,12 +43,13 @@ const IconContainer = styled.button`
   cursor: pointer;
   outline: inherit;
   color: var(--text-navigation);
+  margin-left: 1em;
 `;
 
 const LogoContainer = styled.div`
   position: relative;
   z-index: 200;
-  width: 80px;
+  width: 70px;
   margin: 0 auto;
   cursor: pointer;
 `;

@@ -82,6 +82,7 @@ const MainWrapper = styled.main`
 const SortIcon = styled.button`
   position: absolute;
   right: 0;
+  margin-right: 0.5em;
   top: 5px;
   height: 50px;
   width: 50px;

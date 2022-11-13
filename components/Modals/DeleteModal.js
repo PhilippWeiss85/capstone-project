@@ -49,7 +49,7 @@ const ModalContainer = styled.article`
 
 const ModalHeadline = styled.h3`
   text-align: center;
-  padding: 0.5em;
+  padding: 1em 0.5em;
   margin: 0;
 `;
 

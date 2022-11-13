@@ -60,6 +60,7 @@ const NavItem = styled.a`
   border-radius: 0;
   color: ${({ isActive }) =>
     isActive ? "var(--background-navigation)" : "var(--text-navigation)"};
+
   &:hover {
     background: var(--text-navigation);
     color: var(--background-navigation);
