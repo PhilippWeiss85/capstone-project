@@ -44,7 +44,7 @@ export default function PieChart() {
       {
         label: "Your Game Statistics",
         data: gameResultStats,
-        backgroundColor: ["hsla(141, 60%, 60%, 1)", "hsla(8, 65%, 51%, 1)"],
+        backgroundColor: ["#bfeeff", "#005676"],
         hoverOffset: 10,
       },
     ],

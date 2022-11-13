@@ -70,7 +70,7 @@ export default function BarChart() {
       {
         label: "Times played",
         data: playedTimesOnCourt,
-        backgroundColor: ["#d0e2ff", "#e8daff ", "#bae6ff", "#9ef0f0 "],
+        backgroundColor: ["#007aa8", "#004965", "#bfeeff", "#66d5ff"],
       },
     ],
   };
