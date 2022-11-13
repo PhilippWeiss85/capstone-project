@@ -28,12 +28,12 @@ const GlobalStyle = createGlobalStyle`
       /* noto-sans-regular - latin */
         @font-face 
       {
-        font-family: 'Noto Sans';
+        font-family: 'Open Sans';
         font-style: normal;
         font-weight: 400;
         src: local(''),
-            url('/fonts/noto-sans-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-            url('/fonts/noto-sans-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+            url('/fonts/open-sans-v34-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('/fonts/open-sans-v34-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
       }
   
       * {
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
       }
   
       body {
-          font-family: 'Noto Sans', sans-serif;
+          font-family: 'Open Sans', sans-serif;
           background-color: var(--background-primary);
           color: var(--text-primary);
           margin: 0 0 70px 0;

@@ -56,9 +56,6 @@ export default function AddGameForm() {
 
   function handleChange(event) {
     setImageUpload(true);
-    const imageString = event.target.value;
-    const manipulatedImageString = imageString.substr(12);
-    setImageName(manipulatedImageString);
   }
 
   return (
