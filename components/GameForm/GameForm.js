@@ -16,7 +16,7 @@ export default function AddGameForm() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [imageUpload, setImageUpload] = useState(false);
-  const [imageName, setImageName] = useState("");
+  // const [imageName, setImageName] = useState("");
 
   const router = useRouter();
 
@@ -58,8 +58,6 @@ export default function AddGameForm() {
     setImageUpload(true);
     const imageString = event.target.value;
     const manipulatedImageString = imageString.substr(12);
-    // console.log(imageString);
-    // console.log(manipulatedImageString);
     setImageName(manipulatedImageString);
   }
 
@@ -121,6 +119,7 @@ export default function AddGameForm() {
                     name="opponent"
                     id="opponent"
                     aria-label="name"
+                    autocomplete="off"
                   />
                 </OpponentContainer>
 
@@ -133,7 +132,7 @@ export default function AddGameForm() {
                   ) : (
                     <>
                       <FiCheck />
-                      <ImageLabelText>{imageName}</ImageLabelText>
+                      <ImageLabelText>Success</ImageLabelText>
                     </>
                   )}
 
