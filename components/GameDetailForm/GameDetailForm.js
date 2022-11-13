@@ -235,8 +235,8 @@ export default function GameDetails({ id, showMoreDetails, results }) {
 
 const SubmitButton = styled.button`
   padding: 0.2em 0.5em;
-  filter: drop-shadow(5px 4px 4px #000000);
-  margin: 0 1em;
+  filter: drop-shadow(2px 3px 2px #000000);
+  margin: 0.1em 1em;
   background-color: var(--background-primary);
   color: var(--text-primary);
   font-size: 1em;
@@ -259,7 +259,7 @@ const DetailsForm = styled.form`
     "results results results"
     "setone settwo setthree"
     "button button button";
-  padding-bottom: 0.1em;
+  padding-bottom: 0.3em;
   grid-template-rows: 5em 6em 2em;
   grid-template-columns: 1fr 1fr 1fr;
   background: var(--background-primary);

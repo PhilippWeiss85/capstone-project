@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import lottie from "lottie-web";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const container = useRef(null);
@@ -16,7 +17,7 @@ export default function Home() {
       repeat: false,
       path: "/tennis-ball.json", // the path to the animation json
     });
-    return () => animation.destroy(); // to prevent rendering of a second animation
+    return () => animation.destroy(); // to prevent rendering of a second animation container
   }, []);
 
   return (
@@ -28,10 +29,11 @@ export default function Home() {
       </Head>
 
       <MainWrapper>
-        <Styledh1>Welcome to Courtisoul</Styledh1>
-        <div ref={container}></div>
+        <Styledh1>Welcome to</Styledh1>
+        <Image src="/main_logo_bold.svg" alt="Logo" width="216" height="133"></Image>
+        <AnimationContainer ref={container}></AnimationContainer>
         <Link href="/gamelist" passHref>
-          <Styledh2>Click here to enter...</Styledh2>
+          <Styledh2>Click to enter...</Styledh2>
         </Link>
       </MainWrapper>
     </div>
@@ -45,25 +47,24 @@ const MainWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
   height: 100vh;
 `;
 
 const Styledh1 = styled.h1`
-  position: absolute;
-  top: 10%;
-  z-index: 200;
-  color: var(--text-primary);
+  position: relative;
+  color: rgba(17, 59, 94, 1);
+`;
+
+const AnimationContainer = styled.div`
+  height: 200px;
 `;
 
 const Styledh2 = styled.h2`
   position: absolute;
-  bottom: 20%;
-  z-index: 200;
-  color: var(--text-primary);
-
+  bottom: 15vh;
+  color: rgba(17, 59, 94, 1);
   :hover {
-    color: var(--attention-color-primary);
+    color: var(--text-navigation);
     cursor: pointer;
   }
 `;

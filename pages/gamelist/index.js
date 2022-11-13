@@ -7,7 +7,6 @@ import BarChart from "../../components/Charts/BarChart";
 import { ChartContainer } from "../../components/Charts/CanvasContainer";
 import { PuffLoader } from "react-spinners";
 import { LoadingContainer } from "../../components/LoadingContainer";
-import { useState } from "react";
 import { BsSortDown } from "react-icons/bs";
 import SortGames from "../../components/SortGames/SortGames";
 
@@ -90,10 +89,6 @@ const SortIcon = styled.button`
   border: none;
   font-size: 1.5em;
   color: var(--text-navigation);
-
-  &:hover {
-    color: var(--text-secondary);
-  }
 `;
 
 const SortMenu = styled.section`

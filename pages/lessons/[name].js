@@ -115,13 +115,12 @@ const ListWrapper = styled.ul`
 const StyledSpan = styled.span`
   color: var(--text-primary);
   border-radius: 0;
-  text-align: center;
+  font-weight: 700;
 `;
 
 const ListItem = styled.li`
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 0.5em 1.5em;
   background-color: var(--background-secondary);
 `;

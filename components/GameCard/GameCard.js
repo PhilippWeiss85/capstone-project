@@ -112,7 +112,7 @@ const CardType = styled.h2`
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: 2em 0.5em;
+  margin: 2em 0.5em 3em 0.5em;
   mix-blend-mode: normal;
   position: relative;
   border-radius: 0;

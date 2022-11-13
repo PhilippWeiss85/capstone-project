@@ -13,20 +13,20 @@ export default function SortGames() {
 
   return (
     <>
-      <FilterContainer>
-        <FilterButton onClick={sortGamesByName}>
+      <SortContainer>
+        <SortButton onClick={sortGamesByName}>
           {nameToggle === false ? <FaSort /> : <FaSort />}
           <p> Name</p>
-        </FilterButton>
-        <FilterButton onClick={sortGamesByType}>
+        </SortButton>
+        <SortButton onClick={sortGamesByType}>
           {typeToggle === false ? <FaSort /> : <FaSort />}
           <p>Type</p>
-        </FilterButton>
-        <FilterButton onClick={sortGamesByResult}>
+        </SortButton>
+        <SortButton onClick={sortGamesByResult}>
           {resultToggle === false ? <FaSort /> : <FaSort />}
           <p>Result</p>
-        </FilterButton>
-      </FilterContainer>
+        </SortButton>
+      </SortContainer>
     </>
   );
 }
@@ -35,30 +35,30 @@ const DefaultToggleIcon = styled.svg`
   z-index: -100;
 `;
 
-const FilterContainer = styled.section`
+const SortContainer = styled.section`
   background: rgba(1, 35, 64, 1) 53%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 80px;
-  padding: 0.3em;
+  justify-content: center;
+  width: 95px;
+  padding: 0.3em 1em 0.3em 0.3em;
   align-items: flex-start;
   border-radius: 0;
   border-bottom-left-radius: 5px;
 `;
 
-const FilterButton = styled.button`
+const SortButton = styled.button`
   display: flex;
   align-items: center;
-  border: none;
-  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+  color: var(--background-navigation);
   text-align: left;
-  width: 80%;
+  width: 100%;
   padding: 2px;
   text-decoration: none;
   border-radius: 0;
   margin: 4px;
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
 
   &:hover {
     background-color: var(--background-navigation);

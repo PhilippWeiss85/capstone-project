@@ -77,7 +77,7 @@ export default function AddGameForm() {
           <FormContainer onSubmit={handleSubmit} aria-label="Create a new card">
             <FormFieldSetRadio>
               {modal && <Modal headline="Please enter a valid name" />}
-              <FormLegend aria-label="Select your game type">Match Type</FormLegend>
+              <FormLegend aria-label="Select your game type">Game Type</FormLegend>
               <FormList>
                 <FormRadioItem>
                   <FormLabelRadio htmlFor="match">Match</FormLabelRadio>
@@ -128,8 +128,8 @@ export default function AddGameForm() {
                     </>
                   ) : (
                     <>
-                      <FiCheck />
-                      <ImageLabelText>Success</ImageLabelText>
+                      <ImageCheck />
+                      <ImageLabelText>Format is valid</ImageLabelText>
                     </>
                   )}
 
@@ -362,6 +362,10 @@ const InputImageContainer = styled.input`
   height: 1px;
   width: 1px;
   // for accessibility reasons
+`;
+
+const ImageCheck = styled(FiCheck)`
+  color: #bbf244;
 `;
 
 const InputDropdown = styled.select`
