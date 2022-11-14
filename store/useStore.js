@@ -193,7 +193,7 @@ const useStore = create((set, get) => {
       });
       set((state) => {
         return {
-          games: [sanitizedNewGameObject, ...state.games],
+          games: [...state.games, sanitizedNewGameObject],
         };
       });
     },
