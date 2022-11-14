@@ -63,7 +63,6 @@ const AnimationContainer = styled.div`
 
 const Styledh2 = styled.h2`
   position: relative;
-
   color: rgba(17, 59, 94, 1);
   :hover {
     color: var(--text-navigation);
