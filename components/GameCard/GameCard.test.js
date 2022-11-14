@@ -22,6 +22,7 @@ describe("GameCard", () => {
         court="Gras"
         id="1"
         results={testingResults}
+        image="https://res.cloudinary.com/dks3vdmen/image/upload/v1668433418/court_ilufef.jpg"
       />
     );
 

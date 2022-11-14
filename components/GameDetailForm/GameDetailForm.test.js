@@ -1,5 +1,4 @@
 import { screen, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event/";
 import { testingResults } from "../GameCard/GameCard.test";
 import GameDetails from "./GameDetailForm";
 
@@ -12,9 +11,9 @@ describe("GameDetails", () => {
     expect(screen.getAllByRole("numberinput")).toBeDefined();
     expect(screen.getAllByLabelText("won")).toHaveLength(1);
     expect(screen.getAllByLabelText("lost")).toHaveLength(1);
-    expect(screen.getByText("Set 1")).toBeVisible();
-    expect(screen.getByText("Set 2")).toBeVisible();
-    expect(screen.getByText("Set 3")).toBeVisible();
+    expect(screen.getByText("Set 1")).toBeDefined();
+    expect(screen.getByText("Set 2")).toBeDefined();
+    expect(screen.getByText("Set 3")).toBeDefined();
   });
 
   it("result numbers should be a viable type", () => {

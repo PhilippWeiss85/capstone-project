@@ -11,7 +11,7 @@ const StyledButton = styled.button`
   border: none;
 
   &:hover {
-    transition: 0.1s ease-in-out;
-    color: var(--color-tertiary);
+    transition: 0.1s ease-in;
+    color: var(--text-secondary);
   }
 `;

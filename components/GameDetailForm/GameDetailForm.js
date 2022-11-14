@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useStore from "../../store/useStore";
 import Modal from "../Modals/Modal";
-
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export default function GameDetails({ id, showMoreDetails, results }) {
@@ -9,7 +9,6 @@ export default function GameDetails({ id, showMoreDetails, results }) {
   const activateModal = useStore((state) => state.activateModal);
   const updateGameDetail = useStore((state) => state.updateGameDetail);
   const [errorHeadline, setErrorHeadline] = useState("");
-  const [errorText, setErrorText] = useState("");
 
   // useStates for controlled input
   const [finalResult, setFinalResult] = useState(results.gameresult);
@@ -101,146 +100,150 @@ export default function GameDetails({ id, showMoreDetails, results }) {
   }
 
   return (
-    <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
-      {modal && <Modal headline={errorHeadline} />}
-      <Headline>Add your GameResults</Headline>
-      <FieldsetsGame>
-        <ResultLegend aria-label="Add your result">Result</ResultLegend>
-        <ResultLabelLeft htmlFor="won">won</ResultLabelLeft>
-        <ResultsInput
-          role="radioinput"
-          aria-label="won"
-          type="radio"
-          name="result"
-          value="won"
-          checked={finalResult === "won"}
-          onChange={(event) => setFinalResult(event.target.value)}
-          id="won"
-          required
-        />
-        <ResultsInput
-          aria-label="lost"
-          role="radioinput"
-          type="radio"
-          name="result"
-          value="lost"
-          checked={finalResult === "lost"}
-          onChange={(event) => setFinalResult(event.target.value)}
-          id="lost"
-          required
-        />
-        <ResultLabelRight htmlFor="lost">lost</ResultLabelRight>
-      </FieldsetsGame>
+    <motion.nav
+      initial={{ opacity: 0, scale: 0.3 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.4,
+        delay: 0.2,
+        ease: [0.1, 0.71, 0.4, 1],
+      }}
+    >
+      <DetailsForm aria-label="Update your Gamecard" onSubmit={handleDetailSubmit}>
+        {modal && <Modal headline={errorHeadline} />}
+        <FieldsetsGame>
+          <ResultLegend aria-label="Add your result">Add your results</ResultLegend>
+          <ResultLabelLeft htmlFor="won">Won</ResultLabelLeft>
+          <ResultsInput
+            role="radioinput"
+            aria-label="won"
+            type="radio"
+            name="result"
+            value="won"
+            checked={finalResult === "won"}
+            onChange={(event) => setFinalResult(event.target.value)}
+            id="won"
+            required
+          />
+          <ResultsInput
+            aria-label="lost"
+            role="radioinput"
+            type="radio"
+            name="result"
+            value="lost"
+            checked={finalResult === "lost"}
+            onChange={(event) => setFinalResult(event.target.value)}
+            id="lost"
+            required
+          />
+          <ResultLabelRight htmlFor="lost">Lost</ResultLabelRight>
+        </FieldsetsGame>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of first set" htmlFor="firstset">
-          Set 1
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="firstsetplayerone"
-          id="firstsetplayerone"
-          aria-label="Set 1: Score player one"
-          value={firstSetScorePlayerOne}
-          onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="firstsetplayertwo"
-          id="firstsetplayertwo"
-          aria-label="Set 1: Score player two"
-          value={firstSetScorePlayerTwo}
-          onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of first set" htmlFor="firstset">
+            Set 1
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="firstsetplayerone"
+            id="firstsetplayerone"
+            aria-label="Set 1: Score player one"
+            value={firstSetScorePlayerOne}
+            onChange={(event) => setFirstSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="firstsetplayertwo"
+            id="firstsetplayertwo"
+            aria-label="Set 1: Score player two"
+            value={firstSetScorePlayerTwo}
+            onChange={(event) => setFirstSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of second set" htmlFor="secondset">
-          Set 2
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="secondsetplayerone"
-          id="secondsetplayerone"
-          aria-label="Set 2: Score player one"
-          value={secondSetScorePlayerOne}
-          onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="secondsetplayertwo"
-          id="secondsetplayertwo"
-          aria-label="Set 2: Score player two"
-          value={secondSetScorePlayerTwo}
-          onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of second set" htmlFor="secondset">
+            Set 2
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="secondsetplayerone"
+            id="secondsetplayerone"
+            aria-label="Set 2: Score player one"
+            value={secondSetScorePlayerOne}
+            onChange={(event) => setSecondSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="secondsetplayertwo"
+            id="secondsetplayertwo"
+            aria-label="Set 2: Score player two"
+            value={secondSetScorePlayerTwo}
+            onChange={(event) => setSecondSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <Fieldsets>
-        <SetLabel aria-label="Score of third set" htmlFor="thirdset">
-          Set 3
-        </SetLabel>
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="thirdsetplayerone"
-          id="thirdsetplayerone"
-          aria-label="Set 3: Score player one"
-          value={thirdSetScorePlayerOne}
-          onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
-        />
-        <SetInput
-          role="numberinput"
-          type="number"
-          min="0"
-          max="20"
-          name="thirdsetplayertwo"
-          id="thirdsetplayertwo"
-          aria-label="Set 3: Score player two"
-          value={thirdSetScorePlayerTwo}
-          onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
-        />
-      </Fieldsets>
+        <Fieldsets>
+          <SetLabel aria-label="Score of third set" htmlFor="thirdset">
+            Set 3
+          </SetLabel>
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="thirdsetplayerone"
+            id="thirdsetplayerone"
+            aria-label="Set 3: Score player one"
+            value={thirdSetScorePlayerOne}
+            onChange={(event) => setThirdSetScorePlayerOne(event.target.value)}
+          />
+          <SetInput
+            role="numberinput"
+            type="number"
+            min="0"
+            max="20"
+            name="thirdsetplayertwo"
+            id="thirdsetplayertwo"
+            aria-label="Set 3: Score player two"
+            value={thirdSetScorePlayerTwo}
+            onChange={(event) => setThirdSetScorePlayerTwo(event.target.value)}
+          />
+        </Fieldsets>
 
-      <SaveButtonDiv>
-        <SubmitButton aria-label="save details" type="submit" role="submitbutton">
-          Save Results
-        </SubmitButton>
-      </SaveButtonDiv>
-    </DetailsForm>
+        <SaveButtonDiv>
+          <SubmitButton aria-label="save details" type="submit" role="submitbutton">
+            Save
+          </SubmitButton>
+        </SaveButtonDiv>
+      </DetailsForm>
+    </motion.nav>
   );
 }
 
 const SubmitButton = styled.button`
   padding: 0.2em 0.5em;
-  filter: drop-shadow(5px 4px 4px #000000);
-  margin: 0 1em;
+  filter: drop-shadow(2px 3px 2px #000000);
+  margin: 0.1em 1em;
   background-color: var(--background-primary);
   color: var(--text-primary);
-  font-size: 1.2em;
+  font-size: 1em;
   border: none;
 
   &:hover {
     background-color: var(--background-secondary);
-  }
-
-  &:active {
-    box-shadow: 3px 3px var(--attention-color-primary);
-    background-color: var(--background-primary);
   }
 `;
 
@@ -248,49 +251,51 @@ const DetailsForm = styled.form`
   position: relative;
   display: grid;
   grid-template-areas:
-    "headline headline headline"
     "results results results"
     "setone settwo setthree"
     "button button button";
-  grid-template-rows: 0.5fr 1fr 1fr 0.5fr;
+  padding-bottom: 0.3em;
+  grid-template-rows: 5em 6em 2em;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5em;
-  padding: 1em 1em 0 1em;
+  background: var(--background-primary);
 `;
 
 const FieldsetsGame = styled.fieldset`
-  border: 2px solid black;
   grid-area: results;
   display: flex;
   align-items: center;
-  padding: 0 30%;
+  border: none;
 `;
 
 const Fieldsets = styled.fieldset`
-  border: 2px solid black;
   grid-area: setone settwo setthree;
   display: flex;
+  border: none;
   flex-direction: column;
+  margin: 0.5em;
+  padding: 0.5em;
+  color: var(--text-secondary);
+  background: var(--background-navigation);
 `;
 
 const ResultLegend = styled.legend`
+  width: 100%;
+  border-radius: 0;
+  color: var(--text-secondary);
   text-align: center;
+  border-bottom: 1px solid var(--text-primary);
+  padding: 0.7em 1em;
+  background: var(--background-navigation);
 `;
 
 const SaveButtonDiv = styled.div`
   grid-area: button;
-  margin: 1em auto;
-`;
-
-const Headline = styled.h3`
-  grid-area: headline;
-  text-align: center;
-  padding-top: 0.5em;
-  font-size: 1.2em;
+  margin: 0 auto;
 `;
 
 const ResultLabelLeft = styled.label`
   margin: 0 0 0 auto;
+  padding: 1em 0;
 `;
 
 const ResultLabelRight = styled.label`

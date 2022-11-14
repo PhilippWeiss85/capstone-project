@@ -38,8 +38,7 @@ const ModalContainer = styled.article`
   gap: 1em;
   width: 80%;
   max-width: 450px;
-  height: 250px;
-
+  height: 180px;
   padding: 1em 1em;
   border-radius: 10px;
   background: var(--background-primary);
@@ -50,6 +49,7 @@ const ModalHeadline = styled.h3`
   text-align: center;
   margin: 0;
   padding: 0.5em;
+  font-weight: normal;
 `;
 
 const StyledConfirmButton = styled.button`

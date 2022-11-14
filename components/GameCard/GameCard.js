@@ -8,6 +8,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import { BsX } from "react-icons/bs";
 import { TbChevronDown, TbChevronUp } from "react-icons/tb";
+import { BsCalendar3, BsClockHistory } from "react-icons/bs";
+import { GiPositionMarker, GiTennisCourt } from "react-icons/gi";
 
 export default function GameCard({
   type,
@@ -37,7 +39,13 @@ export default function GameCard({
       <CardContainer>
         <PlayersAndResults>
           <PlayerImageContainer>
-            <Image src={image} alt={name} layout="fill" objectFit="cover"></Image>
+            <Image
+              src={image}
+              alt={name}
+              layout="fill"
+              objectFit="cover"
+              priority="true"
+            ></Image>
           </PlayerImageContainer>
 
           <PlayerNameContainer>{name}</PlayerNameContainer>
@@ -51,27 +59,34 @@ export default function GameCard({
         </PlayersAndResults>
 
         <DeleteButtonContainer>
-          <StyledDeleteButtonButton onClick={() => setDeleteModal(true)}>
+          <StyledDeleteButton onClick={() => setDeleteModal(true)}>
             <BsX />
-          </StyledDeleteButtonButton>
+          </StyledDeleteButton>
         </DeleteButtonContainer>
         <CardList>
-          <DateHeadline> Date:</DateHeadline>
+          <DateHeadline>
+            <BsCalendar3 />
+          </DateHeadline>
           <StyledContent> {date}</StyledContent>
 
-          <TimeHeadline>Time:</TimeHeadline>
+          <TimeHeadline>
+            <BsClockHistory />
+          </TimeHeadline>
           <StyledContent>{time} </StyledContent>
 
-          <PlaceHeadline>Place:</PlaceHeadline>
+          <PlaceHeadline>
+            <GiPositionMarker />
+          </PlaceHeadline>
           <StyledContent> {place} </StyledContent>
 
-          <CourtHeadline>Court:</CourtHeadline>
-          <StyledContent> {court} </StyledContent>
+          <CourtHeadline>
+            <GiTennisCourt />
+          </CourtHeadline>
+          <StyledContent>{court}</StyledContent>
         </CardList>
-        {showMore === true ? (
+
+        {showMore && (
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
-        ) : (
-          ""
         )}
         <EditButtonContainer>
           <EditButton handleClick={showMoreDetails} role="toggle">
@@ -85,15 +100,15 @@ export default function GameCard({
 
 const Card = styled.section`
   position: relative;
-  margin: 0 0;
 `;
 
 const CardType = styled.h2`
   position: absolute;
-  top: -0.8em;
-  left: 0.8em;
+  top: -2em;
+  left: 0.3em;
   padding: 0.2em 0.4em;
   z-index: 200;
+  font-weight: normal;
   color: var(--text-primary);
   background: ${({ type }) =>
     type === "Match" ? "hsla(90, 100%, 50%, 0.8)" : "	hsl(75, 100%, 60%, 0.8) "};
@@ -101,7 +116,7 @@ const CardType = styled.h2`
 
 const CardContainer = styled.section`
   padding: 1em 1em 0 1em;
-  margin: 2em 1em;
+  margin: 2em 0.5em 3em 0.5em;
   mix-blend-mode: normal;
   position: relative;
   border-radius: 0;
@@ -113,7 +128,7 @@ const PlayersAndResults = styled.article`
   position: relative;
   display: flex;
   align-items: center;
-  margin: 1.5em 0 1em 0;
+  margin: 0.3em 0 1em 0;
   gap: 0.5em;
   font-size: 1.3em;
 `;
@@ -139,6 +154,8 @@ const ResultContainer = styled.div`
   position: relative;
   width: 40%;
   font-size: 0.7em;
+  margin-top: 0em;
+  align-self: flex-start;
 `;
 
 const DeleteButtonContainer = styled.div`
@@ -152,17 +169,17 @@ const DeleteButtonContainer = styled.div`
 const EditButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
+  height: 30px;
 `;
 
 const CardList = styled.article`
   position: relative;
   display: grid;
   grid-template-areas: "date" "time" "place" "court";
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-auto-flow: column;
   padding: 0 1em;
-  gap: 0;
+  margin-bottom: 0.5em;
   border-radius: 0;
   background-color: var(--background-primary);
 `;
@@ -170,25 +187,42 @@ const CardList = styled.article`
 const DateHeadline = styled.p`
   grid-area: date;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const TimeHeadline = styled.p`
   grid-area: time;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const PlaceHeadline = styled.p`
   grid-area: place;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 const CourtHeadline = styled.p`
   grid-area: court;
   margin: 0.2em 0;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 `;
 
 const StyledContent = styled.p`
   margin: 0.2em 0;
+  font-size: 1em;
 `;
 
-const StyledDeleteButtonButton = styled.button`
+const StyledDeleteButton = styled.button`
   background-color: transparent;
   color: var(--attention-color-primary);
   font-size: 1.7em;

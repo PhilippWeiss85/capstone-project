@@ -57,17 +57,20 @@ const ResultContainer = styled.article`
 const Result = styled.p`
   border-radius: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0;
-  color: var(--text-secondary);
+  margin: 0.2em 0;
+  padding: 0.2em;
+  gap: 1em;
+  color: var(--text-primary);
   height: 1.5em;
-  background: ${({ gameresult }) =>
-    gameresult === "won"
-      ? "hsla(141, 50%, 50%, 1)"
-      : gameresult === "lost"
-      ? "	hsla(8, 95%, 51%, 1)"
-      : ""};
+  box-shadow: 0 2px 0
+    ${({ gameresult }) =>
+      gameresult === "won"
+        ? "hsla(141, 50%, 50%, 1)"
+        : gameresult === "lost"
+        ? "	hsla(8, 95%, 51%, 1)"
+        : ""};
 `;
 
 const AllSets = styled.article`
@@ -76,8 +79,6 @@ const AllSets = styled.article`
   grid-template-areas: "set1 set2 set3";
   grid-template-rows: 1.5em;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: var(--background-tertiary);
-  border-radius: 0;
 `;
 
 const SetContainer = styled.aside`
