@@ -49,6 +49,7 @@ const MainWrapper = styled.main`
   padding-top: 6em;
   align-items: center;
   height: 100vh;
+  background-color: var(--background-primary);
 `;
 
 const Styledh1 = styled.h1`
