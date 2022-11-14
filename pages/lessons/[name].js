@@ -75,7 +75,7 @@ export default function SingleLesson({
               {step3}
             </ListItem>
             <ListItem>
-              <StyledSpan>Follow Through</StyledSpan> {step4}
+              <StyledSpan>Additional Information</StyledSpan> {step4}
             </ListItem>
           </ListWrapper>
         </ArticleWrapper>
