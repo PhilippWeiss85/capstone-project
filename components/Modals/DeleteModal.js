@@ -51,6 +51,7 @@ const ModalHeadline = styled.h3`
   text-align: center;
   padding: 1em 0.5em;
   margin: 0;
+  font-weight: normal;
 `;
 
 const ButtonContainer = styled.div`

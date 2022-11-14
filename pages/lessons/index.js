@@ -61,7 +61,7 @@ const StyledH2 = styled.h2`
   color: #ffffff;
   width: 100%;
   padding: 0.4em;
-
+  font-weight: normal;
   &:hover {
     transition: 0.1s ease-in;
     background: var(--background-lessons-hover);

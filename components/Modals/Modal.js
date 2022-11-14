@@ -49,6 +49,7 @@ const ModalHeadline = styled.h3`
   text-align: center;
   margin: 0;
   padding: 0.5em;
+  font-weight: normal;
 `;
 
 const StyledConfirmButton = styled.button`
