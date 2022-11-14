@@ -49,7 +49,7 @@ const IconContainer = styled.button`
 const LogoContainer = styled.div`
   position: relative;
   z-index: 200;
-  width: 70px;
+  width: 60px;
   margin: 0 auto;
   cursor: pointer;
 `;

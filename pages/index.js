@@ -33,7 +33,7 @@ export default function Home() {
         <Image src="/main_logo_bold.svg" alt="Logo" width="216" height="133"></Image>
         <AnimationContainer ref={container}></AnimationContainer>
         <Link href="/gamelist" passHref>
-          <Styledh2>Click to enter...</Styledh2>
+          <Styledh2>Click to enter</Styledh2>
         </Link>
       </MainWrapper>
     </div>
@@ -57,7 +57,7 @@ const Styledh1 = styled.h1`
 `;
 
 const AnimationContainer = styled.div`
-  height: 200px;
+  height: 300px;
   padding-top: 5em;
 `;
 
