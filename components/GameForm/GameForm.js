@@ -151,7 +151,7 @@ export default function AddGameForm() {
                 required
                 name="date"
                 id="date"
-                min="2022-10-01"
+                min="2022-01-01"
                 max="2099-12-31"
                 aria-label="date"
               />

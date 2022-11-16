@@ -8,10 +8,14 @@ export default function Header() {
 
   return (
     <HeadWrapper>
-      <IconContainer onClick={() => router.back()}>
+      <IconContainer type="button" aria-label="back button" onClick={() => router.back()}>
         <PreviousPageIcon />
       </IconContainer>
-      <LogoContainer onClick={() => router.push("/gamelist")}>
+      <LogoContainer
+        type="button"
+        aria-label="sort menu"
+        onClick={() => router.push("/gamelist")}
+      >
         <Image
           src="/header_logo_bold.svg"
           alt="Logo"
