@@ -89,7 +89,12 @@ export default function GameCard({
           <CardDetails showMoreDetails={showMoreDetails} id={id} results={results} />
         )}
         <EditButtonContainer>
-          <EditButton handleClick={showMoreDetails} role="toggle">
+          <EditButton
+            type="button"
+            aria-label="open details"
+            handleClick={showMoreDetails}
+            role="toggle"
+          >
             {showMore === true ? <TbChevronUp /> : <TbChevronDown />}
           </EditButton>
         </EditButtonContainer>
