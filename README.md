@@ -1,3 +1,23 @@
+# Capstone-Project Courtisoul
+CourtiSoul is a tennis companion app where you
+can manage your games and also find some
+helpful tips about the techniques of the basic
+strokes.
+
+This is the first app I ever created and was the final project of my web development bootcamp.
+
+## Techstack
+JavaScript ES8+ / React 18.2 / Next.js 12.3 / HTML5 / CSS3 / styledcomponents / MongoDB / mongoose / Chart.js / lotti-web / Jest / Git & Github / Cloudinary / Zustand
+
+
+---
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
